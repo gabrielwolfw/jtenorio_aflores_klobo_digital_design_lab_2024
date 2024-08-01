@@ -1,5 +1,5 @@
-# taller_diseño_digital
+# Taller de Diseño Digital
 
-# Axel Flores
-# Javier Tenorio
-# Kevin Lobo 
+### Axel Flores
+### Javier Tenorio
+### Kevin Lobo 
