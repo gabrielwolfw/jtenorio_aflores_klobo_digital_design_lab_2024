@@ -1,0 +1,69 @@
+# Reading pref.tcl
+# do DecoderToBcd_run_msim_rtl_verilog.do
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Model Technology ModelSim - Intel FPGA Edition vmap 2020.1 Lib Mapping Utility 2020.02 Feb 28 2020
+# vmap work rtl_work 
+# Copying C:/intelFPGA_lite/20.1/modelsim_ase/win32aloem/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# 
+# vlog -sv -work work +incdir+C:/Users/killt/Desktop/Taller_Digitales/DecoderToBCD {C:/Users/killt/Desktop/Taller_Digitales/DecoderToBCD/DecoderToBcd.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 10:36:14 on Aug 03,2024
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/killt/Desktop/Taller_Digitales/DecoderToBCD" C:/Users/killt/Desktop/Taller_Digitales/DecoderToBCD/DecoderToBcd.sv 
+# -- Compiling module DecoderToBcd
+# 
+# Top level modules:
+# 	DecoderToBcd
+# End time: 10:36:14 on Aug 03,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# 
+# vlog -sv -work work +incdir+C:/Users/killt/Desktop/Taller_Digitales/DecoderToBCD {C:/Users/killt/Desktop/Taller_Digitales/DecoderToBCD/DecoderToBcd_tb.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 10:36:14 on Aug 03,2024
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/killt/Desktop/Taller_Digitales/DecoderToBCD" C:/Users/killt/Desktop/Taller_Digitales/DecoderToBCD/DecoderToBcd_tb.sv 
+# -- Compiling module DecoderToBcd_tb
+# 
+# Top level modules:
+# 	DecoderToBcd_tb
+# End time: 10:36:14 on Aug 03,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# 
+# vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cyclonev_ver -L cyclonev_hssi_ver -L cyclonev_pcie_hip_ver -L rtl_work -L work -voptargs="+acc"  DecoderToBcd_tb
+# vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cyclonev_ver -L cyclonev_hssi_ver -L cyclonev_pcie_hip_ver -L rtl_work -L work -voptargs=""+acc"" DecoderToBcd_tb 
+# Start time: 10:36:14 on Aug 03,2024
+# Loading sv_std.std
+# Loading work.DecoderToBcd_tb
+# Loading work.DecoderToBcd
+# 
+# add wave *
+# view structure
+# .main_pane.structure.interior.cs.body.struct
+# view signals
+# .main_pane.objects.interior.cs.body.tree
+# run -all
+# in = 0000, out = 00000000
+# in = 0001, out = 00000001
+# in = 0010, out = 00000010
+# in = 0011, out = 00000011
+# in = 0100, out = 00000100
+# in = 0101, out = 00000101
+# in = 0110, out = 00000110
+# in = 0111, out = 00000111
+# in = 1000, out = 00001000
+# in = 1001, out = 00001001
+# in = 1010, out = 00010000
+# in = 1011, out = 00010001
+# in = 1100, out = 00010010
+# in = 1101, out = 00010011
+# in = 1110, out = 00010100
+# in = 1111, out = 00010101
+# ** Note: $finish    : C:/Users/killt/Desktop/Taller_Digitales/DecoderToBCD/DecoderToBcd_tb.sv(30)
+#    Time: 640 ps  Iteration: 0  Instance: /DecoderToBcd_tb
+# 1
+# Break in Module DecoderToBcd_tb at C:/Users/killt/Desktop/Taller_Digitales/DecoderToBCD/DecoderToBcd_tb.sv line 30
+# End time: 10:36:27 on Aug 03,2024, Elapsed time: 0:00:13
+# Errors: 0, Warnings: 0
