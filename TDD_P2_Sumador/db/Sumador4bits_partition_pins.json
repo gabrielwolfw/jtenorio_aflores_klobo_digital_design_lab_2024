@@ -1,0 +1,81 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "sVect[0]",
+					"strict" : false
+				},
+				{
+					"name" : "sVect[1]",
+					"strict" : false
+				},
+				{
+					"name" : "sVect[2]",
+					"strict" : false
+				},
+				{
+					"name" : "sVect[3]",
+					"strict" : false
+				},
+				{
+					"name" : "mainCarryOut",
+					"strict" : false
+				},
+				{
+					"name" : "decimalResult[0]",
+					"strict" : false
+				},
+				{
+					"name" : "decimalResult[1]",
+					"strict" : false
+				},
+				{
+					"name" : "decimalResult[2]",
+					"strict" : false
+				},
+				{
+					"name" : "decimalResult[3]",
+					"strict" : false
+				},
+				{
+					"name" : "mainCarryIn",
+					"strict" : false
+				},
+				{
+					"name" : "aVect[0]",
+					"strict" : false
+				},
+				{
+					"name" : "bVect[0]",
+					"strict" : false
+				},
+				{
+					"name" : "aVect[1]",
+					"strict" : false
+				},
+				{
+					"name" : "bVect[1]",
+					"strict" : false
+				},
+				{
+					"name" : "aVect[2]",
+					"strict" : false
+				},
+				{
+					"name" : "bVect[2]",
+					"strict" : false
+				},
+				{
+					"name" : "aVect[3]",
+					"strict" : false
+				},
+				{
+					"name" : "bVect[3]",
+					"strict" : false
+				}
+			]
+		}
+	]
+}
