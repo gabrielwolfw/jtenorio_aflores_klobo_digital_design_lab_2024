@@ -18,4 +18,27 @@ module RestadorParametrizado_tb;
         clk = 0;
         forever #5 clk = ~clk;  // Generador de reloj
     end
+	 
+	 initial begin
+        reset = 1;
+        a = 0;
+        b = 0;
+
+        // Aplicar reset asíncrono
+        reset = 0;
+        #10;
+        reset = 1;
+
+        // Casos de prueba
+        a = 8'hFF; b = 8'h01; #10;
+        $display("%0d - %0d = %0d (esperado: %0d)", a, b, y, a - b);
+
+        a = 8'hA5; b = 8'h5A; #10;
+        $display("%0d - %0d = %0d (esperado: %0d)", a, b, y, a - b);
+
+        a = 8'h00; b = 8'h01; #10;
+        $display("%0d - %0d = %0d (esperado: %0d)", a, b, y, a - b);
+
+        $stop;
+    end
 endmodule
