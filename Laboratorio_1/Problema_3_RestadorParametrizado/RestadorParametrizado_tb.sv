@@ -1,44 +1,54 @@
 module RestadorParametrizado_tb;
-    parameter N = 8;  // Parámetro del tamaño de los bits
+    
+    // Procedimiento de test
+    task run_test(input int N);
+        logic [N-1:0] a, b;
+        logic reset;
+        logic clk;
+        logic [N-1:0] y;
 
-    logic [N-1:0] a, b;  // Entradas del restador
-    logic reset;         // Señal de reset asíncrono
-    logic clk;           // Señal de reloj
-    logic [N-1:0] y;     // Salida del restador
+        RestadorParametrizado #(N) uut (
+            .a(a),
+            .b(b),
+            .reset(reset),
+            .clk(clk),
+            .y(y)
+        );
 
-    RestadorParametrizado #(N) uut (
-        .a(a),
-        .b(b),
-        .reset(reset),
-        .clk(clk),
-        .y(y)
-    );
+        initial begin
+            clk = 0;
+            forever #5 clk = ~clk;
+        end
+
+        initial begin
+            reset = 1;
+            a = 0;
+            b = 0;
+
+            // Aplicar reset asíncrono
+            reset = 0;
+            #10;
+            reset = 1;
+
+            // Casos de prueba
+            a = 'hFF >> (8-N); b = 1; #10;
+            $display("N=%0d: %0d - %0d = %0d (esperado: %0d)", N, a, b, y, a - b);
+
+            a = 'hA5 >> (8-N); b = 'h5A >> (8-N); #10;
+            $display("N=%0d: %0d - %0d = %0d (esperado: %0d)", N, a, b, y, a - b);
+
+            a = 0; b = 1; #10;
+            $display("N=%0d: %0d - %0d = %0d (esperado: %0d)", N, a, b, y, a - b);
+
+            $stop;
+        end
+    endtask
 
     initial begin
-        clk = 0;
-        forever #5 clk = ~clk;  // Generador de reloj
+        run_test(6);
+        run_test(4);
+        run_test(2);
     end
-	 
-	 initial begin
-        reset = 1;
-        a = 0;
-        b = 0;
 
-        // Aplicar reset asíncrono
-        reset = 0;
-        #10;
-        reset = 1;
-
-        // Casos de prueba
-        a = 8'hFF; b = 8'h01; #10;
-        $display("%0d - %0d = %0d (esperado: %0d)", a, b, y, a - b);
-
-        a = 8'hA5; b = 8'h5A; #10;
-        $display("%0d - %0d = %0d (esperado: %0d)", a, b, y, a - b);
-
-        a = 8'h00; b = 8'h01; #10;
-        $display("%0d - %0d = %0d (esperado: %0d)", a, b, y, a - b);
-
-        $stop;
-    end
 endmodule
+
