@@ -1,9 +1,35 @@
-|Sumador4bits
-sVect[0] << sumador1bit:bit_s0.sum
-sVect[1] << sumador1bit:bit_s1.sum
-sVect[2] << sumador1bit:bit_s2.sum
-sVect[3] << sumador1bit:bit_s3.sum
-mainCarryOut << sumador1bit:bit_s3.carryOut
+|top_level
+aVect[0] => sumador4bits:U1.aVect[0]
+aVect[1] => sumador4bits:U1.aVect[1]
+aVect[2] => sumador4bits:U1.aVect[2]
+aVect[3] => sumador4bits:U1.aVect[3]
+bVect[0] => sumador4bits:U1.bVect[0]
+bVect[1] => sumador4bits:U1.bVect[1]
+bVect[2] => sumador4bits:U1.bVect[2]
+bVect[3] => sumador4bits:U1.bVect[3]
+mainCarryIn => sumador4bits:U1.mainCarryIn
+seg1[0] <= bcd_to_7seg:U3.seg[0]
+seg1[1] <= bcd_to_7seg:U3.seg[1]
+seg1[2] <= bcd_to_7seg:U3.seg[2]
+seg1[3] <= bcd_to_7seg:U3.seg[3]
+seg1[4] <= bcd_to_7seg:U3.seg[4]
+seg1[5] <= bcd_to_7seg:U3.seg[5]
+seg1[6] <= bcd_to_7seg:U3.seg[6]
+seg2[0] <= bcd_to_7seg:U4.seg[0]
+seg2[1] <= bcd_to_7seg:U4.seg[1]
+seg2[2] <= bcd_to_7seg:U4.seg[2]
+seg2[3] <= bcd_to_7seg:U4.seg[3]
+seg2[4] <= bcd_to_7seg:U4.seg[4]
+seg2[5] <= bcd_to_7seg:U4.seg[5]
+seg2[6] <= bcd_to_7seg:U4.seg[6]
+
+
+|top_level|sumador4bits:U1
+sVect[0] <= sumador1bit:bit_s0.sum
+sVect[1] <= sumador1bit:bit_s1.sum
+sVect[2] <= sumador1bit:bit_s2.sum
+sVect[3] <= sumador1bit:bit_s3.sum
+mainCarryOut <= sumador1bit:bit_s3.carryOut
 aVect[0] => sumador1bit:bit_s0.a
 aVect[1] => sumador1bit:bit_s1.a
 aVect[2] => sumador1bit:bit_s2.a
@@ -13,14 +39,14 @@ bVect[1] => sumador1bit:bit_s1.b
 bVect[2] => sumador1bit:bit_s2.b
 bVect[3] => sumador1bit:bit_s3.b
 mainCarryIn => sumador1bit:bit_s0.carryIn
-decimalResult[0] << sumador1bit:bit_s0.sum
-decimalResult[1] << sumador1bit:bit_s1.sum
-decimalResult[2] << sumador1bit:bit_s2.sum
-decimalResult[3] << sumador1bit:bit_s3.sum
-decimalResult[4] << <GND>
+decimalResult[0] <= sumador1bit:bit_s0.sum
+decimalResult[1] <= sumador1bit:bit_s1.sum
+decimalResult[2] <= sumador1bit:bit_s2.sum
+decimalResult[3] <= sumador1bit:bit_s3.sum
+decimalResult[4] <= <GND>
 
 
-|Sumador4bits|sumador1bit:bit_s0
+|top_level|sumador4bits:U1|sumador1bit:bit_s0
 sum <= sum.DB_MAX_OUTPUT_PORT_TYPE
 carryOut <= carryOut.DB_MAX_OUTPUT_PORT_TYPE
 a => sum.IN0
@@ -41,7 +67,7 @@ carryIn => sum.IN1
 carryIn => sum.IN1
 
 
-|Sumador4bits|sumador1bit:bit_s1
+|top_level|sumador4bits:U1|sumador1bit:bit_s1
 sum <= sum.DB_MAX_OUTPUT_PORT_TYPE
 carryOut <= carryOut.DB_MAX_OUTPUT_PORT_TYPE
 a => sum.IN0
@@ -62,7 +88,7 @@ carryIn => sum.IN1
 carryIn => sum.IN1
 
 
-|Sumador4bits|sumador1bit:bit_s2
+|top_level|sumador4bits:U1|sumador1bit:bit_s2
 sum <= sum.DB_MAX_OUTPUT_PORT_TYPE
 carryOut <= carryOut.DB_MAX_OUTPUT_PORT_TYPE
 a => sum.IN0
@@ -83,7 +109,7 @@ carryIn => sum.IN1
 carryIn => sum.IN1
 
 
-|Sumador4bits|sumador1bit:bit_s3
+|top_level|sumador4bits:U1|sumador1bit:bit_s3
 sum <= sum.DB_MAX_OUTPUT_PORT_TYPE
 carryOut <= carryOut.DB_MAX_OUTPUT_PORT_TYPE
 a => sum.IN0
@@ -102,5 +128,104 @@ carryIn => sum.IN1
 carryIn => carryOut.IN1
 carryIn => sum.IN1
 carryIn => sum.IN1
+
+
+|top_level|bin_to_bcd:U2
+bin[0] => LessThan0.IN8
+bin[0] => Add0.IN8
+bin[0] => temp.DATAA
+bin[1] => LessThan0.IN7
+bin[1] => Add0.IN7
+bin[1] => temp.DATAA
+bin[2] => LessThan0.IN6
+bin[2] => Add0.IN6
+bin[2] => temp.DATAA
+bin[3] => LessThan0.IN5
+bin[3] => Add0.IN5
+bin[3] => temp.DATAA
+bcd[0] <= <GND>
+bcd[1] <= LessThan4.DB_MAX_OUTPUT_PORT_TYPE
+bcd[2] <= temp.DB_MAX_OUTPUT_PORT_TYPE
+bcd[3] <= temp.DB_MAX_OUTPUT_PORT_TYPE
+bcd[4] <= temp.DB_MAX_OUTPUT_PORT_TYPE
+bcd[5] <= temp.DB_MAX_OUTPUT_PORT_TYPE
+bcd[6] <= temp.DB_MAX_OUTPUT_PORT_TYPE
+bcd[7] <= temp.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top_level|bcd_to_7seg:U3
+bcd[0] => Mux0.IN19
+bcd[0] => Mux1.IN19
+bcd[0] => Mux2.IN19
+bcd[0] => Mux3.IN19
+bcd[0] => Mux4.IN19
+bcd[0] => Mux5.IN19
+bcd[0] => Mux6.IN19
+bcd[1] => Mux0.IN18
+bcd[1] => Mux1.IN18
+bcd[1] => Mux2.IN18
+bcd[1] => Mux3.IN18
+bcd[1] => Mux4.IN18
+bcd[1] => Mux5.IN18
+bcd[1] => Mux6.IN18
+bcd[2] => Mux0.IN17
+bcd[2] => Mux1.IN17
+bcd[2] => Mux2.IN17
+bcd[2] => Mux3.IN17
+bcd[2] => Mux4.IN17
+bcd[2] => Mux5.IN17
+bcd[2] => Mux6.IN17
+bcd[3] => Mux0.IN16
+bcd[3] => Mux1.IN16
+bcd[3] => Mux2.IN16
+bcd[3] => Mux3.IN16
+bcd[3] => Mux4.IN16
+bcd[3] => Mux5.IN16
+bcd[3] => Mux6.IN16
+seg[0] <= Mux6.DB_MAX_OUTPUT_PORT_TYPE
+seg[1] <= Mux5.DB_MAX_OUTPUT_PORT_TYPE
+seg[2] <= Mux4.DB_MAX_OUTPUT_PORT_TYPE
+seg[3] <= Mux3.DB_MAX_OUTPUT_PORT_TYPE
+seg[4] <= Mux2.DB_MAX_OUTPUT_PORT_TYPE
+seg[5] <= Mux1.DB_MAX_OUTPUT_PORT_TYPE
+seg[6] <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top_level|bcd_to_7seg:U4
+bcd[0] => Mux0.IN19
+bcd[0] => Mux1.IN19
+bcd[0] => Mux2.IN19
+bcd[0] => Mux3.IN19
+bcd[0] => Mux4.IN19
+bcd[0] => Mux5.IN19
+bcd[0] => Mux6.IN19
+bcd[1] => Mux0.IN18
+bcd[1] => Mux1.IN18
+bcd[1] => Mux2.IN18
+bcd[1] => Mux3.IN18
+bcd[1] => Mux4.IN18
+bcd[1] => Mux5.IN18
+bcd[1] => Mux6.IN18
+bcd[2] => Mux0.IN17
+bcd[2] => Mux1.IN17
+bcd[2] => Mux2.IN17
+bcd[2] => Mux3.IN17
+bcd[2] => Mux4.IN17
+bcd[2] => Mux5.IN17
+bcd[2] => Mux6.IN17
+bcd[3] => Mux0.IN16
+bcd[3] => Mux1.IN16
+bcd[3] => Mux2.IN16
+bcd[3] => Mux3.IN16
+bcd[3] => Mux4.IN16
+bcd[3] => Mux5.IN16
+bcd[3] => Mux6.IN16
+seg[0] <= Mux6.DB_MAX_OUTPUT_PORT_TYPE
+seg[1] <= Mux5.DB_MAX_OUTPUT_PORT_TYPE
+seg[2] <= Mux4.DB_MAX_OUTPUT_PORT_TYPE
+seg[3] <= Mux3.DB_MAX_OUTPUT_PORT_TYPE
+seg[4] <= Mux2.DB_MAX_OUTPUT_PORT_TYPE
+seg[5] <= Mux1.DB_MAX_OUTPUT_PORT_TYPE
+seg[6] <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
 
 

@@ -8,29 +8,113 @@ z2
 !i10e 25
 !i10f 100
 cModel Technology
-Z0 dC:/Users/tenor/OneDrive/Documentos/TDD_P3/simulation/modelsim
-Esumador1bit
-Z1 w1722548576
+Z0 dC:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/TDD_P2_Sumador/simulation/modelsim
+Ebcd_to_7seg
+Z1 w1723053929
 Z2 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
 Z3 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
+!i122 3
+R0
+Z4 8C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/TDD_P2_Sumador/bcd_to_7seg.vhd
+Z5 FC:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/TDD_P2_Sumador/bcd_to_7seg.vhd
+l0
+L4 1
+VJ_K3Zz75ZIR4;VGY:@4^i3
+!s100 HDVgm_FYnBNL[0OX@=ZH@2
+Z6 OV;C;2020.1;71
+31
+Z7 !s110 1723053998
+!i10b 1
+Z8 !s108 1723053998.000000
+Z9 !s90 -reportprogress|300|-93|-work|work|C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/TDD_P2_Sumador/bcd_to_7seg.vhd|
+Z10 !s107 C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/TDD_P2_Sumador/bcd_to_7seg.vhd|
+!i113 1
+Z11 o-93 -work work
+Z12 tExplicit 1 CvgOpt 0
+Abehavioral
+R2
+R3
+Z13 DEx4 work 11 bcd_to_7seg 0 22 J_K3Zz75ZIR4;VGY:@4^i3
+!i122 3
+l12
+L11 19
+V]DAACjd0JS@Q^ZOc^`MHU2
+!s100 <Y?DI>k_k?Q86T^Pe^TJ>1
+R6
+31
+R7
+!i10b 1
+R8
+R9
+R10
+!i113 1
+R11
+R12
+Ebin_to_bcd
+Z14 w1723053890
+Z15 DPx4 ieee 11 numeric_std 0 22 aU^R8eGcicLcUFIaBQSL>3
+R2
+R3
+!i122 2
+R0
+Z16 8C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/TDD_P2_Sumador/bin_to_bcd.vhd
+Z17 FC:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/TDD_P2_Sumador/bin_to_bcd.vhd
+l0
+L5 1
+VFo@6XWFz]LJ:Diceb>I@K1
+!s100 l8BoH0C[>5QgHAZ]70WRU1
+R6
+31
+R7
+!i10b 1
+R8
+Z18 !s90 -reportprogress|300|-93|-work|work|C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/TDD_P2_Sumador/bin_to_bcd.vhd|
+Z19 !s107 C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/TDD_P2_Sumador/bin_to_bcd.vhd|
+!i113 1
+R11
+R12
+Abehavioral
+R15
+R2
+R3
+Z20 DEx4 work 10 bin_to_bcd 0 22 Fo@6XWFz]LJ:Diceb>I@K1
+!i122 2
+l13
+L12 21
+VE:Em`7XV<2ZFE47Ll[HD_0
+!s100 IKWjQPBPbdJnb@`FZ1U1]1
+R6
+31
+R7
+!i10b 1
+R8
+R18
+R19
+!i113 1
+R11
+R12
+Esumador1bit
+Z21 w1723053656
+R2
+R3
 !i122 1
 R0
-Z4 8C:/Users/tenor/OneDrive/Documentos/TDD_P3/sumador1bit.vhd
-Z5 FC:/Users/tenor/OneDrive/Documentos/TDD_P3/sumador1bit.vhd
+Z22 8C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/TDD_P2_Sumador/sumador1bit.vhd
+Z23 FC:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/TDD_P2_Sumador/sumador1bit.vhd
 l0
 L5 1
 VR1[zH<YBmjzg0^fBH:ifm0
 !s100 `Nim_<:RXYK:7CMnDNXNE2
-Z6 OV;C;2020.1;71
+R6
 31
-Z7 !s110 1722551508
+R7
 !i10b 1
-Z8 !s108 1722551508.000000
-Z9 !s90 -reportprogress|300|-93|-work|work|C:/Users/tenor/OneDrive/Documentos/TDD_P3/sumador1bit.vhd|
-Z10 !s107 C:/Users/tenor/OneDrive/Documentos/TDD_P3/sumador1bit.vhd|
+Z24 !s108 1723053997.000000
+Z25 !s90 -reportprogress|300|-93|-work|work|C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/TDD_P2_Sumador/sumador1bit.vhd|
+Z26 !s107 C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/TDD_P2_Sumador/sumador1bit.vhd|
 !i113 1
-Z11 o-93 -work work
-Z12 tExplicit 1 CvgOpt 0
+R11
+R12
 Aarch
 R2
 R3
@@ -44,40 +128,40 @@ R6
 31
 R7
 !i10b 1
-R8
-R9
-R10
+R24
+R25
+R26
 !i113 1
 R11
 R12
 Esumador4bits
-Z13 w1722551056
-Z14 DPx4 ieee 11 numeric_std 0 22 aU^R8eGcicLcUFIaBQSL>3
+R21
+R15
 R2
 R3
 !i122 0
 R0
-Z15 8C:/Users/tenor/OneDrive/Documentos/TDD_P3/Sumador4bits.vhd
-Z16 FC:/Users/tenor/OneDrive/Documentos/TDD_P3/Sumador4bits.vhd
+Z27 8C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/TDD_P2_Sumador/Sumador4bits.vhd
+Z28 FC:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/TDD_P2_Sumador/Sumador4bits.vhd
 l0
 L6 1
 V2]Vj7N<<V<A]n9UF;oB>j2
 !s100 Vf5ZfR1HKEV882Db1JHUU0
 R6
 31
-Z17 !s110 1722551507
+Z29 !s110 1723053997
 !i10b 1
-Z18 !s108 1722551507.000000
-Z19 !s90 -reportprogress|300|-93|-work|work|C:/Users/tenor/OneDrive/Documentos/TDD_P3/Sumador4bits.vhd|
-Z20 !s107 C:/Users/tenor/OneDrive/Documentos/TDD_P3/Sumador4bits.vhd|
+R24
+Z30 !s90 -reportprogress|300|-93|-work|work|C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/TDD_P2_Sumador/Sumador4bits.vhd|
+Z31 !s107 C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/TDD_P2_Sumador/Sumador4bits.vhd|
 !i113 1
 R11
 R12
 Aarch_sumador4bits
-R14
+R15
 R2
 R3
-DEx4 work 12 sumador4bits 0 22 2]Vj7N<<V<A]n9UF;oB>j2
+Z32 DEx4 work 12 sumador4bits 0 22 2]Vj7N<<V<A]n9UF;oB>j2
 !i122 0
 l29
 L17 57
@@ -85,52 +169,100 @@ VBQ?PaCL3SRdB=4k;8MB353
 !s100 EbbnFMn`3h0H:M=9a8VNj0
 R6
 31
-R17
+R29
 !i10b 1
-R18
-R19
-R20
+R24
+R30
+R31
 !i113 1
 R11
 R12
 Esumador4bits_tb
-Z21 w1722551472
+R21
+R15
 R2
 R3
-!i122 2
+!i122 5
 R0
-Z22 8C:/Users/tenor/OneDrive/Documentos/TDD_P3/Sumador4bits_tb.vhd
-Z23 FC:/Users/tenor/OneDrive/Documentos/TDD_P3/Sumador4bits_tb.vhd
+Z33 8C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/TDD_P2_Sumador/Sumador4bits_tb.vhd
+Z34 FC:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/TDD_P2_Sumador/Sumador4bits_tb.vhd
 l0
-L5 1
-VnXWgdf64T0A2SBcKfbO7@2
-!s100 dzXklRV35IL[9SKNM?BJ01
+L6 1
+VmMRkk1l_gHB@4fOLZ6;km3
+!s100 =]YfD_GA<NMB;cDo@MkoZ3
 R6
 31
 R7
 !i10b 1
 R8
-Z24 !s90 -reportprogress|300|-93|-work|work|C:/Users/tenor/OneDrive/Documentos/TDD_P3/Sumador4bits_tb.vhd|
-!s107 C:/Users/tenor/OneDrive/Documentos/TDD_P3/Sumador4bits_tb.vhd|
+Z35 !s90 -reportprogress|300|-93|-work|work|C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/TDD_P2_Sumador/Sumador4bits_tb.vhd|
+!s107 C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/TDD_P2_Sumador/Sumador4bits_tb.vhd|
 !i113 1
 R11
 R12
 Aarch
+R15
 R2
 R3
-DEx4 work 15 sumador4bits_tb 0 22 nXWgdf64T0A2SBcKfbO7@2
-!i122 2
-l23
-L8 48
-VLdL_[D<U5c^^z5Pl[2g9^3
-!s100 JaYjVV9Zb0l`Ac;PRE_SS3
+DEx4 work 15 sumador4bits_tb 0 22 mMRkk1l_gHB@4fOLZ6;km3
+!i122 5
+l26
+L9 52
+VkR28<XL=IlJFf5WPQ5HDo0
+!s100 ZJdcAIS6`37eT2TS<_g>`1
 R6
 31
 R7
 !i10b 1
 R8
-R24
-Z25 !s107 C:/Users/tenor/OneDrive/Documentos/TDD_P3/Sumador4bits_tb.vhd|
+R35
+Z36 !s107 C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/TDD_P2_Sumador/Sumador4bits_tb.vhd|
+!i113 1
+R11
+R12
+Etop_level
+Z37 w1723053959
+R15
+R2
+R3
+!i122 4
+R0
+Z38 8C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/TDD_P2_Sumador/top_level.vhd
+Z39 FC:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/TDD_P2_Sumador/top_level.vhd
+l0
+L5 1
+ViWoV:6]fL0i^hc0JFjnBU2
+!s100 iAfgBNICYcb6<S1?z=REX1
+R6
+31
+R7
+!i10b 1
+R8
+Z40 !s90 -reportprogress|300|-93|-work|work|C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/TDD_P2_Sumador/top_level.vhd|
+Z41 !s107 C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/TDD_P2_Sumador/top_level.vhd|
+!i113 1
+R11
+R12
+Abehavioral
+R13
+R20
+R32
+R15
+R2
+R3
+DEx4 work 9 top_level 0 22 iWoV:6]fL0i^hc0JFjnBU2
+!i122 4
+l22
+L15 40
+V4lM1kkkA7:g^ZY:lUzj1d0
+!s100 a>7UFM;8:Tfb2gHaDg4=T0
+R6
+31
+R7
+!i10b 1
+R8
+R40
+R41
 !i113 1
 R11
 R12

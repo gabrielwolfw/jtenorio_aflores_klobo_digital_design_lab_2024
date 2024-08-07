@@ -1,5 +1,5 @@
-Analysis & Synthesis report for Sumador4bits
-Sun Aug 04 23:53:05 2024
+Analysis & Elaboration report for Sumador4bits
+Wed Aug 07 12:06:21 2024
 Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 
 
@@ -7,16 +7,11 @@ Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 ; Table of Contents ;
 ---------------------
   1. Legal Notice
-  2. Analysis & Synthesis Summary
-  3. Analysis & Synthesis Settings
-  4. Parallel Compilation
-  5. Analysis & Synthesis Source Files Read
-  6. Analysis & Synthesis Resource Usage Summary
-  7. Analysis & Synthesis Resource Utilization by Entity
-  8. General Register Statistics
-  9. Post-Synthesis Netlist Statistics for Top Partition
- 10. Elapsed Time Per Partition
- 11. Analysis & Synthesis Messages
+  2. Analysis & Elaboration Summary
+  3. Parallel Compilation
+  4. Analysis & Elaboration Settings
+  5. Port Connectivity Checks: "sumador4bits:U1"
+  6. Analysis & Elaboration Messages
 
 
 
@@ -40,36 +35,47 @@ https://fpgasoftware.intel.com/eula.
 
 
 
-+-------------------------------------------------------------------------------+
-; Analysis & Synthesis Summary                                                  ;
-+---------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Sun Aug 04 23:53:05 2024       ;
-; Quartus Prime Version           ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
-; Revision Name                   ; Sumador4bits                                ;
-; Top-level Entity Name           ; sumador4bits                                ;
-; Family                          ; Cyclone V                                   ;
-; Logic utilization (in ALMs)     ; N/A                                         ;
-; Total registers                 ; 0                                           ;
-; Total pins                      ; 19                                          ;
-; Total virtual pins              ; 0                                           ;
-; Total block memory bits         ; 0                                           ;
-; Total DSP Blocks                ; 0                                           ;
-; Total HSSI RX PCSs              ; 0                                           ;
-; Total HSSI PMA RX Deserializers ; 0                                           ;
-; Total HSSI TX PCSs              ; 0                                           ;
-; Total HSSI PMA TX Serializers   ; 0                                           ;
-; Total PLLs                      ; 0                                           ;
-; Total DLLs                      ; 0                                           ;
-+---------------------------------+---------------------------------------------+
++-----------------------------------------------------------------------------+
+; Analysis & Elaboration Summary                                              ;
++-------------------------------+---------------------------------------------+
+; Analysis & Elaboration Status ; Successful - Wed Aug 07 12:06:21 2024       ;
+; Quartus Prime Version         ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
+; Revision Name                 ; Sumador4bits                                ;
+; Top-level Entity Name         ; top_level                                   ;
+; Family                        ; Cyclone V                                   ;
+; Logic utilization (in ALMs)   ; N/A until Partition Merge                   ;
+; Total registers               ; N/A until Partition Merge                   ;
+; Total pins                    ; N/A until Partition Merge                   ;
+; Total virtual pins            ; N/A until Partition Merge                   ;
+; Total block memory bits       ; N/A until Partition Merge                   ;
+; Total PLLs                    ; N/A until Partition Merge                   ;
+; Total DLLs                    ; N/A until Partition Merge                   ;
++-------------------------------+---------------------------------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 4           ;
+; Maximum allowed            ; 2           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 1           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
++----------------------------+-------------+
 
 
 +---------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Settings                                                                                             ;
+; Analysis & Elaboration Settings                                                                                           ;
 +---------------------------------------------------------------------------------+--------------------+--------------------+
 ; Option                                                                          ; Setting            ; Default Value      ;
 +---------------------------------------------------------------------------------+--------------------+--------------------+
 ; Device                                                                          ; 5CSXFC6D6F31C6     ;                    ;
-; Top-level entity name                                                           ; Sumador4bits       ; Sumador4bits       ;
+; Top-level entity name                                                           ; top_level          ; Sumador4bits       ;
 ; Family name                                                                     ; Cyclone V          ; Cyclone V          ;
 ; Use smart compilation                                                           ; Off                ; Off                ;
 ; Enable parallel Assembler and Timing Analyzer during compilation                ; On                 ; On                 ;
@@ -150,148 +156,55 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------------------------------------------+--------------------+--------------------+
 
 
-+------------------------------------------+
-; Parallel Compilation                     ;
-+----------------------------+-------------+
-; Processors                 ; Number      ;
-+----------------------------+-------------+
-; Number detected on machine ; 4           ;
-; Maximum allowed            ; 2           ;
-;                            ;             ;
-; Average used               ; 1.00        ;
-; Maximum used               ; 1           ;
-;                            ;             ;
-; Usage by Processor         ; % Time Used ;
-;     Processor 1            ; 100.0%      ;
-+----------------------------+-------------+
++-------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "sumador4bits:U1"                                                                             ;
++---------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port          ; Type   ; Severity ; Details                                                                             ;
++---------------+--------+----------+-------------------------------------------------------------------------------------+
+; maincarryout  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; decimalresult ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++---------------+--------+----------+-------------------------------------------------------------------------------------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                      ;
-+----------------------------------+-----------------+-----------------+------------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                               ; Library ;
-+----------------------------------+-----------------+-----------------+------------------------------------------------------------+---------+
-; Sumador4bits.vhd                 ; yes             ; User VHDL File  ; C:/Users/tenor/OneDrive/Documentos/TDD_P3/Sumador4bits.vhd ;         ;
-; sumador1bit.vhd                  ; yes             ; User VHDL File  ; C:/Users/tenor/OneDrive/Documentos/TDD_P3/sumador1bit.vhd  ;         ;
-+----------------------------------+-----------------+-----------------+------------------------------------------------------------+---------+
-
-
-+-----------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary                                 ;
-+---------------------------------------------+-------------------------------+
-; Resource                                    ; Usage                         ;
-+---------------------------------------------+-------------------------------+
-; Estimate of Logic utilization (ALMs needed) ; 3                             ;
-;                                             ;                               ;
-; Combinational ALUT usage for logic          ; 6                             ;
-;     -- 7 input functions                    ; 0                             ;
-;     -- 6 input functions                    ; 0                             ;
-;     -- 5 input functions                    ; 4                             ;
-;     -- 4 input functions                    ; 0                             ;
-;     -- <=3 input functions                  ; 2                             ;
-;                                             ;                               ;
-; Dedicated logic registers                   ; 0                             ;
-;                                             ;                               ;
-; I/O pins                                    ; 19                            ;
-;                                             ;                               ;
-; Total DSP Blocks                            ; 0                             ;
-;                                             ;                               ;
-; Maximum fan-out node                        ; sumador1bit:bit_s1|carryOut~0 ;
-; Maximum fan-out                             ; 3                             ;
-; Total fan-out                               ; 54                            ;
-; Average fan-out                             ; 1.23                          ;
-+---------------------------------------------+-------------------------------+
-
-
-+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                  ;
-+----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+----------------------------------+--------------+--------------+
-; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name              ; Entity Name  ; Library Name ;
-+----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+----------------------------------+--------------+--------------+
-; |sumador4bits              ; 6 (0)               ; 0 (0)                     ; 0                 ; 0          ; 19   ; 0            ; |sumador4bits                    ; sumador4bits ; work         ;
-;    |sumador1bit:bit_s0|    ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |sumador4bits|sumador1bit:bit_s0 ; sumador1bit  ; work         ;
-;    |sumador1bit:bit_s1|    ; 2 (2)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |sumador4bits|sumador1bit:bit_s1 ; sumador1bit  ; work         ;
-;    |sumador1bit:bit_s2|    ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |sumador4bits|sumador1bit:bit_s2 ; sumador1bit  ; work         ;
-;    |sumador1bit:bit_s3|    ; 2 (2)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |sumador4bits|sumador1bit:bit_s3 ; sumador1bit  ; work         ;
-+----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+----------------------------------+--------------+--------------+
-Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
-
-
-+------------------------------------------------------+
-; General Register Statistics                          ;
-+----------------------------------------------+-------+
-; Statistic                                    ; Value ;
-+----------------------------------------------+-------+
-; Total registers                              ; 0     ;
-; Number of registers using Synchronous Clear  ; 0     ;
-; Number of registers using Synchronous Load   ; 0     ;
-; Number of registers using Asynchronous Clear ; 0     ;
-; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 0     ;
-; Number of registers using Preset             ; 0     ;
-+----------------------------------------------+-------+
-
-
-+-----------------------------------------------------+
-; Post-Synthesis Netlist Statistics for Top Partition ;
-+-----------------------+-----------------------------+
-; Type                  ; Count                       ;
-+-----------------------+-----------------------------+
-; arriav_lcell_comb     ; 7                           ;
-;     normal            ; 7                           ;
-;         0 data inputs ; 1                           ;
-;         3 data inputs ; 2                           ;
-;         5 data inputs ; 4                           ;
-; boundary_port         ; 19                          ;
-;                       ;                             ;
-; Max LUT depth         ; 2.00                        ;
-; Average LUT depth     ; 1.50                        ;
-+-----------------------+-----------------------------+
-
-
-+-------------------------------+
-; Elapsed Time Per Partition    ;
-+----------------+--------------+
-; Partition Name ; Elapsed Time ;
-+----------------+--------------+
-; Top            ; 00:00:00     ;
-+----------------+--------------+
-
-
-+-------------------------------+
-; Analysis & Synthesis Messages ;
-+-------------------------------+
++---------------------------------+
+; Analysis & Elaboration Messages ;
++---------------------------------+
 Info: *******************************************************************
-Info: Running Quartus Prime Analysis & Synthesis
+Info: Running Quartus Prime Analysis & Elaboration
     Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
-    Info: Processing started: Sun Aug 04 23:52:54 2024
-Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Sumador4bits -c Sumador4bits
+    Info: Processing started: Wed Aug 07 12:06:11 2024
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Sumador4bits -c Sumador4bits --analysis_and_elaboration
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
 Info (12021): Found 2 design units, including 1 entities, in source file sumador4bits.vhd
-    Info (12022): Found design unit 1: sumador4bits-arch_sumador4bits File: C:/Users/tenor/OneDrive/Documentos/TDD_P3/Sumador4bits.vhd Line: 17
-    Info (12023): Found entity 1: sumador4bits File: C:/Users/tenor/OneDrive/Documentos/TDD_P3/Sumador4bits.vhd Line: 6
+    Info (12022): Found design unit 1: sumador4bits-arch_sumador4bits File: C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/TDD_P2_Sumador/Sumador4bits.vhd Line: 17
+    Info (12023): Found entity 1: sumador4bits File: C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/TDD_P2_Sumador/Sumador4bits.vhd Line: 6
 Info (12021): Found 2 design units, including 1 entities, in source file sumador4bits_tb.vhd
-    Info (12022): Found design unit 1: sumador4bits_tb-arch File: C:/Users/tenor/OneDrive/Documentos/TDD_P3/Sumador4bits_tb.vhd Line: 9
-    Info (12023): Found entity 1: sumador4bits_tb File: C:/Users/tenor/OneDrive/Documentos/TDD_P3/Sumador4bits_tb.vhd Line: 6
+    Info (12022): Found design unit 1: sumador4bits_tb-arch File: C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/TDD_P2_Sumador/Sumador4bits_tb.vhd Line: 9
+    Info (12023): Found entity 1: sumador4bits_tb File: C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/TDD_P2_Sumador/Sumador4bits_tb.vhd Line: 6
 Info (12021): Found 2 design units, including 1 entities, in source file sumador1bit.vhd
-    Info (12022): Found design unit 1: sumador1bit-arch File: C:/Users/tenor/OneDrive/Documentos/TDD_P3/sumador1bit.vhd Line: 12
-    Info (12023): Found entity 1: sumador1bit File: C:/Users/tenor/OneDrive/Documentos/TDD_P3/sumador1bit.vhd Line: 5
-Info (12127): Elaborating entity "Sumador4bits" for the top level hierarchy
-Info (12128): Elaborating entity "sumador1bit" for hierarchy "sumador1bit:bit_s0" File: C:/Users/tenor/OneDrive/Documentos/TDD_P3/Sumador4bits.vhd Line: 33
-Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "decimalResult[4]" is stuck at GND File: C:/Users/tenor/OneDrive/Documentos/TDD_P3/Sumador4bits.vhd Line: 13
-Info (286030): Timing-Driven Synthesis is running
-Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
-    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 25 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 9 input pins
-    Info (21059): Implemented 10 output pins
-    Info (21061): Implemented 6 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 3 warnings
-    Info: Peak virtual memory: 4843 megabytes
-    Info: Processing ended: Sun Aug 04 23:53:05 2024
-    Info: Elapsed time: 00:00:11
+    Info (12022): Found design unit 1: sumador1bit-arch File: C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/TDD_P2_Sumador/sumador1bit.vhd Line: 12
+    Info (12023): Found entity 1: sumador1bit File: C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/TDD_P2_Sumador/sumador1bit.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file bin_to_bcd.vhd
+    Info (12022): Found design unit 1: bin_to_bcd-Behavioral File: C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/TDD_P2_Sumador/bin_to_bcd.vhd Line: 12
+    Info (12023): Found entity 1: bin_to_bcd File: C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/TDD_P2_Sumador/bin_to_bcd.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file bcd_to_7seg.vhd
+    Info (12022): Found design unit 1: bcd_to_7seg-Behavioral File: C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/TDD_P2_Sumador/bcd_to_7seg.vhd Line: 11
+    Info (12023): Found entity 1: bcd_to_7seg File: C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/TDD_P2_Sumador/bcd_to_7seg.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file top_level.vhd
+    Info (12022): Found design unit 1: top_level-Behavioral File: C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/TDD_P2_Sumador/top_level.vhd Line: 15
+    Info (12023): Found entity 1: top_level File: C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/TDD_P2_Sumador/top_level.vhd Line: 5
+Info (12127): Elaborating entity "top_level" for the top level hierarchy
+Warning (10036): Verilog HDL or VHDL warning at top_level.vhd(17): object "mainCarryOut" assigned a value but never read File: C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/TDD_P2_Sumador/top_level.vhd Line: 17
+Warning (10036): Verilog HDL or VHDL warning at top_level.vhd(18): object "decimalResult" assigned a value but never read File: C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/TDD_P2_Sumador/top_level.vhd Line: 18
+Info (12128): Elaborating entity "sumador4bits" for hierarchy "sumador4bits:U1" File: C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/TDD_P2_Sumador/top_level.vhd Line: 24
+Info (12128): Elaborating entity "sumador1bit" for hierarchy "sumador4bits:U1|sumador1bit:bit_s0" File: C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/TDD_P2_Sumador/Sumador4bits.vhd Line: 33
+Info (12128): Elaborating entity "bin_to_bcd" for hierarchy "bin_to_bcd:U2" File: C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/TDD_P2_Sumador/top_level.vhd Line: 34
+Info (12128): Elaborating entity "bcd_to_7seg" for hierarchy "bcd_to_7seg:U3" File: C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/TDD_P2_Sumador/top_level.vhd Line: 43
+Info: Quartus Prime Analysis & Elaboration was successful. 0 errors, 3 warnings
+    Info: Peak virtual memory: 4834 megabytes
+    Info: Processing ended: Wed Aug 07 12:06:21 2024
+    Info: Elapsed time: 00:00:10
     Info: Total CPU time (on all processors): 00:00:14
 
 
