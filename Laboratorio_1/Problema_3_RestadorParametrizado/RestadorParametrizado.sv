@@ -1,4 +1,4 @@
-module parametrizable_subtractor #(parameter N = 6)(
+module RestadorParametrizado #(parameter N = 6)(
     input logic clk,
     input logic reset,
     input logic [N-1:0] initial_value,

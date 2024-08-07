@@ -1,104 +1,74 @@
-module RestadorParametrizado_tb;
-    // Generador de reloj
+module RestadorParametrizado_tb();
     logic clk;
-    initial begin
-        clk = 0;
-        forever #5 clk = ~clk;
-    end
+    logic reset;
+    logic dec;
+    logic [1:0] count2;
+    logic [3:0] count4;
+    logic [5:0] count6;
+    logic [5:0] initial_value;
 
-    // Señales para 6 bits
-    logic [5:0] a6, b6;
-    logic reset6;
-    logic [5:0] y6;
-
-    // Señales para 4 bits
-    logic [3:0] a4, b4;
-    logic reset4;
-    logic [3:0] y4;
-
-    // Señales para 2 bits
-    logic [1:0] a2, b2;
-    logic reset2;
-    logic [1:0] y2;
-
-    // Instanciación del módulo para 6 bits
-    RestadorParametrizado #(6) uut6 (
-        .a(a6),
-        .b(b6),
-        .reset(reset6),
-        .clk(clk),
-        .y(y6)
-    );
-
-    // Instanciación del módulo para 4 bits
-    RestadorParametrizado #(4) uut4 (
-        .a(a4),
-        .b(b4),
-        .reset(reset4),
-        .clk(clk),
-        .y(y4)
-    );
-
-    // Instanciación del módulo para 2 bits
+    // Instancias del restador parametrizable para 2, 4 y 6 bits
     RestadorParametrizado #(2) uut2 (
-        .a(a2),
-        .b(b2),
-        .reset(reset2),
         .clk(clk),
-        .y(y2)
+        .reset(reset),
+        .initial_value(initial_value[1:0]),
+        .dec(dec),
+        .count(count2)
     );
 
-    // Procedimiento de prueba para 6 bits
+    RestadorParametrizado #(4) uut4 (
+        .clk(clk),
+        .reset(reset),
+        .initial_value(initial_value[3:0]),
+        .dec(dec),
+        .count(count4)
+    );
+
+    RestadorParametrizado #(6) uut6 (
+        .clk(clk),
+        .reset(reset),
+        .initial_value(initial_value),
+        .dec(dec),
+        .count(count6)
+    );
+
+    // Generación del clock
+    always #5 clk = ~clk;
+
     initial begin
-        reset6 = 1;
-        a6 = 0;
-        b6 = 0;
-        #10 reset6 = 0; #10 reset6 = 1;
+        // Inicialización de señales
+        clk = 0;
+        reset = 0;
+        dec = 0;
 
-        a6 = 6'h3F; b6 = 6'h01; #10;
-        $display("6 bits: %0d - %0d = %0d (esperado: %0d)", a6, b6, y6, a6 - b6);
+        // Prueba para 2 bits
+        initial_value = 6'b000010; // Solo los 2 bits menos significativos se usan
+        $display("=== Iniciando prueba para 2 bits ===");
+        #10 reset = 1;
+        #10 reset = 0;
+        #10 dec = 1;
+        #50 dec = 0;
+        #10 $display("Valor final del contador para 2 bits: %b", count2);
 
-        a6 = 6'h2A; b6 = 6'h15; #10;
-        $display("6 bits: %0d - %0d = %0d (esperado: %0d)", a6, b6, y6, a6 - b6);
+        // Prueba para 4 bits
+        initial_value = 6'b001010; // Solo los 4 bits menos significativos se usan
+        $display("=== Iniciando prueba para 4 bits ===");
+        #10 reset = 1;
+        #10 reset = 0;
+        #10 dec = 1;
+        #50 dec = 0;
+        #10 $display("Valor final del contador para 4 bits: %b", count4);
 
-        a6 = 6'h00; b6 = 6'h01; #10;
-        $display("6 bits: %0d - %0d = %0d (esperado: %0d)", a6, b6, y6, a6 - b6);
-    end
+        // Prueba para 6 bits
+        initial_value = 6'b101010; // Se usan los 6 bits
+        $display("=== Iniciando prueba para 6 bits ===");
+        #10 reset = 1;
+        #10 reset = 0;
+        #10 dec = 1;
+        #50 dec = 0;
+        #10 $display("Valor final del contador para 6 bits: %b", count6);
 
-    // Procedimiento de prueba para 4 bits
-    initial begin
-        reset4 = 1;
-        a4 = 0;
-        b4 = 0;
-        #10 reset4 = 0; #10 reset4 = 1;
-
-        a4 = 4'hF; b4 = 4'h1; #10;
-        $display("4 bits: %0d - %0d = %0d (esperado: %0d)", a4, b4, y4, a4 - b4);
-
-        a4 = 4'hA; b4 = 4'h5; #10;
-        $display("4 bits: %0d - %0d = %0d (esperado: %0d)", a4, b4, y4, a4 - b4);
-
-        a4 = 4'h0; b4 = 4'h1; #10;
-        $display("4 bits: %0d - %0d = %0d (esperado: %0d)", a4, b4, y4, a4 - b4);
-    end
-
-    // Procedimiento de prueba para 2 bits
-    initial begin
-        reset2 = 1;
-        a2 = 0;
-        b2 = 0;
-        #10 reset2 = 0; #10 reset2 = 1;
-
-        a2 = 2'h3; b2 = 2'h1; #10;
-        $display("2 bits: %0d - %0d = %0d (esperado: %0d)", a2, b2, y2, a2 - b2);
-
-        a2 = 2'h2; b2 = 2'h1; #10;
-        $display("2 bits: %0d - %0d = %0d (esperado: %0d)", a2, b2, y2, a2 - b2);
-
-        a2 = 2'h0; b2 = 2'h1; #10;
-        $display("2 bits: %0d - %0d = %0d (esperado: %0d)", a2, b2, y2, a2 - b2);
-
+        // Fin de la simulación
         $stop;
     end
-
 endmodule
