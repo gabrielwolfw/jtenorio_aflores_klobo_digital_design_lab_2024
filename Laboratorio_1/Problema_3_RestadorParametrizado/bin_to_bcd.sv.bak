@@ -1,0 +1,31 @@
+module bin_to_bcd #(parameter N = 6) (
+    input logic [N-1:0] bin,
+    output logic [3:0] digit0,
+    output logic [3:0] digit1
+);
+    // Para un valor de 6 bits, el máximo valor es 63, que en decimal es "63"
+    // Necesitamos 2 dígitos decimales para representarlo
+
+    integer i;
+    logic [3:0] temp_digit0, temp_digit1;
+
+    always_comb begin
+        temp_digit0 = 4'd0;
+        temp_digit1 = 4'd0;
+
+        for (i = N-1; i >= 0; i = i - 1) begin
+            if (temp_digit0 >= 5)
+                temp_digit0 = temp_digit0 + 3;
+            if (temp_digit1 >= 5)
+                temp_digit1 = temp_digit1 + 3;
+
+            temp_digit1 = temp_digit1 << 1;
+            temp_digit1[0] = temp_digit0[3];
+            temp_digit0 = temp_digit0 << 1;
+            temp_digit0[0] = bin[i];
+        end
+    end
+
+    assign digit0 = temp_digit0;
+    assign digit1 = temp_digit1;
+endmodule
