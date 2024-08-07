@@ -12,29 +12,29 @@
 # 
 # vlog -sv -work work +incdir+C:/Users/ashda/Downloads/Workspace_Taller/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_1/Problema_3_RestadorParametrizado {C:/Users/ashda/Downloads/Workspace_Taller/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_1/Problema_3_RestadorParametrizado/RestadorParametrizado.sv}
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 00:53:53 on Aug 06,2024
+# Start time: 02:19:03 on Aug 06,2024
 # vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/ashda/Downloads/Workspace_Taller/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_1/Problema_3_RestadorParametrizado" C:/Users/ashda/Downloads/Workspace_Taller/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_1/Problema_3_RestadorParametrizado/RestadorParametrizado.sv 
 # -- Compiling module RestadorParametrizado
 # 
 # Top level modules:
 # 	RestadorParametrizado
-# End time: 00:53:53 on Aug 06,2024, Elapsed time: 0:00:00
+# End time: 02:19:03 on Aug 06,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # 
 # vlog -sv -work work +incdir+C:/Users/ashda/Downloads/Workspace_Taller/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_1/Problema_3_RestadorParametrizado {C:/Users/ashda/Downloads/Workspace_Taller/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_1/Problema_3_RestadorParametrizado/RestadorParametrizado_tb.sv}
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 00:53:53 on Aug 06,2024
+# Start time: 02:19:03 on Aug 06,2024
 # vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/ashda/Downloads/Workspace_Taller/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_1/Problema_3_RestadorParametrizado" C:/Users/ashda/Downloads/Workspace_Taller/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_1/Problema_3_RestadorParametrizado/RestadorParametrizado_tb.sv 
 # -- Compiling module RestadorParametrizado_tb
 # 
 # Top level modules:
 # 	RestadorParametrizado_tb
-# End time: 00:53:54 on Aug 06,2024, Elapsed time: 0:00:01
+# End time: 02:19:03 on Aug 06,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # 
 # vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cyclonev_ver -L cyclonev_hssi_ver -L cyclonev_pcie_hip_ver -L rtl_work -L work -voptargs="+acc"  RestadorParametrizado_tb
 # vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cyclonev_ver -L cyclonev_hssi_ver -L cyclonev_pcie_hip_ver -L rtl_work -L work -voptargs=""+acc"" RestadorParametrizado_tb 
-# Start time: 00:53:54 on Aug 06,2024
+# Start time: 02:19:03 on Aug 06,2024
 # Loading sv_std.std
 # Loading work.RestadorParametrizado_tb
 # Loading work.RestadorParametrizado
@@ -57,3 +57,5 @@
 # ** Note: $stop    : C:/Users/ashda/Downloads/Workspace_Taller/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_1/Problema_3_RestadorParametrizado/RestadorParametrizado_tb.sv(101)
 #    Time: 50 ps  Iteration: 0  Instance: /RestadorParametrizado_tb
 # Break in Module RestadorParametrizado_tb at C:/Users/ashda/Downloads/Workspace_Taller/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_1/Problema_3_RestadorParametrizado/RestadorParametrizado_tb.sv line 101
+# End time: 02:19:43 on Aug 06,2024, Elapsed time: 0:00:40
+# Errors: 0, Warnings: 0
