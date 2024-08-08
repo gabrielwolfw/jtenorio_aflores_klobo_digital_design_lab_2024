@@ -4,35 +4,39 @@ module RestadorParametrizado #(parameter N = 6)(
     input logic [N-1:0] initial_value,
     input logic dec,
     output logic [6:0] seg1,  // Display 7 segmentos para las decenas
-    output logic [6:0] seg0   // Display 7 segmentos para las unidades
+    output logic [6:0] seg0,  // Display 7 segmentos para las unidades
+    output logic [N-1:0] count // Agregado para pruebas
 );
-    logic [N-1:0] count;
-    logic [3:0] bcd1, bcd0;
+    logic [N-1:0] count_internal;
 
-    // Instancia del restador
     always_ff @(posedge clk or posedge reset) begin
         if (reset)
-            count <= initial_value;
+            count_internal <= initial_value;
         else if (dec)
-            count <= count - 1;
+            count_internal <= count_internal - 1;
     end
 
-    // Conversión de binario a BCD
-    bin_to_bcd bin_to_bcd_inst (
-        .bin(count),
-        .bcd1(bcd1),
-        .bcd0(bcd0)
-    );
+    always_comb begin
+        count = count_internal; // Asignación para salida de prueba
+    end
 
-    // Conversión de BCD a 7 segmentos
-    bcd_to_7seg bcd_to_7seg_inst0 (
-        .bcd(bcd0),
-        .seg(seg0)
-    );
+    function [6:0] bin_to_7seg(input [3:0] digit);
+        case (digit)
+            4'd0: bin_to_7seg = 7'b1000000; // 0
+            4'd1: bin_to_7seg = 7'b1111001; // 1
+            4'd2: bin_to_7seg = 7'b0100100; // 2
+            4'd3: bin_to_7seg = 7'b0110000; // 3
+            4'd4: bin_to_7seg = 7'b0011001; // 4
+            4'd5: bin_to_7seg = 7'b0010010; // 5
+            4'd6: bin_to_7seg = 7'b0000010; // 6
+            4'd7: bin_to_7seg = 7'b1111000; // 7
+            4'd8: bin_to_7seg = 7'b0000000; // 8
+            4'd9: bin_to_7seg = 7'b0010000; // 9
+            default: bin_to_7seg = 7'b1111111; // Error
+        endcase
+    endfunction
 
-    bcd_to_7seg bcd_to_7seg_inst1 (
-        .bcd(bcd1),
-        .seg(seg1)
-    );
+    assign seg0 = bin_to_7seg(count_internal % 10); // Unidades
+    assign seg1 = bin_to_7seg(count_internal / 10); // Decenas
+
 endmodule
-
