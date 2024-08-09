@@ -1,0 +1,64 @@
+# Reading pref.tcl
+# do RestadorParametrizado_run_msim_rtl_verilog.do
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Model Technology ModelSim - Intel FPGA Edition vmap 2020.1 Lib Mapping Utility 2020.02 Feb 28 2020
+# vmap work rtl_work 
+# Copying C:/intelFPGA_lite/20.1/modelsim_ase/win32aloem/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# 
+# vlog -sv -work work +incdir+C:/Users/Usuario\ II\ 2024/Documents/GitHub/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_1/Problema_3_RestadorParametrizado {C:/Users/Usuario II 2024/Documents/GitHub/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_1/Problema_3_RestadorParametrizado/RestadorParametrizado.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 21:07:03 on Aug 08,2024
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/Usuario II 2024/Documents/GitHub/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_1/Problema_3_RestadorParametrizado" C:/Users/Usuario II 2024/Documents/GitHub/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_1/Problema_3_RestadorParametrizado/RestadorParametrizado.sv 
+# -- Compiling module RestadorParametrizado
+# 
+# Top level modules:
+# 	RestadorParametrizado
+# End time: 21:07:03 on Aug 08,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# 
+# vlog -sv -work work +incdir+C:/Users/Usuario\ II\ 2024/Documents/GitHub/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_1/Problema_3_RestadorParametrizado {C:/Users/Usuario II 2024/Documents/GitHub/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_1/Problema_3_RestadorParametrizado/RestadorParametrizado_tb.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 21:07:03 on Aug 08,2024
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/Usuario II 2024/Documents/GitHub/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_1/Problema_3_RestadorParametrizado" C:/Users/Usuario II 2024/Documents/GitHub/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_1/Problema_3_RestadorParametrizado/RestadorParametrizado_tb.sv 
+# -- Compiling module RestadorParametrizado_tb
+# 
+# Top level modules:
+# 	RestadorParametrizado_tb
+# End time: 21:07:03 on Aug 08,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# 
+# vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cyclonev_ver -L cyclonev_hssi_ver -L cyclonev_pcie_hip_ver -L rtl_work -L work -voptargs="+acc"  RestadorParametrizado_tb
+# vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cyclonev_ver -L cyclonev_hssi_ver -L cyclonev_pcie_hip_ver -L rtl_work -L work -voptargs=""+acc"" RestadorParametrizado_tb 
+# Start time: 21:07:04 on Aug 08,2024
+# Loading sv_std.std
+# Loading work.RestadorParametrizado_tb
+# Loading work.RestadorParametrizado
+# 
+# add wave *
+# view structure
+# .main_pane.structure.interior.cs.body.struct
+# view signals
+# .main_pane.objects.interior.cs.body.tree
+# run -all
+# === Iniciando prueba para 2 bits ===
+# Valor final del contador para 2 bits: 01
+# 7-segment: 0
+# 7-segment: 1
+# === Iniciando prueba para 4 bits ===
+# Valor final del contador para 4 bits: 0011
+# 7-segment: 0
+# 7-segment: 3
+# === Iniciando prueba para 6 bits ===
+# Valor final del contador para 6 bits: 001100
+# 7-segment: 1
+# 7-segment: 2
+# ** Note: $stop    : C:/Users/Usuario II 2024/Documents/GitHub/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_1/Problema_3_RestadorParametrizado/RestadorParametrizado_tb.sv(121)
+#    Time: 165 ps  Iteration: 0  Instance: /RestadorParametrizado_tb
+# Break in Module RestadorParametrizado_tb at C:/Users/Usuario II 2024/Documents/GitHub/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_1/Problema_3_RestadorParametrizado/RestadorParametrizado_tb.sv line 121
+# End time: 23:04:52 on Aug 08,2024, Elapsed time: 1:57:48
+# Errors: 0, Warnings: 0
