@@ -1,0 +1,65 @@
+m255
+K4
+z2
+!s11f vlog 2020.1 2020.02, Feb 28 2020
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/Users/Usuario II 2024/Documents/GitHub/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_1/Problema_3_RestadorParametrizado/simulation/modelsim
+vRestadorParametrizado
+Z1 DXx6 sv_std 3 std 0 22 VYECXdT12H8WgbUP_5Y6:3
+Z2 !s110 1723172823
+!i10b 1
+!s100 ^>Do:AjIk6_?<C7Xh^ajH0
+Z3 !s11b Dg1SIo80bB@j0V0VzS_@n1
+IZ>OHdXjFKA4<4hgW94J?T2
+Z4 VDg1SIo80bB@j0V0VzS_@n1
+S1
+R0
+w1723171026
+8C:/Users/Usuario II 2024/Documents/GitHub/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_1/Problema_3_RestadorParametrizado/RestadorParametrizado.sv
+FC:/Users/Usuario II 2024/Documents/GitHub/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_1/Problema_3_RestadorParametrizado/RestadorParametrizado.sv
+!i122 0
+L0 1 42
+Z5 OV;L;2020.1;71
+r1
+!s85 0
+31
+Z6 !s108 1723172823.000000
+!s107 C:/Users/Usuario II 2024/Documents/GitHub/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_1/Problema_3_RestadorParametrizado/RestadorParametrizado.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/Usuario II 2024/Documents/GitHub/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_1/Problema_3_RestadorParametrizado|C:/Users/Usuario II 2024/Documents/GitHub/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_1/Problema_3_RestadorParametrizado/RestadorParametrizado.sv|
+!i113 1
+Z7 o-sv -work work
+Z8 !s92 -sv -work work {+incdir+C:/Users/Usuario II 2024/Documents/GitHub/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_1/Problema_3_RestadorParametrizado}
+Z9 tCvgOpt 0
+n@restador@parametrizado
+vRestadorParametrizado_tb
+R1
+R2
+!i10b 1
+!s100 RPYA;VnogP]n97R^:E]1]0
+R3
+IMVg0IiRUVIA5]8Pec4A`23
+R4
+S1
+R0
+w1723172795
+8C:/Users/Usuario II 2024/Documents/GitHub/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_1/Problema_3_RestadorParametrizado/RestadorParametrizado_tb.sv
+FC:/Users/Usuario II 2024/Documents/GitHub/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_1/Problema_3_RestadorParametrizado/RestadorParametrizado_tb.sv
+!i122 1
+L0 1 125
+R5
+r1
+!s85 0
+31
+R6
+!s107 C:/Users/Usuario II 2024/Documents/GitHub/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_1/Problema_3_RestadorParametrizado/RestadorParametrizado_tb.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/Usuario II 2024/Documents/GitHub/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_1/Problema_3_RestadorParametrizado|C:/Users/Usuario II 2024/Documents/GitHub/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_1/Problema_3_RestadorParametrizado/RestadorParametrizado_tb.sv|
+!i113 1
+R7
+R8
+R9
+n@restador@parametrizado_tb
