@@ -59,3 +59,5 @@ set_global_assignment -name VERILOG_FILE CompuertaAND.v
 set_global_assignment -name SYSTEMVERILOG_FILE CompuertaOR.sv
 set_global_assignment -name SYSTEMVERILOG_FILE CompuertaNOT.sv
 set_global_assignment -name SYSTEMVERILOG_FILE CompuertaXOR.sv
+set_global_assignment -name SYSTEMVERILOG_FILE flags.sv
+set_global_assignment -name SYSTEMVERILOG_FILE MUX.sv
