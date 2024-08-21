@@ -1,5 +1,5 @@
 
-//ALU aux
+// ALU aux
 
 module alu #(parameter N=4) ( input logic [N-1:0] a,
 										input logic [N-1:0] b, 
@@ -12,19 +12,19 @@ module alu #(parameter N=4) ( input logic [N-1:0] a,
 										output reg [6:0] segA);
 	
 
-	//wire [N-1:0] r1;  // RESULTADO SUMA DE A+B 
-	//wire [N-1:0] r2;  // RESULTADO RESTA DE A+B
+	wire [N-1:0] r1;  // RESULTADO SUMA DE A+B 
+	wire [N-1:0] r2;  // RESULTADO RESTA DE A+B
 	wire [N-1:0] r3;  // RESULTADO AND
 	wire [N-1:0] r4;  // RESULTADO OR
 	wire [N-1:0] r5;  // RESULTADO NOT A
 	wire [N-1:0] r6;  // RESULTADO NOT B
 	wire [N-1:0] r7;  // RESULTADO XOR
-	//wire [N-1:0] r8;  // RESULTADO AShifLeft
-	//wire [N-1:0] r9;  // RESULTADO AShifRight
-	//wire [N-1:0] r10; // RESULTADO LShifLeft
-	//wire [N-1:0] r11; // RESULTADO LShifRight
-	//wire [N-1:0] r12; // RESULTADO Multiplicacion
-	//wire [N-1:0] r13; // RESULTADO DIVISION
+	wire [N-1:0] r8;  // RESULTADO AShifLeft
+	wire [N-1:0] r9;  // RESULTADO AShifRight
+	wire [N-1:0] r10; // RESULTADO LShifLeft
+	wire [N-1:0] r11; // RESULTADO LShifRight
+	wire [N-1:0] r12; // RESULTADO Multiplicacion
+	wire [N-1:0] r13; // RESULTADO DIVISION
 	
 	
 	wire [3:0] flagC; 	// FLAG DE ACARREO
@@ -162,8 +162,8 @@ module alu #(parameter N=4) ( input logic [N-1:0] a,
 	
 	
 	// INSTANCIA DISPLAY 7 SEGMENTOS
-	//sieteSeg #(.N(N)) g14 ( .result(result),
-									//.segA(segA));
+	sieteSeg #(.N(N)) g14 ( .result(result),
+									.segA(segA));
 									
  
 endmodule

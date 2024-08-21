@@ -1,5 +1,9 @@
 
-// FLAGS
+// Declaracion de las Flags
+//Flag de Desbordamiento (flagV):
+//Flag de Cero (flagZ):
+//Flag de Carry (flagC)
+
 
 module flags #(parameter N=4) (
 

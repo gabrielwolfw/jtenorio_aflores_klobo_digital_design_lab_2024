@@ -1,6 +1,8 @@
+//ALU
+///////////////////////////////////////////////////////////
 
-// ALU TOP_Level
 
+// Modulo parametrizable
 module ALU #(parameter N=4) ( input logic [N-1:0] a,
 										input logic [N-1:0] b, 
 										input [3:0] operation, 
@@ -10,7 +12,7 @@ module ALU #(parameter N=4) ( input logic [N-1:0] a,
 										output reg outFlagZ,
 										output reg [6:0] segA);
  
-	// INSTANCIA ALU
+	//Instancias de ALU
 	alu #(.N(N)) alu1(.a(a),
 							.b(b),
 							.operation(operation),
