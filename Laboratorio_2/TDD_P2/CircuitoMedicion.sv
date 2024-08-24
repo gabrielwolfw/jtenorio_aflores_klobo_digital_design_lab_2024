@@ -1,44 +1,41 @@
 module CircuitoMedicion #(parameter N = 4) (
-    input wire clk,
-    input wire reset,
-    input wire [N-1:0] in_a,
-    input wire [N-1:0] in_b,
-    input wire [3:0] operation,
-    output wire [N-1:0] out,
-    output wire outFlagC,
-    output wire outFlagN,
-    output wire outFlagV,
-    output wire outFlagZ,
-    output wire [6:0] segA
+    input clk, reset,
+    input [N-1:0] a, b,
+    input [3:0] operation,
+    output [N-1:0] out,
+    output outFlagC, outFlagN, outFlagV, outFlagZ,
+    output [6:0] segA
 );
-    wire [N-1:0] reg1_out;
-    wire [N-1:0] alu_out;
+    wire [N-1:0] reg1_out, reg2_out, alu_result;
 
-    // Primer registro
+    // Instancia del primer registro
     Register #(N) reg1 (
         .clk(clk),
         .reset(reset),
-        .D(in_a),
-        .Q(reg1_out)
+        .d(a),
+        .q(reg1_out)
     );
 
-    // ALU
+    // Instancia de la ALU
     ALU #(N) alu1 (
         .a(reg1_out),
-        .b(in_b),
+        .b(b),
         .operation(operation),
         .outFlagC(outFlagC),
         .outFlagN(outFlagN),
         .outFlagV(outFlagV),
         .outFlagZ(outFlagZ),
-        .segA(segA)
+        .segA(alu_result)
     );
 
-    // Segundo registro
+    // Instancia del segundo registro
     Register #(N) reg2 (
         .clk(clk),
         .reset(reset),
-        .D(alu_out),
-        .Q(out)
+        .d(alu_result),
+        .q(reg2_out)
     );
+
+    assign out = reg2_out;
 endmodule
+
