@@ -1,0 +1,38 @@
+module DecoderToBcd_tb();
+  // Declarar variables para los inputs y outputs
+  reg [3:0] in;
+  wire [7:0] out;
+
+  // Instanciar el módulo bajo prueba (DUT)
+  DecodificadorAbcd DUT (
+    .in(in),
+    .out(out)
+  );
+
+  // Procedimiento inicial para aplicar los estímulos de prueba
+  initial begin
+    // Monitorizar los valores de entrada y salida
+    $monitor("in = %b, out = %b", in, out);
+
+    // Aplicar valores de prueba
+    in = 4'b0000; #40;
+    in = 4'b0001; #40;
+    in = 4'b0010; #40;
+    in = 4'b0011; #40;
+    in = 4'b0100; #40;
+    in = 4'b0101; #40;
+    in = 4'b0110; #40;
+    in = 4'b0111; #40;
+    in = 4'b1000; #40;
+    in = 4'b1001; #40;
+    in = 4'b1010; #40;
+    in = 4'b1011; #40;
+    in = 4'b1100; #40;
+    in = 4'b1101; #40;
+    in = 4'b1110; #40;
+    in = 4'b1111; #40;
+
+    // Finalizar la simulación
+    $finish;
+  end
+endmodule

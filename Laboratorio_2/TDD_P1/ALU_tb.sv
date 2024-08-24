@@ -1,193 +1,99 @@
-//ALU Testbench
+module alu_tb;
 
-module ALU_tb;
+    // Declarar señales de entrada y salida
+    logic [3:0] a, b;                         // Cambiado a 4 bits
+    logic [3:0] alu_op;                       // Cambiado a 4 bits
+    logic [3:0] result;                      // Cambiado a 4 bits
+    logic N, Z, C, V;
 
-	parameter N = 4;
-	
-	// INPUTS
-	logic [N-1:0] a;
-	logic [N-1:0] b;
-	logic [3:0] operation;
-	
-	// OUTPUTS
-	reg outFlagC;
-	reg outFlagN;
-	reg outFlagV;
-	reg outFlagZ;
-	reg [6:0] segA;
+    // Declarar señales esperadas para la comprobación
+    logic [3:0] expected_result;             // Cambiado a 4 bits
+    logic expected_N, expected_Z, expected_C, expected_V;
 
-	// INSTANCIA ALU
-	ALU #(.N(N)) aluTest(.a(a), 
-								.b(b), 
-								.operation(operation),
-								.outFlagC(outFlagC),
-								.outFlagN(outFlagN),
-								.outFlagV(outFlagV),
-								.outFlagZ(outFlagZ),
-								.segA(segA));
+    // Instancia del módulo ALU
+    alu uut (
+        .a(a),
+        .b(b),
+        .opcode(alu_op),                     // Cambiado a opcode
+        .result(result),
+        .N(N),
+        .Z(Z),
+        .C(C),
+        .V(V)
+    );
 
-	initial begin
-	
-		// SUMA A+B
-		operation = 0;
-		
-		a = 4'b0000;
-		b = 4'b0001;
-		#10;
-		
-		a = 4'b1111;
-		b = 4'b0000;
-		#10;
-		
-		
-		// RESTA A+B
-		operation = 1;
-		#10;
-		
-		a = 4'b0000;
-		b = 4'b1111;
-		#10;
-		
-		a = 4'b1111;
-		b = 4'b1111;
-		#10;
-		
-		
-		// AND
-		operation = 2;
-		#10;
-		
-		a = 4'b0000;
-		b = 4'b1111;
-		#10;
-		
-		a = 4'b1111;
-		b = 4'b1111;
-		#10;
-		
-		
-		// OR
-		operation = 3;
-		#10;
-		
-		
-		a = 4'b1000;
-		b = 4'b0101;
-		#10;
-		
-		a = 4'b1111;
-		b = 4'b1111;
-		#10;
-		
-		
-		// NOT A
-		operation = 4;
-		#10;
-		
-		a = 4'b0000;
-		#10;
-		
-		a = 4'b1111;
-		#10;
-		
-		
-		// NOT B
-		operation = 5;
-		#10;
-		
-		b = 4'b0000;
-		#10;
-		
-		b = 4'b1111;
-		#10;
-		
-		
-		// XOR
-		operation = 6;
-		#10;
-		
-		a = 4'b0000;
-		b = 4'b0000;
-		#10;
-		
-		a = 4'b0101;
-		b = 4'b1000;
-		#10;
-		
-		
-		// AShiftLeft
-		operation = 7;
-		#10;
-		
-		a = 4'b0000;
-		b = 4'b0010;
-		#10;
-		
-		a = 4'b0101;
-		b = 4'b0010;
-		#10;
-		
-		
-		// AShiftRight
-		operation = 8;
-		#10;
-		
-		a = 4'b0000;
-		b = 4'b0010;
-		#10;
-		
-		a = 4'b0101;
-		b = 4'b0010;
-		#10;
-		
-		
-		// LShiftLeft
-		operation = 9;
-		#10;
-		
-		a = 4'b0000;
-		b = 4'b0010;
-		#10;
-		
-		a = 4'b0101;
-		b = 4'b0010;
-		#10;
-		
-		// LShiftRight
-		operation = 10;
-		#10;
-		
-		a = 4'b0000;
-		b = 4'b0010;
-		#10;
-		
-		a = 4'b0101;
-		b = 4'b0010;
-		#10;
-		
-		// MULTIPLICACION A*B
-		operation = 11;
-		
-		a = 4'b0100;
-		b = 4'b0101;
-		#10;
+    // Procedimiento de prueba
+    initial begin
+        // Prueba de suma
+        a = 4'b0011; b = 4'b0010; alu_op = 4'b0000;
+        expected_result = 4'b0101;
+        expected_N = 0; expected_Z = 0; expected_C = 0; expected_V = 0;
+        #10;
+        check_result();
 
-		
-		a = 4'b1111;
-		b = 4'b1111;
-		#10;
-		
-		// DIVISION A/B
-		operation = 12;
-		
-		a = 4'b0000;
-		b = 4'b1111;
-		#10;
-		
-		a = 4'b1111;
-		b = 4'b1111;
-		#10;
-		
-	end
-	
-endmodule 
+        // Prueba de resta
+        a = 4'b0111; b = 4'b0011; alu_op = 4'b0001;
+        expected_result = 4'b0100;
+        expected_N = 0; expected_Z = 0; expected_C = 0; expected_V = 0;
+        #10;
+        check_result();
+
+        // Prueba de multiplicación
+        a = 4'b0010; b = 4'b0011; alu_op = 4'b0010;
+        expected_result = 4'b0110;
+        expected_N = 0; expected_Z = 0; expected_C = 0; expected_V = 0;
+        #10;
+        check_result();
+
+        // Prueba de AND
+        a = 4'b1111; b = 4'b1110; alu_op = 4'b0101;
+        expected_result = 4'b1110;
+        expected_N = 1; expected_Z = 0; expected_C = 0; expected_V = 0;
+        #10;
+        check_result();
+
+        // Prueba de OR
+        a = 4'b1111; b = 4'b0000; alu_op = 4'b0110;
+        expected_result = 4'b1111;
+        expected_N = 1; expected_Z = 0; expected_C = 0; expected_V = 0;
+        #10;
+        check_result();
+
+        // Prueba de XOR
+        a = 4'b1100; b = 4'b0011; alu_op = 4'b0111;
+        expected_result = 4'b1111;
+        expected_N = 1; expected_Z = 0; expected_C = 0; expected_V = 0;
+        #10;
+        check_result();
+
+        // Prueba de shift left
+        a = 4'b0001; b = 4'b0010; alu_op = 4'b1000;
+        expected_result = 4'b0100;
+        expected_N = 0; expected_Z = 0; expected_C = 0; expected_V = 0;
+        #10;
+        check_result();
+
+        // Prueba de shift right
+        a = 4'b1000; b = 4'b0010; alu_op = 4'b1001;
+        expected_result = 4'b0010;
+        expected_N = 0; expected_Z = 0; expected_C = 0; expected_V = 0;
+        #10;
+        check_result();
+
+        // Finalizar simulación
+        $finish;
+    end
+
+    // Tarea para verificar el resultado
+    task check_result;
+        if (result !== expected_result) $display("Error: resultado incorrecto! Esperado %b, obtenido %b", expected_result, result);
+        if (N !== expected_N) $display("Error: bandera N incorrecta! Esperado %b, obtenido %b", expected_N, N);
+        if (Z !== expected_Z) $display("Error: bandera Z incorrecta! Esperado %b, obtenido %b", expected_Z, Z);
+        if (C !== expected_C) $display("Error: bandera C incorrecta! Esperado %b, obtenido %b", expected_C, C);
+        if (V !== expected_V) $display("Error: bandera V incorrecta! Esperado %b, obtenido %b", expected_V, V);
+    endtask
+
+endmodule
+
+
+
