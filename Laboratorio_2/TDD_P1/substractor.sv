@@ -5,12 +5,24 @@ module subtractor (
 );
 
     logic [3:0] b_complement;
+    logic [3:0] sum_result;
     logic carry_out;
 
-    // Calcular el complemento a 2 de b
-    assign b_complement = ~b + 1;
+    // Calcular el complemento a 1 de b
+    logic [3:0] b_not;
+    assign b_not = ~b;
 
-    adder add (
+    // Sumar 1 al complemento a 1 - Complemento a 2
+    adder add_1_to_complement (
+        .a(b_not),
+        .b(4'b0001),          // Sumar 1
+        .result(b_complement),
+        .carry(),             
+        .overflow()           
+    );
+
+    // Sumar a y b_complement para obtener el resultado de la resta
+    adder subtract_add (
         .a(a),
         .b(b_complement),
         .result(result),

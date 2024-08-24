@@ -3,6 +3,7 @@ module full_adder (
     output logic sum, cout
 );
 
-    assign {cout, sum} = a + b + cin;
+    assign sum = a ^ b ^ cin; 					// Suma (bit de menor peso)
+    assign cout = (a & b) | (cin & (a ^ b)); // Acarreo
 
 endmodule

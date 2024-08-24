@@ -63,6 +63,7 @@ module alu (
     // Cálculo de banderas
     assign N = result[3];                  // Negativo: 1 si el bit más significativo es 1
     assign Z = (result == 4'b0);           // Cero: 1 si el resultado es 0
+	 
     
     // Bandera de acarreo (C)
     assign C = (opcode == 4'b0000) ? carry_out :           // Acarreo para Suma
