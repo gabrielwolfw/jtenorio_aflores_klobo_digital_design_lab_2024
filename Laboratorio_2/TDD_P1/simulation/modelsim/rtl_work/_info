@@ -1,0 +1,245 @@
+m255
+K4
+z2
+!s11f vlog 2020.1 2020.02, Feb 28 2020
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_2/TDD_P1/simulation/modelsim
+vadder
+Z1 DXx6 sv_std 3 std 0 22 VYECXdT12H8WgbUP_5Y6:3
+Z2 !s110 1724481680
+!i10b 1
+!s100 TYIi2CUR8FG983WPc>Y622
+Z3 !s11b Dg1SIo80bB@j0V0VzS_@n1
+Imc]a@D9V;TcQJoBjSF3oN1
+Z4 VDg1SIo80bB@j0V0VzS_@n1
+S1
+R0
+w1724479808
+8C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_2/TDD_P1/adder.sv
+FC:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_2/TDD_P1/adder.sv
+!i122 1
+L0 1 38
+Z5 OV;L;2020.1;71
+r1
+!s85 0
+31
+Z6 !s108 1724481680.000000
+!s107 C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_2/TDD_P1/adder.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_2/TDD_P1|C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_2/TDD_P1/adder.sv|
+!i113 1
+Z7 o-sv -work work
+Z8 !s92 -sv -work work +incdir+C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_2/TDD_P1
+Z9 tCvgOpt 0
+valu
+R1
+!s110 1724481679
+!i10b 1
+!s100 5>0DGI7RTCiUQRC^IgnH?2
+R3
+IMmFO`KnGJbS5m>K84Fl_:1
+R4
+S1
+R0
+w1724479695
+8C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_2/TDD_P1/alu.sv
+FC:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_2/TDD_P1/alu.sv
+!i122 0
+L0 1 77
+R5
+r1
+!s85 0
+31
+!s108 1724481679.000000
+!s107 C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_2/TDD_P1/alu.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_2/TDD_P1|C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_2/TDD_P1/alu.sv|
+!i113 1
+R7
+R8
+R9
+valu_tb
+R1
+!s110 1724481681
+!i10b 1
+!s100 6WUzE_88WYGA4^WE_mOFS0
+R3
+I8L;XCPA@JI<SSIeUXFBhb3
+R4
+S1
+R0
+w1724479914
+8C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_2/TDD_P1/alu_tb.sv
+FC:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_2/TDD_P1/alu_tb.sv
+!i122 8
+L0 1 96
+R5
+r1
+!s85 0
+31
+!s108 1724481681.000000
+!s107 C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_2/TDD_P1/alu_tb.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_2/TDD_P1|C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_2/TDD_P1/alu_tb.sv|
+!i113 1
+R7
+R8
+R9
+vbin_to_7seg
+R1
+R2
+!i10b 1
+!s100 ];225WIggiBBa_1kAhTWZ2
+R3
+IZ9Z?W_YXm399FSN8eiJ`D1
+R4
+S1
+R0
+w1724480068
+8C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_2/TDD_P1/bin_to_7seg.sv
+FC:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_2/TDD_P1/bin_to_7seg.sv
+!i122 6
+L0 1 28
+R5
+r1
+!s85 0
+31
+R6
+!s107 C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_2/TDD_P1/bin_to_7seg.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_2/TDD_P1|C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_2/TDD_P1/bin_to_7seg.sv|
+!i113 1
+R7
+R8
+R9
+vfull_adder
+R1
+R2
+!i10b 1
+!s100 C9z?SCS^?B0a=oAJ00:ml0
+R3
+IK1UPM5a0JgXHUW^MfKCO23
+R4
+S1
+R0
+w1724480004
+8C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_2/TDD_P1/full_adder.sv
+FC:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_2/TDD_P1/full_adder.sv
+!i122 4
+L0 1 8
+R5
+r1
+!s85 0
+31
+R6
+!s107 C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_2/TDD_P1/full_adder.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_2/TDD_P1|C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_2/TDD_P1/full_adder.sv|
+!i113 1
+R7
+R8
+R9
+vmultiplier
+R1
+R2
+!i10b 1
+!s100 FOGF_oSi`?BgAAez73bXL1
+R3
+I>O_>X3`L>]k:Xn7U4@m@?1
+R4
+S1
+R0
+w1724479836
+8C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_2/TDD_P1/multiplier.sv
+FC:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_2/TDD_P1/multiplier.sv
+!i122 2
+L0 1 25
+R5
+r1
+!s85 0
+31
+R6
+!s107 C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_2/TDD_P1/multiplier.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_2/TDD_P1|C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_2/TDD_P1/multiplier.sv|
+!i113 1
+R7
+R8
+R9
+voperation_selector
+R1
+R2
+!i10b 1
+!s100 z2@Y_27NPkKKf0jFdL>oD1
+R3
+IoZn1knOiB=ObMYCIUI`DZ2
+R4
+S1
+R0
+w1724480102
+8C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_2/TDD_P1/operation_selector.sv
+FC:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_2/TDD_P1/operation_selector.sv
+!i122 7
+L0 1 22
+R5
+r1
+!s85 0
+31
+R6
+!s107 C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_2/TDD_P1/operation_selector.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_2/TDD_P1|C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_2/TDD_P1/operation_selector.sv|
+!i113 1
+R7
+R8
+R9
+vsubtractor
+R1
+R2
+!i10b 1
+!s100 6ojmYklKSoM4UE`<:6L3P3
+R3
+I=FoS;kNX9Bkl1lW[zNON^2
+R4
+S1
+R0
+w1724479969
+8C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_2/TDD_P1/substractor.sv
+FC:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_2/TDD_P1/substractor.sv
+!i122 3
+L0 1 23
+R5
+r1
+!s85 0
+31
+R6
+!s107 C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_2/TDD_P1/substractor.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_2/TDD_P1|C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_2/TDD_P1/substractor.sv|
+!i113 1
+R7
+R8
+R9
+vtop
+R1
+R2
+!i10b 1
+!s100 ?MU2b;h^l>cKicHTg1b>O2
+R3
+ISMQ@:VMP[2^deYN5J?5Gg1
+R4
+S1
+R0
+w1724480030
+8C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_2/TDD_P1/top.sv
+FC:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_2/TDD_P1/top.sv
+!i122 5
+L0 1 45
+R5
+r1
+!s85 0
+31
+R6
+!s107 C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_2/TDD_P1/top.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_2/TDD_P1|C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_2/TDD_P1/top.sv|
+!i113 1
+R7
+R8
+R9
