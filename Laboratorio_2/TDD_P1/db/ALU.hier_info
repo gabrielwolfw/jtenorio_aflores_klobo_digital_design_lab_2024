@@ -289,30 +289,118 @@ cout <= cout.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |top|alu:my_alu|multiplier:mul_unit
-a[0] => partial_sum.DATAB
-a[0] => partial_sum[1][1].DATAB
-a[0] => partial_sum[2][2].DATAB
-a[0] => partial_sum[3][3].DATAB
-a[1] => partial_sum[0][1].DATAB
-a[1] => partial_sum[1][2].DATAB
-a[1] => partial_sum[2][3].DATAB
-a[2] => partial_sum[0][2].DATAB
-a[2] => partial_sum[1][3].DATAB
-a[3] => partial_sum[0][3].DATAB
-b[0] => partial_sum[0][3].OUTPUTSELECT
-b[0] => partial_sum[0][2].OUTPUTSELECT
-b[0] => partial_sum[0][1].OUTPUTSELECT
-b[0] => partial_sum.OUTPUTSELECT
-b[1] => partial_sum[1][3].OUTPUTSELECT
-b[1] => partial_sum[1][2].OUTPUTSELECT
-b[1] => partial_sum[1][1].OUTPUTSELECT
-b[2] => partial_sum[2][3].OUTPUTSELECT
-b[2] => partial_sum[2][2].OUTPUTSELECT
-b[3] => partial_sum[3][3].OUTPUTSELECT
-result[0] <= partial_sum.DB_MAX_OUTPUT_PORT_TYPE
-result[1] <= Add0.DB_MAX_OUTPUT_PORT_TYPE
-result[2] <= Add1.DB_MAX_OUTPUT_PORT_TYPE
+a[0] => a[0].IN4
+a[1] => a[1].IN4
+a[2] => a[2].IN4
+a[3] => a[3].IN4
+b[0] => b[0].IN1
+b[1] => b[1].IN1
+b[2] => b[2].IN1
+b[3] => b[3].IN1
+result[0] <= Add2.DB_MAX_OUTPUT_PORT_TYPE
+result[1] <= Add2.DB_MAX_OUTPUT_PORT_TYPE
+result[2] <= Add2.DB_MAX_OUTPUT_PORT_TYPE
 result[3] <= Add2.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|alu:my_alu|multiplier:mul_unit|partial_multiplier:pm0
+a[0] => ShiftLeft0.IN8
+a[1] => ShiftLeft0.IN7
+a[2] => ShiftLeft0.IN6
+a[3] => ShiftLeft0.IN5
+b => result.OUTPUTSELECT
+b => result.OUTPUTSELECT
+b => result.OUTPUTSELECT
+b => result.OUTPUTSELECT
+b => result.OUTPUTSELECT
+b => result.OUTPUTSELECT
+b => result.OUTPUTSELECT
+b => result.OUTPUTSELECT
+shift[0] => ShiftLeft0.IN10
+shift[1] => ShiftLeft0.IN9
+result[0] <= result.DB_MAX_OUTPUT_PORT_TYPE
+result[1] <= result.DB_MAX_OUTPUT_PORT_TYPE
+result[2] <= result.DB_MAX_OUTPUT_PORT_TYPE
+result[3] <= result.DB_MAX_OUTPUT_PORT_TYPE
+result[4] <= result.DB_MAX_OUTPUT_PORT_TYPE
+result[5] <= result.DB_MAX_OUTPUT_PORT_TYPE
+result[6] <= result.DB_MAX_OUTPUT_PORT_TYPE
+result[7] <= result.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|alu:my_alu|multiplier:mul_unit|partial_multiplier:pm1
+a[0] => ShiftLeft0.IN8
+a[1] => ShiftLeft0.IN7
+a[2] => ShiftLeft0.IN6
+a[3] => ShiftLeft0.IN5
+b => result.OUTPUTSELECT
+b => result.OUTPUTSELECT
+b => result.OUTPUTSELECT
+b => result.OUTPUTSELECT
+b => result.OUTPUTSELECT
+b => result.OUTPUTSELECT
+b => result.OUTPUTSELECT
+b => result.OUTPUTSELECT
+shift[0] => ShiftLeft0.IN10
+shift[1] => ShiftLeft0.IN9
+result[0] <= result.DB_MAX_OUTPUT_PORT_TYPE
+result[1] <= result.DB_MAX_OUTPUT_PORT_TYPE
+result[2] <= result.DB_MAX_OUTPUT_PORT_TYPE
+result[3] <= result.DB_MAX_OUTPUT_PORT_TYPE
+result[4] <= result.DB_MAX_OUTPUT_PORT_TYPE
+result[5] <= result.DB_MAX_OUTPUT_PORT_TYPE
+result[6] <= result.DB_MAX_OUTPUT_PORT_TYPE
+result[7] <= result.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|alu:my_alu|multiplier:mul_unit|partial_multiplier:pm2
+a[0] => ShiftLeft0.IN8
+a[1] => ShiftLeft0.IN7
+a[2] => ShiftLeft0.IN6
+a[3] => ShiftLeft0.IN5
+b => result.OUTPUTSELECT
+b => result.OUTPUTSELECT
+b => result.OUTPUTSELECT
+b => result.OUTPUTSELECT
+b => result.OUTPUTSELECT
+b => result.OUTPUTSELECT
+b => result.OUTPUTSELECT
+b => result.OUTPUTSELECT
+shift[0] => ShiftLeft0.IN10
+shift[1] => ShiftLeft0.IN9
+result[0] <= result.DB_MAX_OUTPUT_PORT_TYPE
+result[1] <= result.DB_MAX_OUTPUT_PORT_TYPE
+result[2] <= result.DB_MAX_OUTPUT_PORT_TYPE
+result[3] <= result.DB_MAX_OUTPUT_PORT_TYPE
+result[4] <= result.DB_MAX_OUTPUT_PORT_TYPE
+result[5] <= result.DB_MAX_OUTPUT_PORT_TYPE
+result[6] <= result.DB_MAX_OUTPUT_PORT_TYPE
+result[7] <= result.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|alu:my_alu|multiplier:mul_unit|partial_multiplier:pm3
+a[0] => ShiftLeft0.IN8
+a[1] => ShiftLeft0.IN7
+a[2] => ShiftLeft0.IN6
+a[3] => ShiftLeft0.IN5
+b => result.OUTPUTSELECT
+b => result.OUTPUTSELECT
+b => result.OUTPUTSELECT
+b => result.OUTPUTSELECT
+b => result.OUTPUTSELECT
+b => result.OUTPUTSELECT
+b => result.OUTPUTSELECT
+b => result.OUTPUTSELECT
+shift[0] => ShiftLeft0.IN10
+shift[1] => ShiftLeft0.IN9
+result[0] <= result.DB_MAX_OUTPUT_PORT_TYPE
+result[1] <= result.DB_MAX_OUTPUT_PORT_TYPE
+result[2] <= result.DB_MAX_OUTPUT_PORT_TYPE
+result[3] <= result.DB_MAX_OUTPUT_PORT_TYPE
+result[4] <= result.DB_MAX_OUTPUT_PORT_TYPE
+result[5] <= result.DB_MAX_OUTPUT_PORT_TYPE
+result[6] <= result.DB_MAX_OUTPUT_PORT_TYPE
+result[7] <= result.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |top|bin_to_7seg:result_to_7seg

@@ -13,6 +13,7 @@ vlog -sv -work work +incdir+C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio
 vlog -sv -work work +incdir+C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_2/TDD_P1 {C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_2/TDD_P1/top.sv}
 vlog -sv -work work +incdir+C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_2/TDD_P1 {C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_2/TDD_P1/bin_to_7seg.sv}
 vlog -sv -work work +incdir+C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_2/TDD_P1 {C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_2/TDD_P1/operation_selector.sv}
+vlog -sv -work work +incdir+C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_2/TDD_P1 {C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_2/TDD_P1/partial_multiplier.sv}
 
 vlog -sv -work work +incdir+C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_2/TDD_P1 {C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_2/TDD_P1/alu_tb.sv}
 
