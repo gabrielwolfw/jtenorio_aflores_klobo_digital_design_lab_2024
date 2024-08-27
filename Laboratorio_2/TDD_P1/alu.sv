@@ -1,16 +1,20 @@
-module alu (
-    input logic [3:0] a, b,                     // Cambiado a 4 bits
-    input logic [3:0] opcode,                   // Cambiado a 4 bits
-    output logic [3:0] result,                  // Cambiado a 4 bits
+//ALU
+
+module alu #(
+    parameter WIDTH = 4  // Parametro para definir el ancho de los buses
+)(
+    input logic [WIDTH-1:0] a, b,                // Entradas parametrizadas
+    input logic [WIDTH-1:0] opcode,              // Código de operación parametrizado
+    output logic [WIDTH-1:0] result,             // Resultado parametrizado
     output logic N, Z, C, V
 );
 
-    logic [3:0] sum, diff, prod, quotient, remainder;
-    logic [3:0] and_res, or_res, xor_res, shl_res, shr_res;
+    logic [WIDTH-1:0] sum, diff, prod, quotient, remainder;
+    logic [WIDTH-1:0] and_res, or_res, xor_res, shl_res, shr_res;
     logic carry_out, overflow_sum, overflow_diff;
 
     // Instancias de módulos estructurales
-    adder add_unit(
+    adder #(.WIDTH(WIDTH)) add_unit(
         .a(a),
         .b(b),
         .result(sum),
@@ -18,7 +22,7 @@ module alu (
         .overflow(overflow_sum)
     );
 
-    subtractor sub_unit(
+    subtractor #(.WIDTH(WIDTH)) sub_unit(
         .a(a),
         .b(b),
         .result(diff),
@@ -26,7 +30,7 @@ module alu (
         .overflow(overflow_diff)
     );
 
-    multiplier mul_unit(
+    multiplier #(.WIDTH(WIDTH)) mul_unit(
         .a(a),
         .b(b),
         .result(prod)
@@ -36,12 +40,13 @@ module alu (
     assign and_res = a & b;
     assign or_res = a | b;
     assign xor_res = a ^ b;
-    assign shl_res = a << b[3:0];  // Limitamos el shift a un valor de 0-15
-    assign shr_res = a >> b[3:0];
+    assign shl_res = a << b[$clog2(WIDTH)-1:0];  // Limitamos el shift a un valor según WIDTH
+    assign shr_res = a >> b[$clog2(WIDTH)-1:0];
 
     // Operaciones de división y módulo
-    assign quotient = b != 0 ? a / b : 4'b0; // Protección contra división por cero
-    assign remainder = b != 0 ? a % b : 4'b0; // Protección contra división por cero
+    assign quotient = b != 0 ? a / b : {WIDTH{1'b0}};  // Protección contra división por cero
+    assign remainder = b != 0 ? a % b : {WIDTH{1'b0}}; // Protección contra división por cero
+
 
         // Selección de la operación basada en opcode
     always_comb begin

@@ -1,17 +1,19 @@
-module adder (
-    input logic [3:0] a, b,                      // Cambiado a 4 bits
-    output logic [3:0] result,                   // Cambiado a 4 bits
+module adder #(
+    parameter WIDTH = 4  // Parametro para definir el ancho de los buses
+)(
+    input logic [WIDTH-1:0] a, b,          // Ancho de bits parametrizado
+    output logic [WIDTH-1:0] result,       // Ancho de bits parametrizado
     output logic carry, overflow
 );
 
-    logic [3:0] carry_out;                       // Cambiado a 4 bits
+    logic [WIDTH-1:0] carry_out;           // Ancho de bits parametrizado
     logic cin;
 
     assign cin = 1'b0; // No carry-in para el primer bit
 
     genvar i;
     generate
-        for (i = 0; i < 4; i = i + 1) begin : adder_block // Cambiado a 4 iteraciones
+        for (i = 0; i < WIDTH; i = i + 1) begin : adder_block // Iteraciones parametrizadas
             if (i == 0) begin
                 full_adder fa (
                     .a(a[i]),
@@ -32,7 +34,7 @@ module adder (
         end
     endgenerate
 
-    assign carry = carry_out[3];                // Cambiado a 4 bits
-    assign overflow = (a[3] == b[3]) && (result[3] != a[3]);
+    assign carry = carry_out[WIDTH-1]; // Último bit parametrizado
+    assign overflow = (a[WIDTH-1] == b[WIDTH-1]) && (result[WIDTH-1] != a[WIDTH-1]);
 
 endmodule
