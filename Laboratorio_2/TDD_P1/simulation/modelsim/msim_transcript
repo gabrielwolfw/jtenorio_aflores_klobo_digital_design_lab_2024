@@ -1,0 +1,147 @@
+# Reading pref.tcl
+# do ALU_run_msim_rtl_verilog.do
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Model Technology ModelSim - Intel FPGA Edition vmap 2020.1 Lib Mapping Utility 2020.02 Feb 28 2020
+# vmap work rtl_work 
+# Copying C:/intelFPGA/20.1/modelsim_ase/win32aloem/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# 
+# vlog -sv -work work +incdir+C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_2/TDD_P1 {C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_2/TDD_P1/alu.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 22:58:59 on Aug 26,2024
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_2/TDD_P1" C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_2/TDD_P1/alu.sv 
+# -- Compiling module alu
+# 
+# Top level modules:
+# 	alu
+# End time: 22:58:59 on Aug 26,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -sv -work work +incdir+C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_2/TDD_P1 {C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_2/TDD_P1/adder.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 22:59:00 on Aug 26,2024
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_2/TDD_P1" C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_2/TDD_P1/adder.sv 
+# -- Compiling module adder
+# 
+# Top level modules:
+# 	adder
+# End time: 22:59:00 on Aug 26,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -sv -work work +incdir+C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_2/TDD_P1 {C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_2/TDD_P1/multiplier.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 22:59:00 on Aug 26,2024
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_2/TDD_P1" C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_2/TDD_P1/multiplier.sv 
+# -- Compiling module multiplier
+# 
+# Top level modules:
+# 	multiplier
+# End time: 22:59:00 on Aug 26,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -sv -work work +incdir+C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_2/TDD_P1 {C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_2/TDD_P1/substractor.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 22:59:00 on Aug 26,2024
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_2/TDD_P1" C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_2/TDD_P1/substractor.sv 
+# -- Compiling module subtractor
+# 
+# Top level modules:
+# 	subtractor
+# End time: 22:59:00 on Aug 26,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -sv -work work +incdir+C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_2/TDD_P1 {C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_2/TDD_P1/full_adder.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 22:59:00 on Aug 26,2024
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_2/TDD_P1" C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_2/TDD_P1/full_adder.sv 
+# -- Compiling module full_adder
+# 
+# Top level modules:
+# 	full_adder
+# End time: 22:59:00 on Aug 26,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -sv -work work +incdir+C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_2/TDD_P1 {C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_2/TDD_P1/top.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 22:59:00 on Aug 26,2024
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_2/TDD_P1" C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_2/TDD_P1/top.sv 
+# -- Compiling module top
+# 
+# Top level modules:
+# 	top
+# End time: 22:59:00 on Aug 26,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -sv -work work +incdir+C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_2/TDD_P1 {C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_2/TDD_P1/bin_to_7seg.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 22:59:01 on Aug 26,2024
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_2/TDD_P1" C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_2/TDD_P1/bin_to_7seg.sv 
+# -- Compiling module bin_to_7seg
+# 
+# Top level modules:
+# 	bin_to_7seg
+# End time: 22:59:01 on Aug 26,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -sv -work work +incdir+C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_2/TDD_P1 {C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_2/TDD_P1/operation_selector.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 22:59:01 on Aug 26,2024
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_2/TDD_P1" C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_2/TDD_P1/operation_selector.sv 
+# -- Compiling module operation_selector
+# 
+# Top level modules:
+# 	operation_selector
+# End time: 22:59:01 on Aug 26,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -sv -work work +incdir+C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_2/TDD_P1 {C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_2/TDD_P1/partial_multiplier.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 22:59:01 on Aug 26,2024
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_2/TDD_P1" C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_2/TDD_P1/partial_multiplier.sv 
+# -- Compiling module partial_multiplier
+# 
+# Top level modules:
+# 	partial_multiplier
+# End time: 22:59:01 on Aug 26,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# 
+# vlog -sv -work work +incdir+C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_2/TDD_P1 {C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_2/TDD_P1/alu_tb.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 22:59:01 on Aug 26,2024
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_2/TDD_P1" C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_2/TDD_P1/alu_tb.sv 
+# -- Compiling module alu_tb
+# 
+# Top level modules:
+# 	alu_tb
+# End time: 22:59:01 on Aug 26,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# 
+# vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cyclonev_ver -L cyclonev_hssi_ver -L cyclonev_pcie_hip_ver -L rtl_work -L work -voptargs="+acc"  alu_tb
+# vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cyclonev_ver -L cyclonev_hssi_ver -L cyclonev_pcie_hip_ver -L rtl_work -L work -voptargs=""+acc"" alu_tb 
+# Start time: 22:59:01 on Aug 26,2024
+# Loading sv_std.std
+# Loading work.alu_tb
+# Loading work.alu
+# Loading work.adder
+# Loading work.subtractor
+# Loading work.multiplier
+# Loading work.full_adder
+# Loading work.partial_multiplier
+# ** Warning: (vsim-3015) [PCDPC] - Port size (2) does not match connection size (32) for port 'shift'. The port definition is at: C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_2/TDD_P1/partial_multiplier.sv(6).
+#    Time: 0 ps  Iteration: 0  Instance: /alu_tb/uut/mul_unit/partial_multipliers[0]/pm File: C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_2/TDD_P1/multiplier.sv Line: 15
+# ** Warning: (vsim-3015) [PCDPC] - Port size (2) does not match connection size (32) for port 'shift'. The port definition is at: C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_2/TDD_P1/partial_multiplier.sv(6).
+#    Time: 0 ps  Iteration: 0  Instance: /alu_tb/uut/mul_unit/partial_multipliers[1]/pm File: C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_2/TDD_P1/multiplier.sv Line: 15
+# ** Warning: (vsim-3015) [PCDPC] - Port size (2) does not match connection size (32) for port 'shift'. The port definition is at: C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_2/TDD_P1/partial_multiplier.sv(6).
+#    Time: 0 ps  Iteration: 0  Instance: /alu_tb/uut/mul_unit/partial_multipliers[2]/pm File: C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_2/TDD_P1/multiplier.sv Line: 15
+# ** Warning: (vsim-3015) [PCDPC] - Port size (2) does not match connection size (32) for port 'shift'. The port definition is at: C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_2/TDD_P1/partial_multiplier.sv(6).
+#    Time: 0 ps  Iteration: 0  Instance: /alu_tb/uut/mul_unit/partial_multipliers[3]/pm File: C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_2/TDD_P1/multiplier.sv Line: 15
+# 
+# add wave *
+# view structure
+# .main_pane.structure.interior.cs.body.struct
+# view signals
+# .main_pane.objects.interior.cs.body.tree
+# run -all
+# Error: bandera C incorrecta! Esperado 1, obtenido 0
+# ** Note: $finish    : C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_2/TDD_P1/alu_tb.sv(133)
+#    Time: 160 ps  Iteration: 0  Instance: /alu_tb
+# 1
+# Break in Module alu_tb at C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_2/TDD_P1/alu_tb.sv line 133
+# End time: 22:59:57 on Aug 26,2024, Elapsed time: 0:00:56
+# Errors: 0, Warnings: 4
