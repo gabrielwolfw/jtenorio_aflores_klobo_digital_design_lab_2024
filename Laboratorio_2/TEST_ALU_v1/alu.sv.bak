@@ -1,0 +1,58 @@
+module alu (
+    input logic [31:0] a, b,
+    input logic [3:0] alu_op,
+    output logic [31:0] result,
+    output logic N, Z, C, V
+);
+
+    logic [31:0] add_result, sub_result, mul_result;
+    logic add_carry, add_overflow, sub_carry, sub_overflow;
+
+    // Instancias de los módulos aritméticos
+    adder adder_inst (
+        .a(a),
+        .b(b),
+        .result(add_result),
+        .carry(add_carry),
+        .overflow(add_overflow)
+    );
+
+    multiplier multiplier_inst (
+        .a(a),
+        .b(b),
+        .result(mul_result)
+    );
+
+    subtractor subtractor_inst (
+        .a(a),
+        .b(b),
+        .result(sub_result),
+        .carry(sub_carry),
+        .overflow(sub_overflow)
+    );
+
+    // ALU Operations
+    always_comb begin
+        case (alu_op)
+            4'b0000: result = add_result;        // Suma
+            4'b0001: result = sub_result;        // Resta
+            4'b0010: result = mul_result;        // Multiplicación
+            4'b0011: result = a & b;             // AND
+            4'b0100: result = a | b;             // OR
+            4'b0101: result = a ^ b;             // XOR
+            4'b0110: result = a << b[4:0];       // Shift Left
+            4'b0111: result = a >> b[4:0];       // Shift Right
+            4'b1000: result = a % b;             // Módulo
+            default: result = 32'b0;
+        endcase
+
+        // Banderas de estado
+        N = result[31];
+        Z = (result == 32'b0);
+        C = (alu_op == 4'b0000) ? add_carry : 
+            (alu_op == 4'b0001) ? sub_carry : 1'b0;
+        V = (alu_op == 4'b0000) ? add_overflow :
+            (alu_op == 4'b0001) ? sub_overflow : 1'b0;
+    end
+
+endmodule

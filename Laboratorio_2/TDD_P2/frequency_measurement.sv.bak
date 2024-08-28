@@ -1,0 +1,43 @@
+module frequency_measurement #(
+    parameter DATA_WIDTH = 4
+)(
+    input logic clk,              // Reloj del sistema
+    input logic reset,            // Reset del sistema
+    input logic [DATA_WIDTH-1:0] a, b,
+    input logic [3:0] opcode,
+    output logic [DATA_WIDTH-1:0] result,
+    output logic N, Z, C, V
+);
+
+    // Señales internas
+    logic [DATA_WIDTH-1:0] internal_result;
+    logic internal_N, internal_Z, internal_C, internal_V;
+
+    // Instancia del módulo ALU con registros
+    alu_with_registers #(
+        .DATA_WIDTH(DATA_WIDTH)
+    ) alu_instance (
+        .clk(clk),
+        .reset(reset),
+        .a(a),
+        .b(b),
+        .opcode(opcode),
+        .result(internal_result),
+        .N(internal_N),
+        .Z(internal_Z),
+        .C(internal_C),
+        .V(internal_V)
+    );
+
+    // Lógica para medir frecuencia
+    // Aquí puedes agregar lógica adicional para medir la frecuencia si es necesario
+    // Por ejemplo, contar los ciclos de reloj, medir tiempos entre eventos, etc.
+
+    // Asignar resultados de ALU a las salidas
+    assign result = internal_result;
+    assign N = internal_N;
+    assign Z = internal_Z;
+    assign C = internal_C;
+    assign V = internal_V;
+
+endmodule
