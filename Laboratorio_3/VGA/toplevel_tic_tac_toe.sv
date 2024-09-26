@@ -3,16 +3,16 @@ module toplevel_tic_tac_toe (
     input logic [1:0] SW,        // Switches para el modo de juego
     input logic [3:0] KEY,       // Botones (KEY[0]: Reset, KEY[1]: Jugada)
     output logic [9:0] LEDR,     // LEDs para visualizar el tablero y turno
-    output logic [6:0] HEX0,      // 7 segmentos para el temporizador
-	 input logic clk_main, nxt,
-	 output logic vgaclk, // 25.175 MHz VGA clock
-	 output logic hsync, vsync,
-	 output logic sync_b, blank_b, // To monitor 
-	 output logic [7:0] r, g, b
+    output logic [6:0] HEX0,     // 7 segmentos para el temporizador
+    input logic clk_main, nxt,
+    output logic vgaclk,         // 25.175 MHz VGA clock
+    output logic hsync, vsync,
+    output logic sync_b, blank_b, // To monitor 
+    output logic [7:0] r, g, b    // Salidas RGB para el monitor
 );
 
     // Señales internas
-	 logic [9:0] x, y;
+    logic [9:0] x, y;
     logic clk;
     logic reset;
     logic move_made;
@@ -20,12 +20,22 @@ module toplevel_tic_tac_toe (
     logic victory;
     logic full_board;
     
-    // Señales de salida de la MEF
+    // Señales de salida de la FSM
     logic [2:0] state;
     logic player_turn;
     logic [8:0] board;
     logic game_over;
     logic random_move;
+    
+    // Señales internas para manejar RGB de las pantallas
+    logic [7:0] r_start, g_start, b_start;  // Señales RGB para pantalla de inicio
+    logic [7:0] r_game, g_game, b_game;     // Señales RGB para el juego
+    
+    // Modulo para obtener 25MHz
+    pll vgapll(.inclk0(clk_main), .c0(vgaclk));
+    
+    // Generador de señales para el monitor
+    vgaController vgaCont(vgaclk, hsync, vsync, sync_b, blank_b, x, y);
 
     // Instanciar la máquina de estados finita (FSM)
     tic_tac_toe_fsm fsm_inst (
@@ -43,14 +53,26 @@ module toplevel_tic_tac_toe (
         .random_move(random_move)
     );
 	 
-	 // Modulo para obtener 25MHz
-	 pll vgapll(.inclk0(clk_main), .c0(vgaclk));
+    // Instanciar el módulo que genera los gráficos del juego
+    videoGen videoGen_inst (
+        .x(x), .y(y), 
+        .r(r_game), .g(g_game), .b(b_game)
+    );
+    
+    // Instanciar el módulo que genera la pantalla de inicio
+    startScreen startScreen_inst (
+        .x(x), .y(y), 
+        .r(r_start), .g(g_start), .b(b_start)
+    );
 
-	// Generador de señales para el monitor
-	 vgaController vgaCont(vgaclk, hsync, vsync, sync_b, blank_b, x, y);
-	
-	// Modulo para pintar la pantalla
-	 videoGen videoGen(x, y, r, g, b);
+    // Condicional para alternar entre la pantalla de inicio y el juego según el estado
+    always_comb begin
+        if (state == 3'b000) begin  // Si el estado es START
+            {r, g, b} = {r_start, g_start, b_start};  // Mostrar la pantalla de inicio
+        end else begin  // Si el estado es distinto de START
+            {r, g, b} = {r_game, g_game, b_game};    // Mostrar el tablero
+        end
+    end
 
     // Generar un reloj más lento a partir del reloj de 50 MHz
     reg [25:0] clk_div;
