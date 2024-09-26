@@ -1,0 +1,8 @@
+
+State Machine - |toplevel_tic_tac_toe|tic_tac_toe_fsm:fsm_inst|current_state
+Name current_state.CHECK_WIN current_state.PLAYER2 current_state.PLAYER1 current_state.START current_state.GAME_OVER 
+current_state.START 0 0 0 0 0 
+current_state.PLAYER1 0 0 1 1 0 
+current_state.PLAYER2 0 1 0 1 0 
+current_state.CHECK_WIN 1 0 0 1 0 
+current_state.GAME_OVER 0 0 0 1 1 

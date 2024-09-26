@@ -1,12 +1,18 @@
 module toplevel_tic_tac_toe (
-    input logic CLOCK_50,        // Reloj de la FPGA (50 MHz)
+    //input logic CLOCK_50,        // Reloj de la FPGA (50 MHz)
     input logic [1:0] SW,        // Switches para el modo de juego
     input logic [3:0] KEY,       // Botones (KEY[0]: Reset, KEY[1]: Jugada)
     output logic [9:0] LEDR,     // LEDs para visualizar el tablero y turno
-    output logic [6:0] HEX0      // 7 segmentos para el temporizador
+    output logic [6:0] HEX0,      // 7 segmentos para el temporizador
+	 input logic clk_main, nxt,
+	 output logic vgaclk, // 25.175 MHz VGA clock
+	 output logic hsync, vsync,
+	 output logic sync_b, blank_b, // To monitor 
+	 output logic [7:0] r, g, b
 );
 
     // Señales internas
+	 logic [9:0] x, y;
     logic clk;
     logic reset;
     logic move_made;
@@ -36,10 +42,19 @@ module toplevel_tic_tac_toe (
         .game_over(game_over),
         .random_move(random_move)
     );
+	 
+	 // Modulo para obtener 25MHz
+	 pll vgapll(.inclk0(clk_main), .c0(vgaclk));
+
+	// Generador de señales para el monitor
+	 vgaController vgaCont(vgaclk, hsync, vsync, sync_b, blank_b, x, y);
+	
+	// Modulo para pintar la pantalla
+	 videoGen videoGen(x, y, r, g, b);
 
     // Generar un reloj más lento a partir del reloj de 50 MHz
     reg [25:0] clk_div;
-    always_ff @(posedge CLOCK_50) begin
+    always_ff @(posedge clk_main) begin
         clk_div <= clk_div + 1;
     end
     assign clk = clk_div[24];  // Reloj de aproximadamente 1 Hz (lento)

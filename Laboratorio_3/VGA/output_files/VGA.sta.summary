@@ -1,0 +1,149 @@
+------------------------------------------------------------
+Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow 1100mV 85C Model Setup 'clk_main'
+Slack : -4.413
+TNS   : -35.253
+
+Type  : Slow 1100mV 85C Model Setup 'pll:vgapll|toggle'
+Slack : -3.026
+TNS   : -74.369
+
+Type  : Slow 1100mV 85C Model Setup 'clk_div[24]'
+Slack : -1.242
+TNS   : -11.466
+
+Type  : Slow 1100mV 85C Model Hold 'clk_main'
+Slack : 0.374
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Hold 'clk_div[24]'
+Slack : 0.746
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Hold 'pll:vgapll|toggle'
+Slack : 0.756
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'clk_main'
+Slack : -0.435
+TNS   : -14.094
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'pll:vgapll|toggle'
+Slack : -0.394
+TNS   : -12.787
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'clk_div[24]'
+Slack : -0.394
+TNS   : -5.368
+
+Type  : Slow 1100mV 0C Model Setup 'clk_main'
+Slack : -4.300
+TNS   : -36.574
+
+Type  : Slow 1100mV 0C Model Setup 'pll:vgapll|toggle'
+Slack : -3.052
+TNS   : -75.116
+
+Type  : Slow 1100mV 0C Model Setup 'clk_div[24]'
+Slack : -1.291
+TNS   : -11.487
+
+Type  : Slow 1100mV 0C Model Hold 'clk_main'
+Slack : 0.374
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Hold 'pll:vgapll|toggle'
+Slack : 0.715
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Hold 'clk_div[24]'
+Slack : 0.734
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'clk_main'
+Slack : -0.453
+TNS   : -15.037
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'pll:vgapll|toggle'
+Slack : -0.394
+TNS   : -12.854
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'clk_div[24]'
+Slack : -0.394
+TNS   : -5.312
+
+Type  : Fast 1100mV 85C Model Setup 'clk_main'
+Slack : -3.385
+TNS   : -12.596
+
+Type  : Fast 1100mV 85C Model Setup 'pll:vgapll|toggle'
+Slack : -1.345
+TNS   : -32.668
+
+Type  : Fast 1100mV 85C Model Setup 'clk_div[24]'
+Slack : -0.527
+TNS   : -4.342
+
+Type  : Fast 1100mV 85C Model Hold 'clk_main'
+Slack : 0.186
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Hold 'clk_div[24]'
+Slack : 0.318
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Hold 'pll:vgapll|toggle'
+Slack : 0.394
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'clk_main'
+Slack : -0.466
+TNS   : -3.227
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'clk_div[24]'
+Slack : 0.068
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'pll:vgapll|toggle'
+Slack : 0.139
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Setup 'clk_main'
+Slack : -2.845
+TNS   : -11.015
+
+Type  : Fast 1100mV 0C Model Setup 'pll:vgapll|toggle'
+Slack : -1.216
+TNS   : -29.749
+
+Type  : Fast 1100mV 0C Model Setup 'clk_div[24]'
+Slack : -0.419
+TNS   : -3.575
+
+Type  : Fast 1100mV 0C Model Hold 'clk_main'
+Slack : 0.178
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Hold 'clk_div[24]'
+Slack : 0.293
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Hold 'pll:vgapll|toggle'
+Slack : 0.350
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'clk_main'
+Slack : -0.460
+TNS   : -3.131
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'clk_div[24]'
+Slack : 0.087
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'pll:vgapll|toggle'
+Slack : 0.140
+TNS   : 0.000
+
+------------------------------------------------------------
