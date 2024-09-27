@@ -1,5 +1,5 @@
-Analysis & Synthesis report for VGA
-Thu Sep 26 00:17:26 2024
+Analysis & Elaboration report for VGA
+Thu Sep 26 20:07:32 2024
 Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 
 
@@ -7,23 +7,14 @@ Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 ; Table of Contents ;
 ---------------------
   1. Legal Notice
-  2. Analysis & Synthesis Summary
-  3. Analysis & Synthesis Settings
-  4. Parallel Compilation
-  5. Analysis & Synthesis Source Files Read
-  6. Analysis & Synthesis Resource Usage Summary
-  7. Analysis & Synthesis Resource Utilization by Entity
-  8. State Machine - |toplevel_tic_tac_toe|tic_tac_toe_fsm:fsm_inst|current_state
-  9. Registers Removed During Synthesis
- 10. General Register Statistics
- 11. Inverted Register Statistics
- 12. Multiplexer Restructuring Statistics (Restructuring Performed)
- 13. Parameter Settings for User Entity Instance: vgaController:vgaCont
- 14. Port Connectivity Checks: "tic_tac_toe_fsm:fsm_inst"
- 15. Post-Synthesis Netlist Statistics for Top Partition
- 16. Elapsed Time Per Partition
- 17. Analysis & Synthesis Messages
- 18. Analysis & Synthesis Suppressed Messages
+  2. Analysis & Elaboration Summary
+  3. Parallel Compilation
+  4. Parameter Settings for User Entity Instance: vgaController:vgaCont
+  5. Analysis & Elaboration Settings
+  6. Port Connectivity Checks: "Button_debounce:comb_4"
+  7. Port Connectivity Checks: "videoGen:vgagen"
+  8. Analysis & Elaboration Messages
+  9. Analysis & Elaboration Suppressed Messages
 
 
 
@@ -47,31 +38,61 @@ https://fpgasoftware.intel.com/eula.
 
 
 
-+-------------------------------------------------------------------------------+
-; Analysis & Synthesis Summary                                                  ;
-+---------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Thu Sep 26 00:17:26 2024       ;
-; Quartus Prime Version           ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
-; Revision Name                   ; VGA                                         ;
-; Top-level Entity Name           ; toplevel_tic_tac_toe                        ;
-; Family                          ; Cyclone V                                   ;
-; Logic utilization (in ALMs)     ; N/A                                         ;
-; Total registers                 ; 55                                          ;
-; Total pins                      ; 54                                          ;
-; Total virtual pins              ; 0                                           ;
-; Total block memory bits         ; 0                                           ;
-; Total DSP Blocks                ; 0                                           ;
-; Total HSSI RX PCSs              ; 0                                           ;
-; Total HSSI PMA RX Deserializers ; 0                                           ;
-; Total HSSI TX PCSs              ; 0                                           ;
-; Total HSSI PMA TX Serializers   ; 0                                           ;
-; Total PLLs                      ; 0                                           ;
-; Total DLLs                      ; 0                                           ;
-+---------------------------------+---------------------------------------------+
++-----------------------------------------------------------------------------+
+; Analysis & Elaboration Summary                                              ;
++-------------------------------+---------------------------------------------+
+; Analysis & Elaboration Status ; Successful - Thu Sep 26 20:07:32 2024       ;
+; Quartus Prime Version         ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
+; Revision Name                 ; VGA                                         ;
+; Top-level Entity Name         ; toplevel_tic_tac_toe                        ;
+; Family                        ; Cyclone V                                   ;
+; Logic utilization (in ALMs)   ; N/A until Partition Merge                   ;
+; Total registers               ; N/A until Partition Merge                   ;
+; Total pins                    ; N/A until Partition Merge                   ;
+; Total virtual pins            ; N/A until Partition Merge                   ;
+; Total block memory bits       ; N/A until Partition Merge                   ;
+; Total PLLs                    ; N/A until Partition Merge                   ;
+; Total DLLs                    ; N/A until Partition Merge                   ;
++-------------------------------+---------------------------------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 4           ;
+; Maximum allowed            ; 2           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 1           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
++----------------------------+-------------+
+
+
++--------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: vgaController:vgaCont ;
++----------------+------------+--------------------------------------+
+; Parameter Name ; Value      ; Type                                 ;
++----------------+------------+--------------------------------------+
+; HACTIVE        ; 1010000000 ; Unsigned Binary                      ;
+; HFP            ; 0000010000 ; Unsigned Binary                      ;
+; HSYN           ; 0001100000 ; Unsigned Binary                      ;
+; HBP            ; 0000110000 ; Unsigned Binary                      ;
+; HMAX           ; 1100100000 ; Unsigned Binary                      ;
+; VBP            ; 0000100001 ; Unsigned Binary                      ;
+; VACTIVE        ; 0111100000 ; Unsigned Binary                      ;
+; VFP            ; 0000001010 ; Unsigned Binary                      ;
+; VSYN           ; 0000000010 ; Unsigned Binary                      ;
+; VMAX           ; 1000001101 ; Unsigned Binary                      ;
++----------------+------------+--------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
 +-----------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Settings                                                                                               ;
+; Analysis & Elaboration Settings                                                                                             ;
 +---------------------------------------------------------------------------------+----------------------+--------------------+
 ; Option                                                                          ; Setting              ; Default Value      ;
 +---------------------------------------------------------------------------------+----------------------+--------------------+
@@ -157,219 +178,33 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------------------------------------------+----------------------+--------------------+
 
 
-+------------------------------------------+
-; Parallel Compilation                     ;
-+----------------------------+-------------+
-; Processors                 ; Number      ;
-+----------------------------+-------------+
-; Number detected on machine ; 4           ;
-; Maximum allowed            ; 2           ;
-;                            ;             ;
-; Average used               ; 1.00        ;
-; Maximum used               ; 2           ;
-;                            ;             ;
-; Usage by Processor         ; % Time Used ;
-;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   0.0%      ;
-+----------------------------+-------------+
++------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "Button_debounce:comb_4"                                                               ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; Port   ; Type   ; Severity ; Details                                                                             ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; pb_out ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                                                                                             ;
-+----------------------------------+-----------------+------------------------------+--------------------------------------------------------------------------------------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                                                                                         ; Library ;
-+----------------------------------+-----------------+------------------------------+--------------------------------------------------------------------------------------------------------------------------------------+---------+
-; vgaController.sv                 ; yes             ; User SystemVerilog HDL File  ; C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_3/VGA/vgaController.sv        ;         ;
-; pll.sv                           ; yes             ; User SystemVerilog HDL File  ; C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_3/VGA/pll.sv                  ;         ;
-; videoGen.sv                      ; yes             ; User SystemVerilog HDL File  ; C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_3/VGA/videoGen.sv             ;         ;
-; tic_tac_toe_fsm.sv               ; yes             ; User SystemVerilog HDL File  ; C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_3/VGA/tic_tac_toe_fsm.sv      ;         ;
-; toplevel_tic_tac_toe.sv          ; yes             ; User SystemVerilog HDL File  ; C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_3/VGA/toplevel_tic_tac_toe.sv ;         ;
-; startScreen.sv                   ; yes             ; User SystemVerilog HDL File  ; C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_3/VGA/startScreen.sv          ;         ;
-+----------------------------------+-----------------+------------------------------+--------------------------------------------------------------------------------------------------------------------------------------+---------+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "videoGen:vgagen"                                                                                                                             ;
++-------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+; Port  ; Type  ; Severity ; Details                                                                                                                                      ;
++-------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+; clk   ; Input ; Warning  ; Declared by entity but not connected by instance. If a default value exists, it will be used.  Otherwise, the port will be connected to GND. ;
+; rst_n ; Input ; Warning  ; Declared by entity but not connected by instance. If a default value exists, it will be used.  Otherwise, the port will be connected to GND. ;
++-------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
 
 
-+--------------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary                  ;
-+---------------------------------------------+----------------+
-; Resource                                    ; Usage          ;
-+---------------------------------------------+----------------+
-; Estimate of Logic utilization (ALMs needed) ; 82             ;
-;                                             ;                ;
-; Combinational ALUT usage for logic          ; 136            ;
-;     -- 7 input functions                    ; 0              ;
-;     -- 6 input functions                    ; 28             ;
-;     -- 5 input functions                    ; 24             ;
-;     -- 4 input functions                    ; 25             ;
-;     -- <=3 input functions                  ; 59             ;
-;                                             ;                ;
-; Dedicated logic registers                   ; 55             ;
-;                                             ;                ;
-; I/O pins                                    ; 54             ;
-;                                             ;                ;
-; Total DSP Blocks                            ; 0              ;
-;                                             ;                ;
-; Maximum fan-out node                        ; clk_main~input ;
-; Maximum fan-out                             ; 26             ;
-; Total fan-out                               ; 744            ;
-; Average fan-out                             ; 2.49           ;
-+---------------------------------------------+----------------+
-
-
-+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                   ;
-+-----------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+----------------------------------------------------+----------------------+--------------+
-; Compilation Hierarchy Node        ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                ; Entity Name          ; Library Name ;
-+-----------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+----------------------------------------------------+----------------------+--------------+
-; |toplevel_tic_tac_toe             ; 136 (50)            ; 55 (29)                   ; 0                 ; 0          ; 54   ; 0            ; |toplevel_tic_tac_toe                              ; toplevel_tic_tac_toe ; work         ;
-;    |pll:vgapll|                   ; 1 (1)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |toplevel_tic_tac_toe|pll:vgapll                   ; pll                  ; work         ;
-;    |startScreen:startScreen_inst| ; 45 (45)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |toplevel_tic_tac_toe|startScreen:startScreen_inst ; startScreen          ; work         ;
-;    |tic_tac_toe_fsm:fsm_inst|     ; 9 (9)               ; 5 (5)                     ; 0                 ; 0          ; 0    ; 0            ; |toplevel_tic_tac_toe|tic_tac_toe_fsm:fsm_inst     ; tic_tac_toe_fsm      ; work         ;
-;    |vgaController:vgaCont|        ; 31 (31)             ; 20 (20)                   ; 0                 ; 0          ; 0    ; 0            ; |toplevel_tic_tac_toe|vgaController:vgaCont        ; vgaController        ; work         ;
-+-----------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+----------------------------------------------------+----------------------+--------------+
-Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
-
-
-Encoding Type:  One-Hot
-+---------------------------------------------------------------------------------------------------------------------------------------------------+
-; State Machine - |toplevel_tic_tac_toe|tic_tac_toe_fsm:fsm_inst|current_state                                                                      ;
-+-------------------------+-------------------------+-----------------------+-----------------------+---------------------+-------------------------+
-; Name                    ; current_state.CHECK_WIN ; current_state.PLAYER2 ; current_state.PLAYER1 ; current_state.START ; current_state.GAME_OVER ;
-+-------------------------+-------------------------+-----------------------+-----------------------+---------------------+-------------------------+
-; current_state.START     ; 0                       ; 0                     ; 0                     ; 0                   ; 0                       ;
-; current_state.PLAYER1   ; 0                       ; 0                     ; 1                     ; 1                   ; 0                       ;
-; current_state.PLAYER2   ; 0                       ; 1                     ; 0                     ; 1                   ; 0                       ;
-; current_state.CHECK_WIN ; 1                       ; 0                     ; 0                     ; 1                   ; 0                       ;
-; current_state.GAME_OVER ; 0                       ; 0                     ; 0                     ; 1                   ; 1                       ;
-+-------------------------+-------------------------+-----------------------+-----------------------+---------------------+-------------------------+
-
-
-+-----------------------------------------------------------------------+
-; Registers Removed During Synthesis                                    ;
-+--------------------------------------------------+--------------------+
-; Register name                                    ; Reason for Removal ;
-+--------------------------------------------------+--------------------+
-; tic_tac_toe_fsm:fsm_inst|current_state~4         ; Lost fanout        ;
-; tic_tac_toe_fsm:fsm_inst|current_state~5         ; Lost fanout        ;
-; tic_tac_toe_fsm:fsm_inst|current_state.GAME_OVER ; Lost fanout        ;
-; clk_div[25]                                      ; Lost fanout        ;
-; Total Number of Removed Registers = 4            ;                    ;
-+--------------------------------------------------+--------------------+
-
-
-+------------------------------------------------------+
-; General Register Statistics                          ;
-+----------------------------------------------+-------+
-; Statistic                                    ; Value ;
-+----------------------------------------------+-------+
-; Total registers                              ; 55    ;
-; Number of registers using Synchronous Clear  ; 20    ;
-; Number of registers using Synchronous Load   ; 0     ;
-; Number of registers using Asynchronous Clear ; 9     ;
-; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 10    ;
-; Number of registers using Preset             ; 0     ;
-+----------------------------------------------+-------+
-
-
-+--------------------------------------------------+
-; Inverted Register Statistics                     ;
-+----------------------------------------+---------+
-; Inverted Register                      ; Fan out ;
-+----------------------------------------+---------+
-; counter[0]                             ; 11      ;
-; counter[1]                             ; 11      ;
-; counter[2]                             ; 11      ;
-; counter[3]                             ; 11      ;
-; Total number of inverted registers = 4 ;         ;
-+----------------------------------------+---------+
-
-
-+------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                         ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                               ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------+
-; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |toplevel_tic_tac_toe|counter[0]                         ;
-; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; No         ; |toplevel_tic_tac_toe|tic_tac_toe_fsm:fsm_inst|Selector0 ;
-; 6:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; No         ; |toplevel_tic_tac_toe|tic_tac_toe_fsm:fsm_inst|Selector1 ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------+
-
-
-+--------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: vgaController:vgaCont ;
-+----------------+------------+--------------------------------------+
-; Parameter Name ; Value      ; Type                                 ;
-+----------------+------------+--------------------------------------+
-; HACTIVE        ; 1010000000 ; Unsigned Binary                      ;
-; HFP            ; 0000010000 ; Unsigned Binary                      ;
-; HSYN           ; 0001100000 ; Unsigned Binary                      ;
-; HBP            ; 0000110000 ; Unsigned Binary                      ;
-; HMAX           ; 1100100000 ; Unsigned Binary                      ;
-; VBP            ; 0000100001 ; Unsigned Binary                      ;
-; VACTIVE        ; 0111100000 ; Unsigned Binary                      ;
-; VFP            ; 0000001010 ; Unsigned Binary                      ;
-; VSYN           ; 0000000010 ; Unsigned Binary                      ;
-; VMAX           ; 1000001101 ; Unsigned Binary                      ;
-+----------------+------------+--------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+-----------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "tic_tac_toe_fsm:fsm_inst"                                                                  ;
-+-------------+--------+----------+-------------------------------------------------------------------------------------+
-; Port        ; Type   ; Severity ; Details                                                                             ;
-+-------------+--------+----------+-------------------------------------------------------------------------------------+
-; game_over   ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-; random_move ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+-------------+--------+----------+-------------------------------------------------------------------------------------+
-
-
-+-----------------------------------------------------+
-; Post-Synthesis Netlist Statistics for Top Partition ;
-+-----------------------+-----------------------------+
-; Type                  ; Count                       ;
-+-----------------------+-----------------------------+
-; arriav_ff             ; 55                          ;
-;     CLR               ; 9                           ;
-;     ENA SCLR          ; 10                          ;
-;     SCLR              ; 10                          ;
-;     plain             ; 26                          ;
-; arriav_lcell_comb     ; 139                         ;
-;     arith             ; 44                          ;
-;         1 data inputs ; 43                          ;
-;         2 data inputs ; 1                           ;
-;     normal            ; 95                          ;
-;         0 data inputs ; 1                           ;
-;         1 data inputs ; 4                           ;
-;         2 data inputs ; 3                           ;
-;         3 data inputs ; 10                          ;
-;         4 data inputs ; 25                          ;
-;         5 data inputs ; 24                          ;
-;         6 data inputs ; 28                          ;
-; boundary_port         ; 54                          ;
-;                       ;                             ;
-; Max LUT depth         ; 4.00                        ;
-; Average LUT depth     ; 2.89                        ;
-+-----------------------+-----------------------------+
-
-
-+-------------------------------+
-; Elapsed Time Per Partition    ;
-+----------------+--------------+
-; Partition Name ; Elapsed Time ;
-+----------------+--------------+
-; Top            ; 00:00:00     ;
-+----------------+--------------+
-
-
-+-------------------------------+
-; Analysis & Synthesis Messages ;
-+-------------------------------+
++---------------------------------+
+; Analysis & Elaboration Messages ;
++---------------------------------+
 Info: *******************************************************************
-Info: Running Quartus Prime Analysis & Synthesis
+Info: Running Quartus Prime Analysis & Elaboration
     Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
-    Info: Processing started: Thu Sep 26 00:17:16 2024
-Info: Command: quartus_map --read_settings_files=on --write_settings_files=off VGA -c VGA
+    Info: Processing started: Thu Sep 26 20:07:23 2024
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off VGA -c VGA --analysis_and_elaboration
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
 Info (12021): Found 1 design units, including 1 entities, in source file vgacontroller.sv
@@ -381,76 +216,56 @@ Info (12021): Found 1 design units, including 1 entities, in source file pll.sv
 Info (12021): Found 1 design units, including 1 entities, in source file rectgen.sv
     Info (12023): Found entity 1: rectgen File: C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_3/VGA/rectgen.sv Line: 4
 Info (12021): Found 1 design units, including 1 entities, in source file videogen.sv
-    Info (12023): Found entity 1: videoGen File: C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_3/VGA/videoGen.sv Line: 1
+    Info (12023): Found entity 1: videoGen File: C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_3/VGA/videoGen.sv Line: 33
 Info (12021): Found 1 design units, including 1 entities, in source file tic_tac_toe_fsm.sv
     Info (12023): Found entity 1: tic_tac_toe_fsm File: C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_3/VGA/tic_tac_toe_fsm.sv Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file toplevel_tic_tac_toe.sv
     Info (12023): Found entity 1: toplevel_tic_tac_toe File: C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_3/VGA/toplevel_tic_tac_toe.sv Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file startscreen.sv
     Info (12023): Found entity 1: startScreen File: C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_3/VGA/startScreen.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file matrixtablero.sv
+    Info (12023): Found entity 1: matrixTablero File: C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_3/VGA/matrixTablero.sv Line: 3
+Info (12021): Found 1 design units, including 1 entities, in source file matrixtablerocontrol.sv
+    Info (12023): Found entity 1: matrixTableroControl File: C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_3/VGA/matrixTableroControl.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file toplevel_tic_tac_toe_tb.sv
+    Info (12023): Found entity 1: toplevel_tic_tac_toe_tb File: C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_3/VGA/toplevel_tic_tac_toe_tb.sv Line: 1
+Info (12021): Found 3 design units, including 3 entities, in source file button_debonce.sv
+    Info (12023): Found entity 1: Button_debounce File: C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_3/VGA/Button_debonce.sv Line: 1
+    Info (12023): Found entity 2: clock_enable File: C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_3/VGA/Button_debonce.sv Line: 22
+    Info (12023): Found entity 3: my_dff_en File: C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_3/VGA/Button_debonce.sv Line: 40
+Warning (10236): Verilog HDL Implicit Net warning at toplevel_tic_tac_toe.sv(65): created implicit net for "Idebounced" File: C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_3/VGA/toplevel_tic_tac_toe.sv Line: 65
+Warning (10236): Verilog HDL Implicit Net warning at toplevel_tic_tac_toe.sv(70): created implicit net for "Wdebounced" File: C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_3/VGA/toplevel_tic_tac_toe.sv Line: 70
+Critical Warning (10846): Verilog HDL Instantiation warning at toplevel_tic_tac_toe.sv(66): instance has no name File: C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_3/VGA/toplevel_tic_tac_toe.sv Line: 66
+Critical Warning (10846): Verilog HDL Instantiation warning at toplevel_tic_tac_toe.sv(71): instance has no name File: C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_3/VGA/toplevel_tic_tac_toe.sv Line: 71
 Info (12127): Elaborating entity "toplevel_tic_tac_toe" for the top level hierarchy
-Warning (10230): Verilog HDL assignment warning at toplevel_tic_tac_toe.sv(80): truncated value with size 32 to match size of target (26) File: C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_3/VGA/toplevel_tic_tac_toe.sv Line: 80
-Warning (10230): Verilog HDL assignment warning at toplevel_tic_tac_toe.sv(100): truncated value with size 32 to match size of target (4) File: C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_3/VGA/toplevel_tic_tac_toe.sv Line: 100
-Info (12128): Elaborating entity "pll" for hierarchy "pll:vgapll" File: C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_3/VGA/toplevel_tic_tac_toe.sv Line: 35
-Info (12128): Elaborating entity "vgaController" for hierarchy "vgaController:vgaCont" File: C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_3/VGA/toplevel_tic_tac_toe.sv Line: 38
-Info (12128): Elaborating entity "tic_tac_toe_fsm" for hierarchy "tic_tac_toe_fsm:fsm_inst" File: C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_3/VGA/toplevel_tic_tac_toe.sv Line: 54
-Warning (10240): Verilog HDL Always Construct warning at tic_tac_toe_fsm.sv(41): inferring latch(es) for variable "board_reg", which holds its previous value in one or more paths through the always construct File: C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_3/VGA/tic_tac_toe_fsm.sv Line: 41
-Info (10041): Inferred latch for "board_reg[0]" at tic_tac_toe_fsm.sv(41) File: C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_3/VGA/tic_tac_toe_fsm.sv Line: 41
-Info (10041): Inferred latch for "board_reg[1]" at tic_tac_toe_fsm.sv(41) File: C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_3/VGA/tic_tac_toe_fsm.sv Line: 41
-Info (10041): Inferred latch for "board_reg[2]" at tic_tac_toe_fsm.sv(41) File: C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_3/VGA/tic_tac_toe_fsm.sv Line: 41
-Info (10041): Inferred latch for "board_reg[3]" at tic_tac_toe_fsm.sv(41) File: C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_3/VGA/tic_tac_toe_fsm.sv Line: 41
-Info (10041): Inferred latch for "board_reg[4]" at tic_tac_toe_fsm.sv(41) File: C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_3/VGA/tic_tac_toe_fsm.sv Line: 41
-Info (10041): Inferred latch for "board_reg[5]" at tic_tac_toe_fsm.sv(41) File: C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_3/VGA/tic_tac_toe_fsm.sv Line: 41
-Info (10041): Inferred latch for "board_reg[6]" at tic_tac_toe_fsm.sv(41) File: C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_3/VGA/tic_tac_toe_fsm.sv Line: 41
-Info (10041): Inferred latch for "board_reg[7]" at tic_tac_toe_fsm.sv(41) File: C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_3/VGA/tic_tac_toe_fsm.sv Line: 41
-Info (10041): Inferred latch for "board_reg[8]" at tic_tac_toe_fsm.sv(41) File: C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_3/VGA/tic_tac_toe_fsm.sv Line: 41
-Info (12128): Elaborating entity "videoGen" for hierarchy "videoGen:videoGen_inst" File: C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_3/VGA/toplevel_tic_tac_toe.sv Line: 60
-Info (12128): Elaborating entity "startScreen" for hierarchy "startScreen:startScreen_inst" File: C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_3/VGA/toplevel_tic_tac_toe.sv Line: 66
+Warning (10034): Output port "W_deb" at toplevel_tic_tac_toe.sv(8) has no driver File: C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_3/VGA/toplevel_tic_tac_toe.sv Line: 8
+Warning (10034): Output port "I_deb" at toplevel_tic_tac_toe.sv(9) has no driver File: C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_3/VGA/toplevel_tic_tac_toe.sv Line: 9
+Info (12128): Elaborating entity "pll" for hierarchy "pll:vgapll" File: C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_3/VGA/toplevel_tic_tac_toe.sv Line: 22
+Info (12128): Elaborating entity "vgaController" for hierarchy "vgaController:vgaCont" File: C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_3/VGA/toplevel_tic_tac_toe.sv Line: 25
+Info (12128): Elaborating entity "startScreen" for hierarchy "startScreen:pantallaInicial" File: C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_3/VGA/toplevel_tic_tac_toe.sv Line: 34
 Warning (10230): Verilog HDL assignment warning at startScreen.sv(20): truncated value with size 32 to match size of target (11) File: C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_3/VGA/startScreen.sv Line: 20
 Warning (10230): Verilog HDL assignment warning at startScreen.sv(21): truncated value with size 32 to match size of target (11) File: C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_3/VGA/startScreen.sv Line: 21
 Warning (10230): Verilog HDL assignment warning at startScreen.sv(22): truncated value with size 32 to match size of target (11) File: C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_3/VGA/startScreen.sv Line: 22
 Warning (10230): Verilog HDL assignment warning at startScreen.sv(23): truncated value with size 32 to match size of target (11) File: C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_3/VGA/startScreen.sv Line: 23
-Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "LEDR[0]" is stuck at GND File: C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_3/VGA/toplevel_tic_tac_toe.sv Line: 5
-    Warning (13410): Pin "LEDR[1]" is stuck at GND File: C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_3/VGA/toplevel_tic_tac_toe.sv Line: 5
-    Warning (13410): Pin "LEDR[2]" is stuck at GND File: C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_3/VGA/toplevel_tic_tac_toe.sv Line: 5
-    Warning (13410): Pin "LEDR[3]" is stuck at GND File: C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_3/VGA/toplevel_tic_tac_toe.sv Line: 5
-    Warning (13410): Pin "LEDR[4]" is stuck at GND File: C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_3/VGA/toplevel_tic_tac_toe.sv Line: 5
-    Warning (13410): Pin "LEDR[5]" is stuck at GND File: C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_3/VGA/toplevel_tic_tac_toe.sv Line: 5
-    Warning (13410): Pin "LEDR[6]" is stuck at GND File: C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_3/VGA/toplevel_tic_tac_toe.sv Line: 5
-    Warning (13410): Pin "LEDR[7]" is stuck at GND File: C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_3/VGA/toplevel_tic_tac_toe.sv Line: 5
-    Warning (13410): Pin "LEDR[8]" is stuck at GND File: C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_3/VGA/toplevel_tic_tac_toe.sv Line: 5
-    Warning (13410): Pin "r[0]" is stuck at GND File: C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_3/VGA/toplevel_tic_tac_toe.sv Line: 11
-    Warning (13410): Pin "r[1]" is stuck at GND File: C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_3/VGA/toplevel_tic_tac_toe.sv Line: 11
-    Warning (13410): Pin "r[2]" is stuck at GND File: C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_3/VGA/toplevel_tic_tac_toe.sv Line: 11
-    Warning (13410): Pin "r[3]" is stuck at GND File: C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_3/VGA/toplevel_tic_tac_toe.sv Line: 11
-    Warning (13410): Pin "r[4]" is stuck at GND File: C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_3/VGA/toplevel_tic_tac_toe.sv Line: 11
-    Warning (13410): Pin "r[5]" is stuck at GND File: C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_3/VGA/toplevel_tic_tac_toe.sv Line: 11
-    Warning (13410): Pin "r[6]" is stuck at GND File: C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_3/VGA/toplevel_tic_tac_toe.sv Line: 11
-    Warning (13410): Pin "r[7]" is stuck at GND File: C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_3/VGA/toplevel_tic_tac_toe.sv Line: 11
-Info (286030): Timing-Driven Synthesis is running
-Info (17049): 4 registers lost all their fanouts during netlist optimizations.
+Info (12128): Elaborating entity "videoGen" for hierarchy "videoGen:vgagen" File: C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_3/VGA/toplevel_tic_tac_toe.sv Line: 44
+Info (12128): Elaborating entity "Button_debounce" for hierarchy "Button_debounce:comb_4" File: C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_3/VGA/toplevel_tic_tac_toe.sv Line: 66
+Info (12128): Elaborating entity "clock_enable" for hierarchy "Button_debounce:comb_4|clock_enable:u1" File: C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_3/VGA/Button_debonce.sv Line: 9
+Warning (10230): Verilog HDL assignment warning at Button_debonce.sv(33): truncated value with size 32 to match size of target (27) File: C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_3/VGA/Button_debonce.sv Line: 33
+Info (12128): Elaborating entity "my_dff_en" for hierarchy "Button_debounce:comb_4|my_dff_en:d0" File: C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_3/VGA/Button_debonce.sv Line: 12
+Info (12128): Elaborating entity "matrixTableroControl" for hierarchy "matrixTableroControl:u_matrixControl" File: C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_3/VGA/toplevel_tic_tac_toe.sv Line: 82
+Info (12128): Elaborating entity "matrixTablero" for hierarchy "matrixTablero:u_matrixRegister" File: C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_3/VGA/toplevel_tic_tac_toe.sv Line: 91
+Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
 Info (144001): Generated suppressed messages file C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_3/VGA/output_files/VGA.map.smsg
-Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
-    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Warning (21074): Design contains 3 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "KEY[2]" File: C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_3/VGA/toplevel_tic_tac_toe.sv Line: 4
-    Warning (15610): No output dependent on input pin "KEY[3]" File: C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_3/VGA/toplevel_tic_tac_toe.sv Line: 4
-    Warning (15610): No output dependent on input pin "nxt" File: C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_3/VGA/toplevel_tic_tac_toe.sv Line: 7
-Info (21057): Implemented 210 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 8 input pins
-    Info (21059): Implemented 46 output pins
-    Info (21061): Implemented 156 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 30 warnings
-    Info: Peak virtual memory: 4805 megabytes
-    Info: Processing ended: Thu Sep 26 00:17:26 2024
-    Info: Elapsed time: 00:00:10
+Info: Quartus Prime Analysis & Elaboration was successful. 0 errors, 13 warnings
+    Info: Peak virtual memory: 4764 megabytes
+    Info: Processing ended: Thu Sep 26 20:07:32 2024
+    Info: Elapsed time: 00:00:09
     Info: Total CPU time (on all processors): 00:00:15
 
 
-+------------------------------------------+
-; Analysis & Synthesis Suppressed Messages ;
-+------------------------------------------+
++--------------------------------------------+
+; Analysis & Elaboration Suppressed Messages ;
++--------------------------------------------+
 The suppressed messages can be found in C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_3/VGA/output_files/VGA.map.smsg.
 
 
