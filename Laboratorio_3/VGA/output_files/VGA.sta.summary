@@ -2,148 +2,180 @@
 Timing Analyzer Summary
 ------------------------------------------------------------
 
-Type  : Slow 1100mV 85C Model Setup 'clk_main'
-Slack : -4.437
-TNS   : -36.746
-
 Type  : Slow 1100mV 85C Model Setup 'pll:vgapll|toggle'
-Slack : -3.136
-TNS   : -77.612
+Slack : -3.513
+TNS   : -72.442
 
-Type  : Slow 1100mV 85C Model Setup 'clk_div[24]'
-Slack : -1.286
-TNS   : -11.120
+Type  : Slow 1100mV 85C Model Setup 'clk'
+Slack : -3.277
+TNS   : -247.386
 
-Type  : Slow 1100mV 85C Model Hold 'clk_main'
-Slack : 0.381
-TNS   : 0.000
+Type  : Slow 1100mV 85C Model Setup 'rst'
+Slack : -2.789
+TNS   : -22.727
 
-Type  : Slow 1100mV 85C Model Hold 'clk_div[24]'
-Slack : 0.691
+Type  : Slow 1100mV 85C Model Hold 'clk'
+Slack : 0.354
 TNS   : 0.000
 
 Type  : Slow 1100mV 85C Model Hold 'pll:vgapll|toggle'
-Slack : 0.744
+Slack : 0.698
 TNS   : 0.000
 
-Type  : Slow 1100mV 85C Model Minimum Pulse Width 'clk_main'
-Slack : -0.467
-TNS   : -14.200
+Type  : Slow 1100mV 85C Model Hold 'rst'
+Slack : 1.130
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Recovery 'clk'
+Slack : -2.603
+TNS   : -104.133
+
+Type  : Slow 1100mV 85C Model Removal 'clk'
+Slack : 0.644
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'clk'
+Slack : -0.435
+TNS   : -54.518
 
 Type  : Slow 1100mV 85C Model Minimum Pulse Width 'pll:vgapll|toggle'
 Slack : -0.394
-TNS   : -12.986
+TNS   : -11.792
 
-Type  : Slow 1100mV 85C Model Minimum Pulse Width 'clk_div[24]'
-Slack : -0.394
-TNS   : -4.806
-
-Type  : Slow 1100mV 0C Model Setup 'clk_main'
-Slack : -4.322
-TNS   : -38.615
-
-Type  : Slow 1100mV 0C Model Setup 'pll:vgapll|toggle'
-Slack : -3.210
-TNS   : -78.835
-
-Type  : Slow 1100mV 0C Model Setup 'clk_div[24]'
-Slack : -1.284
-TNS   : -11.114
-
-Type  : Slow 1100mV 0C Model Hold 'clk_main'
-Slack : 0.394
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'rst'
+Slack : 0.227
 TNS   : 0.000
 
-Type  : Slow 1100mV 0C Model Hold 'clk_div[24]'
-Slack : 0.690
+Type  : Slow 1100mV 0C Model Setup 'pll:vgapll|toggle'
+Slack : -3.607
+TNS   : -74.208
+
+Type  : Slow 1100mV 0C Model Setup 'clk'
+Slack : -3.159
+TNS   : -241.515
+
+Type  : Slow 1100mV 0C Model Setup 'rst'
+Slack : -2.897
+TNS   : -23.841
+
+Type  : Slow 1100mV 0C Model Hold 'clk'
+Slack : 0.266
 TNS   : 0.000
 
 Type  : Slow 1100mV 0C Model Hold 'pll:vgapll|toggle'
-Slack : 0.700
+Slack : 0.690
 TNS   : 0.000
 
-Type  : Slow 1100mV 0C Model Minimum Pulse Width 'clk_main'
-Slack : -0.464
-TNS   : -15.161
+Type  : Slow 1100mV 0C Model Hold 'rst'
+Slack : 1.239
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Recovery 'clk'
+Slack : -2.286
+TNS   : -92.544
+
+Type  : Slow 1100mV 0C Model Removal 'clk'
+Slack : 0.395
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'clk'
+Slack : -0.429
+TNS   : -58.777
 
 Type  : Slow 1100mV 0C Model Minimum Pulse Width 'pll:vgapll|toggle'
 Slack : -0.394
-TNS   : -12.802
+TNS   : -11.643
 
-Type  : Slow 1100mV 0C Model Minimum Pulse Width 'clk_div[24]'
-Slack : -0.394
-TNS   : -4.788
-
-Type  : Fast 1100mV 85C Model Setup 'clk_main'
-Slack : -3.318
-TNS   : -12.571
-
-Type  : Fast 1100mV 85C Model Setup 'pll:vgapll|toggle'
-Slack : -1.362
-TNS   : -33.123
-
-Type  : Fast 1100mV 85C Model Setup 'clk_div[24]'
-Slack : -0.465
-TNS   : -3.978
-
-Type  : Fast 1100mV 85C Model Hold 'clk_main'
-Slack : 0.186
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'rst'
+Slack : 0.237
 TNS   : 0.000
 
-Type  : Fast 1100mV 85C Model Hold 'clk_div[24]'
-Slack : 0.300
+Type  : Fast 1100mV 85C Model Setup 'clk'
+Slack : -2.408
+TNS   : -116.623
+
+Type  : Fast 1100mV 85C Model Setup 'pll:vgapll|toggle'
+Slack : -1.475
+TNS   : -31.313
+
+Type  : Fast 1100mV 85C Model Setup 'rst'
+Slack : -1.077
+TNS   : -8.038
+
+Type  : Fast 1100mV 85C Model Hold 'clk'
+Slack : 0.182
 TNS   : 0.000
 
 Type  : Fast 1100mV 85C Model Hold 'pll:vgapll|toggle'
-Slack : 0.389
+Slack : 0.366
 TNS   : 0.000
 
-Type  : Fast 1100mV 85C Model Minimum Pulse Width 'clk_main'
-Slack : -0.473
-TNS   : -3.175
+Type  : Fast 1100mV 85C Model Hold 'rst'
+Slack : 0.383
+TNS   : 0.000
 
-Type  : Fast 1100mV 85C Model Minimum Pulse Width 'clk_div[24]'
-Slack : 0.095
+Type  : Fast 1100mV 85C Model Recovery 'clk'
+Slack : -2.045
+TNS   : -65.495
+
+Type  : Fast 1100mV 85C Model Removal 'clk'
+Slack : 0.381
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'clk'
+Slack : -0.431
+TNS   : -9.622
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'rst'
+Slack : 0.005
 TNS   : 0.000
 
 Type  : Fast 1100mV 85C Model Minimum Pulse Width 'pll:vgapll|toggle'
-Slack : 0.120
+Slack : 0.075
 TNS   : 0.000
 
-Type  : Fast 1100mV 0C Model Setup 'clk_main'
-Slack : -2.805
-TNS   : -11.209
+Type  : Fast 1100mV 0C Model Setup 'clk'
+Slack : -2.038
+TNS   : -100.478
 
 Type  : Fast 1100mV 0C Model Setup 'pll:vgapll|toggle'
-Slack : -1.264
-TNS   : -30.594
+Slack : -1.380
+TNS   : -28.868
 
-Type  : Fast 1100mV 0C Model Setup 'clk_div[24]'
-Slack : -0.392
-TNS   : -3.285
+Type  : Fast 1100mV 0C Model Setup 'rst'
+Slack : -0.974
+TNS   : -7.512
 
-Type  : Fast 1100mV 0C Model Hold 'clk_main'
-Slack : 0.178
-TNS   : 0.000
-
-Type  : Fast 1100mV 0C Model Hold 'clk_div[24]'
-Slack : 0.279
+Type  : Fast 1100mV 0C Model Hold 'clk'
+Slack : 0.171
 TNS   : 0.000
 
 Type  : Fast 1100mV 0C Model Hold 'pll:vgapll|toggle'
-Slack : 0.341
+Slack : 0.336
 TNS   : 0.000
 
-Type  : Fast 1100mV 0C Model Minimum Pulse Width 'clk_main'
-Slack : -0.460
-TNS   : -3.145
+Type  : Fast 1100mV 0C Model Hold 'rst'
+Slack : 0.389
+TNS   : 0.000
 
-Type  : Fast 1100mV 0C Model Minimum Pulse Width 'clk_div[24]'
-Slack : 0.107
+Type  : Fast 1100mV 0C Model Recovery 'clk'
+Slack : -1.745
+TNS   : -54.737
+
+Type  : Fast 1100mV 0C Model Removal 'clk'
+Slack : 0.202
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'clk'
+Slack : -0.423
+TNS   : -9.381
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'rst'
+Slack : 0.008
 TNS   : 0.000
 
 Type  : Fast 1100mV 0C Model Minimum Pulse Width 'pll:vgapll|toggle'
-Slack : 0.128
+Slack : 0.092
 TNS   : 0.000
 
 ------------------------------------------------------------

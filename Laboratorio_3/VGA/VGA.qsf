@@ -53,9 +53,7 @@ set_global_assignment -name EDA_GENERATE_FUNCTIONAL_NETLIST OFF -section_id eda_
 set_global_assignment -name EDA_GENERATE_FUNCTIONAL_NETLIST OFF -section_id eda_board_design_signal_integrity
 set_global_assignment -name EDA_GENERATE_FUNCTIONAL_NETLIST OFF -section_id eda_board_design_boundary_scan
 set_global_assignment -name SYSTEMVERILOG_FILE vgaController.sv
-set_global_assignment -name SYSTEMVERILOG_FILE vga.sv
 set_global_assignment -name SYSTEMVERILOG_FILE pll.sv
-set_global_assignment -name SYSTEMVERILOG_FILE rectgen.sv
 set_global_assignment -name SYSTEMVERILOG_FILE videoGen.sv
 set_location_assignment PIN_AK29 -to r[0]
 set_location_assignment PIN_AK28 -to r[1]
@@ -111,4 +109,14 @@ set_location_assignment PIN_AF25 -to matrix_out_MEF[5]
 set_location_assignment PIN_AE24 -to matrix_out_MEF[6]
 set_location_assignment PIN_AF24 -to matrix_out_MEF[7]
 set_location_assignment PIN_AB22 -to matrix_out_MEF[8]
+set_global_assignment -name SYSTEMVERILOG_FILE Timer.sv
+set_global_assignment -name SYSTEMVERILOG_FILE Full_Timer.sv
+set_global_assignment -name SYSTEMVERILOG_FILE BCD_Visualizer.sv
+set_location_assignment PIN_W17 -to segments[0]
+set_location_assignment PIN_V18 -to segments[1]
+set_location_assignment PIN_AG17 -to segments[2]
+set_location_assignment PIN_AG16 -to segments[3]
+set_location_assignment PIN_AH17 -to segments[4]
+set_location_assignment PIN_AG18 -to segments[5]
+set_location_assignment PIN_AH18 -to segments[6]
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

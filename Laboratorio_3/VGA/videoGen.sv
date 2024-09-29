@@ -1,56 +1,69 @@
 module videoGen (
     input logic clk,           // Señal de reloj
-    input logic rst_n,         // Señal de reset activo bajo
-    input logic [9:0] x, y,    // Coordenadas de píxeles
-    input logic [8:0] matrix,  // Matriz que representa el estado de las casillas
-    output logic [7:0] r, g, b // Salida RGB
+    input logic rst_n,         // Señal de reinicio activo bajo
+    input logic [9:0] x_pos, y_pos,  // Coordenadas de píxeles
+    input logic [8:0] grid_state,    // Matriz de estado para las casillas
+    output logic [7:0] red, green, blue // Salida de color RGB
 );
 
-    // Parámetros constantes
-    localparam squareSize = 10'd40;
-    localparam spacing = 10'd10;
-    localparam topOffset = 10'd150;
-    localparam leftOffset = 10'd230;
+    // Variables para las líneas del tablero
+    logic vLine1, vLine2, hLine1, hLine2;
+    logic [10:0] boxSize = 10'd40;
+    logic [10:0] gap = 10'd10;
+    logic [10:0] verticalOffset = 10'd150;  // Desplazamiento vertical
+    logic [10:0] horizontalOffset = 10'd230; // Desplazamiento horizontal
+    logic lines; // Variable combinada para las líneas
 
-    // Variable para combinar líneas del tablero
-    logic line;
+    // Variables para los círculos en las casillas
+    logic [8:0] circleDraw;
+    logic [10:0] radius = 10'd15; // Radio del círculo
 
-    // Líneas del tablero combinadas en una sola expresión
-    always_comb begin
-        // Líneas verticales
-        line = ((x >= leftOffset + squareSize + spacing && x <= leftOffset + squareSize + spacing + 2) ||
-                (x >= leftOffset + 2 * (squareSize + spacing) && x <= leftOffset + 2 * (squareSize + spacing) + 2)) && 
-                (y >= topOffset && y <= topOffset + 3 * squareSize + 2 * spacing) ||
-               // Líneas horizontales
-               ((y >= topOffset + squareSize + spacing && y <= topOffset + squareSize + spacing + 2) ||
-                (y >= topOffset + 2 * (squareSize + spacing) && y <= topOffset + 2 * (squareSize + spacing) + 2)) && 
-                (x >= leftOffset && x <= leftOffset + 3 * squareSize + 2 * spacing);
-    end
+    // Líneas del tablero de 3x3
+    assign vLine1 = (x_pos >= horizontalOffset + boxSize + gap && x_pos <= horizontalOffset + boxSize + gap + 2 && 
+                     y_pos >= verticalOffset && y_pos <= verticalOffset + 3 * boxSize + 2 * gap);
+    assign vLine2 = (x_pos >= horizontalOffset + 2 * (boxSize + gap) && x_pos <= horizontalOffset + 2 * (boxSize + gap) + 2 && 
+                     y_pos >= verticalOffset && y_pos <= verticalOffset + 3 * boxSize + 2 * gap);
 
-    // Dibujar las X en las casillas según el estado de la matriz
-    logic drawX;
-    always_comb begin
-        drawX = 0;
-        for (int i = 0; i < 9; i++) begin
-            if (matrix[i] == 1'b1) begin
-                int row = i / 3;
-                int col = i % 3;
-                if (x >= leftOffset + col * (squareSize + spacing) && 
-                    x < leftOffset + (col + 1) * squareSize + col * spacing &&
-                    y >= topOffset + row * (squareSize + spacing) && 
-                    y < topOffset + (row + 1) * squareSize + row * spacing) begin
-                    drawX = 1;
-                end
-            end
-        end
-    end
+    assign hLine1 = (y_pos >= verticalOffset + boxSize + gap && y_pos <= verticalOffset + boxSize + gap + 2 && 
+                     x_pos >= horizontalOffset && x_pos <= horizontalOffset + 3 * boxSize + 2 * gap);
+    assign hLine2 = (y_pos >= verticalOffset + 2 * (boxSize + gap) && y_pos <= verticalOffset + 2 * (boxSize + gap) + 2 && 
+                     x_pos >= horizontalOffset && x_pos <= horizontalOffset + 3 * boxSize + 2 * gap);
 
-    // Salida RGB: Rojo para las X y Azul para las líneas
-    always_comb begin
-        r = (drawX) ? 8'hFF : 8'h00;
-        g = 8'h00;
-        b = (line) ? 8'hFF : 8'h00;
-    end
+    // Dibujar los círculos según el estado del tablero en la Matriz 3x3
+    assign circleDraw[0] = (grid_state[0] == 1'b1) && 
+                           ((x_pos - (horizontalOffset + boxSize / 2)) * (x_pos - (horizontalOffset + boxSize / 2)) + 
+                           (y_pos - (verticalOffset + boxSize / 2)) * (y_pos - (verticalOffset + boxSize / 2)) <= radius * radius);
+    assign circleDraw[1] = (grid_state[1] == 1'b1) && 
+                           ((x_pos - (horizontalOffset + boxSize + gap + boxSize / 2)) * (x_pos - (horizontalOffset + boxSize + gap + boxSize / 2)) + 
+                           (y_pos - (verticalOffset + boxSize / 2)) * (y_pos - (verticalOffset + boxSize / 2)) <= radius * radius);
+    assign circleDraw[2] = (grid_state[2] == 1'b1) && 
+                           ((x_pos - (horizontalOffset + 2 * (boxSize + gap) + boxSize / 2)) * (x_pos - (horizontalOffset + 2 * (boxSize + gap) + boxSize / 2)) + 
+                           (y_pos - (verticalOffset + boxSize / 2)) * (y_pos - (verticalOffset + boxSize / 2)) <= radius * radius);
+
+    assign circleDraw[3] = (grid_state[3] == 1'b1) && 
+                           ((x_pos - (horizontalOffset + boxSize / 2)) * (x_pos - (horizontalOffset + boxSize / 2)) + 
+                           (y_pos - (verticalOffset + boxSize + gap + boxSize / 2)) * (y_pos - (verticalOffset + boxSize + gap + boxSize / 2)) <= radius * radius);
+    assign circleDraw[4] = (grid_state[4] == 1'b1) && 
+                           ((x_pos - (horizontalOffset + boxSize + gap + boxSize / 2)) * (x_pos - (horizontalOffset + boxSize + gap + boxSize / 2)) + 
+                           (y_pos - (verticalOffset + boxSize + gap + boxSize / 2)) * (y_pos - (verticalOffset + boxSize + gap + boxSize / 2)) <= radius * radius);
+    assign circleDraw[5] = (grid_state[5] == 1'b1) && 
+                           ((x_pos - (horizontalOffset + 2 * (boxSize + gap) + boxSize / 2)) * (x_pos - (horizontalOffset + 2 * (boxSize + gap) + boxSize / 2)) + 
+                           (y_pos - (verticalOffset + boxSize + gap + boxSize / 2)) * (y_pos - (verticalOffset + boxSize + gap + boxSize / 2)) <= radius * radius);
+
+    assign circleDraw[6] = (grid_state[6] == 1'b1) && 
+                           ((x_pos - (horizontalOffset + boxSize / 2)) * (x_pos - (horizontalOffset + boxSize / 2)) + 
+                           (y_pos - (verticalOffset + 2 * (boxSize + gap) + boxSize / 2)) * (y_pos - (verticalOffset + 2 * (boxSize + gap) + boxSize / 2)) <= radius * radius);
+    assign circleDraw[7] = (grid_state[7] == 1'b1) && 
+                           ((x_pos - (horizontalOffset + boxSize + gap + boxSize / 2)) * (x_pos - (horizontalOffset + boxSize + gap + boxSize / 2)) + 
+                           (y_pos - (verticalOffset + 2 * (boxSize + gap) + boxSize / 2)) * (y_pos - (verticalOffset + 2 * (boxSize + gap) + boxSize / 2)) <= radius * radius);
+    assign circleDraw[8] = (grid_state[8] == 1'b1) && 
+                           ((x_pos - (horizontalOffset + 2 * (boxSize + gap) + boxSize / 2)) * (x_pos - (horizontalOffset + 2 * (boxSize + gap) + boxSize / 2)) + 
+                           (y_pos - (verticalOffset + 2 * (boxSize + gap) + boxSize / 2)) * (y_pos - (verticalOffset + 2 * (boxSize + gap) + boxSize / 2)) <= radius * radius);
+
+    // Combinamos todas las líneas y círculos para determinar el color de los píxeles
+    assign lines = vLine1 | vLine2 | hLine1 | hLine2;
+    assign red = (|circleDraw) ? 8'hFF : 8'h00;  // Rojo si hay un círculo
+    assign green = 8'h00;
+    assign blue = (lines) ? 8'hFF : 8'h00;    // Líneas del tablero en azul
 
 endmodule
-
