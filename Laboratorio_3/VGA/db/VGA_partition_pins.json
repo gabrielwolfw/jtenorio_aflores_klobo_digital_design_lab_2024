@@ -208,6 +208,14 @@
 					"strict" : false
 				},
 				{
+					"name" : "reset_timer",
+					"strict" : false
+				},
+				{
+					"name" : "reset_done",
+					"strict" : false
+				},
+				{
 					"name" : "clk",
 					"strict" : false
 				},
@@ -216,15 +224,19 @@
 					"strict" : false
 				},
 				{
+					"name" : "I",
+					"strict" : false
+				},
+				{
 					"name" : "A",
 					"strict" : false
 				},
 				{
-					"name" : "T",
+					"name" : "NEXT",
 					"strict" : false
 				},
 				{
-					"name" : "I",
+					"name" : "TEST",
 					"strict" : false
 				},
 				{
@@ -233,6 +245,10 @@
 				},
 				{
 					"name" : "PLAYER_2",
+					"strict" : false
+				},
+				{
+					"name" : "T",
 					"strict" : false
 				},
 				{

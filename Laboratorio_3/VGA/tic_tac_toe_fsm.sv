@@ -1,109 +1,125 @@
-module tic_tac_toe_fsm (
-    input logic clk,             // Reloj
-    input logic reset,           // Señal de reset
-    input logic [1:0] mode,      // Selección de modo: 00 -> Jug vs Jug, 01 -> Jug vs PC
-    input logic move_made,       // Señal que indica que se realizó una jugada
-    input logic time_expired,    // Señal de tiempo expirado (15 segundos)
-    input logic victory,         // Señal de victoria
-    input logic full_board,      // Señal de tablero lleno (empate)
-    output logic [2:0] state,    // Estado actual (solo para depuración)
-    output logic player_turn,    // 0 -> Jugador 1, 1 -> Jugador 2 o PC
-    output logic [8:0] board,    // Estado del tablero de juego
-    output logic game_over,      // Indica si el juego terminó
-    output logic random_move     // Indica si se debe hacer un movimiento aleatorio
+module tic_tac_toe_fsm(
+    input logic I, T, W, A, PLAYER_1, PLAYER_2, NEXT, TEST, rst, clk, 
+	 output logic reset_timer, reset_done, 
+    output logic [3:0] estado,  // Salida de estado
+    output logic led_p1, led_p2  // LEDs para indicar turno de los jugadores
 );
 
-    // Definir los estados
-    typedef enum logic [2:0] {
-        START      = 3'b000,  // Pantalla inicial
-        PLAYER1    = 3'b001,  // Turno Jugador 1
-        PLAYER2    = 3'b010,  // Turno Jugador 2 o PC
-        CHECK_WIN  = 3'b011,  // Verificar victoria o empate
-        GAME_OVER  = 3'b100   // Fin del juego
+    // Definición de los estados
+    typedef enum logic [3:0] {
+        P_INICIO = 4'b0000,
+        TABLERO = 4'b0001,
+        TURNO_P1 = 4'b0010,   // Turno del jugador 1
+        TURNO_P2 = 4'b0011,   // Turno del jugador 2
+        CHECK_WIN = 4'b0100,  // Revisión del ganador
+        GAME_OVER = 4'b0101   // Juego terminado
     } state_t;
-    
+
     state_t current_state, next_state;
 
-    // Variables para manejar el turno del jugador y el tablero
-    logic [8:0] board_reg;
-    logic player_turn_reg;
-    logic random_move_reg;
-    logic game_over_reg;
-
-    // Asignaciones de salida
-    assign state = current_state;
-    assign player_turn = player_turn_reg;
-    assign board = board_reg;
-    assign game_over = game_over_reg;
-    assign random_move = random_move_reg;
-
-    // Máquina de estados secuencial
-    always_ff @(posedge clk or posedge reset) begin
-        if (reset) begin
-            current_state <= START;
-            board_reg <= 9'b0;          // Reiniciar tablero
-            player_turn_reg <= 1'b0;    // Empieza el Jugador 1
-            game_over_reg <= 1'b0;
+    // Actualización de estado y control del temporizador
+    always_ff @(posedge clk or posedge rst) begin
+        if (rst) begin
+            current_state <= P_INICIO;
+            reset_timer <= 1'b1; // Resetear el temporizador al iniciar
+            reset_done <= 1'b0;  // Asegurarse de que no se ha completado el reset
         end else begin
             current_state <= next_state;
-            // Actualizamos player_turn y game_over en función del estado
-            if (current_state == CHECK_WIN) begin
-                if (!victory && !full_board) begin
-                    player_turn_reg <= ~player_turn_reg; // Cambia el turno
+
+            case (next_state)
+                // Reseteamos el temporizador en TABLERO
+                TABLERO: begin
+                    reset_timer <= 1'b1;
+                    reset_done <= 1'b0;
                 end
-            end
-            if (current_state == GAME_OVER) begin
-                game_over_reg <= 1'b1;
-            end
+                // En TURNO_P1 y TURNO_P2, el temporizador cuenta hasta F y cambia de turno
+                TURNO_P1, TURNO_P2: begin
+                    if (!reset_done) begin
+                        reset_timer <= 1'b1;  // Reseteamos el temporizador al cambiar de turno
+                        reset_done <= 1'b1;
+                    end else begin
+                        reset_timer <= 1'b0;  // Permitimos que el temporizador cuente
+                    end
+                end
+                default: begin
+                    reset_timer <= 1'b0;
+                    reset_done <= 1'b0;
+                end
+            endcase
         end
     end
 
-    // Lógica de transición de estados combinacional
+    // Lógica de transición de estados
     always_comb begin
-        // Estado por defecto
         next_state = current_state;
-        random_move_reg = 1'b0;
-
         case (current_state)
-            START: begin
-                // Pantalla inicial, seleccionamos modo de juego
-                if (mode != 2'b00) begin
-                    next_state = PLAYER1;
-                end
+            P_INICIO: begin
+                if (T)
+                    next_state = TABLERO;
+                else
+                    next_state = P_INICIO;
             end
-            
-            PLAYER1: begin
-                // Turno del Jugador 1
-                if (move_made) begin
-                    next_state = CHECK_WIN;
-                end else if (time_expired) begin
-                    random_move_reg = 1'b1;  // Se hace un movimiento aleatorio si el tiempo expiró
-                    next_state = CHECK_WIN;
-                end
+            TABLERO: begin
+                if (PLAYER_1)
+                    next_state = TURNO_P1;
+                else if (PLAYER_2)
+                    next_state = TURNO_P2;
             end
-            
-            PLAYER2: begin
-                // Turno del Jugador 2 o PC
-                if (move_made || time_expired) begin
-                    if (time_expired) random_move_reg = 1'b1; // Movimiento aleatorio
+            TURNO_P1: begin
+                if (TEST)  // Cambiar de turno si el temporizador llega a F
+                    next_state = TURNO_P2;
+                else if (A)
                     next_state = CHECK_WIN;
-                end
             end
-            
+            TURNO_P2: begin
+                if (NEXT)  // Cambiar de turno si el temporizador llega a F
+                    next_state = TURNO_P1;
+                else if (A)
+                    next_state = CHECK_WIN;
+            end
             CHECK_WIN: begin
-                // Verificamos si hay un ganador o empate
-                if (victory || full_board) begin
+                if (A)
                     next_state = GAME_OVER;
-                end else begin
-                    next_state = player_turn_reg ? PLAYER2 : PLAYER1;
-                end
+                else
+                    next_state = TABLERO;
             end
-
             GAME_OVER: begin
-                // El juego terminó, esperamos a un reset
+                if (A)
+                    next_state = P_INICIO;
             end
-            
-            default: next_state = START;
+            default: next_state = P_INICIO;
         endcase
     end
+
+    // Lógica de salida (estado)
+    always_ff @(posedge clk or posedge rst) begin
+        if (rst)
+            estado <= 4'b0000;
+        else
+            estado <= current_state;
+    end
+    
+    // Control de los LEDs de los jugadores
+	 always_ff @(posedge clk or posedge rst) begin
+		 if (rst) begin
+			 led_p1 <= 1'b1;  // Inicializamos los LEDs encendidos
+			 led_p2 <= 1'b1;
+		 end else begin
+			 case (current_state)
+					 TURNO_P1: begin
+						 led_p1 <= 1'b1;   // Encendemos el LED del Jugador 1
+						 led_p2 <= 1'b0;   // Apagamos el LED del Jugador 2
+					 end
+					 TURNO_P2: begin
+						 led_p1 <= 1'b0;   // Apagamos el LED del Jugador 1
+						 led_p2 <= 1'b1;   // Encendemos el LED del Jugador 2
+					 end
+					 default: begin
+						 led_p1 <= 1'b0;   // Apagamos ambos LEDs en cualquier otro estado
+						 led_p2 <= 1'b0;
+					 end
+			 endcase
+		 end
+	 end
+
 endmodule

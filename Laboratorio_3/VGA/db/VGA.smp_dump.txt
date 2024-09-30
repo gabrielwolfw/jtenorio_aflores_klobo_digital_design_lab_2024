@@ -1,5 +1,5 @@
 
-State Machine - |toplevel_tic_tac_toe|current_state
+State Machine - |toplevel_tic_tac_toe|tic_tac_toe_fsm:mef|current_state
 Name current_state.GAME_OVER current_state.CHECK_WIN current_state.TURNO_P2 current_state.TURNO_P1 current_state.TABLERO current_state.P_INICIO 
 current_state.P_INICIO 0 0 0 0 0 0 
 current_state.TABLERO 0 0 0 0 1 1 
