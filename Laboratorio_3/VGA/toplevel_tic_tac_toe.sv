@@ -40,7 +40,7 @@ module toplevel_tic_tac_toe (
         .I(I), .T(T), .W(W), .A(A), .PLAYER_1(PLAYER_1), .PLAYER_2(PLAYER_2),
         .NEXT(NEXT), .TEST(TEST), .rst(rst), .clk(clk),
         .estado(estado), .reset_timer(reset_timer), .reset_done(reset_done),
-        .led_p1(led_p1), .led_p2(led_p2)
+        .led_p1(led_p1), .led_p2(led_p2), .finished(finished)
     );
     
     // Instancia del Temporizador

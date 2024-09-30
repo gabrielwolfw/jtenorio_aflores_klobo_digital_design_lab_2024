@@ -25,7 +25,7 @@ module Full_Timer (
     always_ff @(posedge clk_in or posedge rst_in) begin
         if (rst_in) begin
             time_counter <= 0;
-            done <= 0;
+            //done <= 0;
             reset_signal <= 1; // Activamos la señal de reset al inicio
         end else begin
             // Cuando se detecta una señal t0 activa, incrementamos el contador
@@ -36,10 +36,10 @@ module Full_Timer (
             // Si llegamos a 15, reseteamos los contadores y señalizamos el fin del proceso
             if (time_counter == 16) begin
                 time_counter <= 0;
-                done <= 1;          // Señal de que se alcanzaron los 15 segundos
+                //done <= 1;          // Señal de que se alcanzaron los 15 segundos
                 reset_signal <= 1;  // Reinicio general
             end else begin
-                done <= 0;
+                //done <= 0;
                 reset_signal <= 0;  // Seguimos el conteo normal
             end
         end
@@ -47,6 +47,7 @@ module Full_Timer (
 
     // Asignamos el valor actual del contador a la salida
     assign count_out = time_counter;
+	 assign done = (count_out == 4'd15);
 
 endmodule
 
