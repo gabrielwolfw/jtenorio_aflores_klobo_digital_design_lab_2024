@@ -228,7 +228,7 @@
 					"strict" : false
 				},
 				{
-					"name" : "A",
+					"name" : "NEXT",
 					"strict" : false
 				},
 				{
@@ -240,7 +240,7 @@
 					"strict" : false
 				},
 				{
-					"name" : "NEXT",
+					"name" : "A",
 					"strict" : false
 				},
 				{

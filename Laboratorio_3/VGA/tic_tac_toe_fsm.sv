@@ -1,5 +1,5 @@
 module tic_tac_toe_fsm(
-    input logic I, T, W, A, PLAYER_1, PLAYER_2, NEXT, TEST, rst, clk, finished, 
+    input logic I, T, W, A, PLAYER_1, PLAYER_2, NEXT, TEST, rst, clk, finished, matrix_complete, 
 	 output logic reset_timer, reset_done, 
     output logic [3:0] estado,  // Salida de estado
     output logic led_p1, led_p2  // LEDs para indicar turno de los jugadores
@@ -15,7 +15,7 @@ module tic_tac_toe_fsm(
         GAME_OVER = 4'b0101   // Juego terminado
     } state_t;
 
-    state_t current_state, next_state;
+    state_t current_state, next_state, prev_state;
 
     // Actualización de estado y control del temporizador
     always_ff @(posedge clk or posedge rst) begin
@@ -66,22 +66,23 @@ module tic_tac_toe_fsm(
                     next_state = TURNO_P2;
             end
             TURNO_P1: begin
-                if (finished)  // Cambiar de turno si el temporizador llega a F
+                if (finished)   // Cambiar de turno si el temporizador llega a F
                     next_state = TURNO_P2;
-                else if (A)
-                    next_state = CHECK_WIN;
+					 else
+						  next_state = TURNO_P1;
             end
             TURNO_P2: begin
-                if (NEXT)  // Cambiar de turno si el temporizador llega a F
-                    next_state = TURNO_P1;
-                else if (A)
+                if (finished) // Cambiar de turno si el temporizador llega a F
                     next_state = CHECK_WIN;
+                else 
+                    next_state = TURNO_P2;
             end
             CHECK_WIN: begin
-                if (A)
+                if (!NEXT)
+                    next_state = TURNO_P1;
+						  
+                else if (matrix_complete)
                     next_state = GAME_OVER;
-                else
-                    next_state = TABLERO;
             end
             GAME_OVER: begin
                 if (A)
