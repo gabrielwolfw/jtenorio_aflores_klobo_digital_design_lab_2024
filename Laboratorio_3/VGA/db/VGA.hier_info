@@ -1,11 +1,40 @@
 |toplevel_tic_tac_toe
 I => I.IN2
-T => next_state.TABLERO.DATAB
-T => next_state.P_INICIO.DATAB
+T => Selector2.IN5
+T => Selector1.IN1
 W => W.IN1
-A => next_state.P_INICIO.DATAA
-A => next_state.TABLERO.DATAA
-rst => rst.IN1
+A => next_state.OUTPUTSELECT
+A => next_state.OUTPUTSELECT
+A => next_state.OUTPUTSELECT
+A => next_state.OUTPUTSELECT
+A => next_state.OUTPUTSELECT
+A => next_state.OUTPUTSELECT
+A => next_state.OUTPUTSELECT
+A => next_state.OUTPUTSELECT
+A => Selector6.IN5
+A => Selector2.IN4
+PLAYER_1 => next_state.OUTPUTSELECT
+PLAYER_1 => next_state.OUTPUTSELECT
+PLAYER_1 => next_state.OUTPUTSELECT
+PLAYER_1 => next_state.OUTPUTSELECT
+PLAYER_1 => next_state.OUTPUTSELECT
+PLAYER_1 => next_state.OUTPUTSELECT
+PLAYER_2 => next_state.OUTPUTSELECT
+PLAYER_2 => next_state.OUTPUTSELECT
+PLAYER_2 => next_state.OUTPUTSELECT
+PLAYER_2 => next_state.OUTPUTSELECT
+PLAYER_2 => next_state.OUTPUTSELECT
+PLAYER_2 => next_state.OUTPUTSELECT
+rst => led_p2~reg0.PRESET
+rst => led_p1~reg0.PRESET
+rst => estado[0]~reg0.ACLR
+rst => estado[1]~reg0.ACLR
+rst => estado[2]~reg0.ACLR
+rst => estado[3]~reg0.ACLR
+rst => reset_done.ACLR
+rst => reset_timer.PRESET
+rst => current_state~3.DATAIN
+rst => rst_n.IN2
 clk => clk.IN6
 estado[0] <= estado[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 estado[1] <= estado[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
@@ -57,6 +86,8 @@ segments[3] <= BCD_Visualizer:segBCD_inst.seg
 segments[4] <= BCD_Visualizer:segBCD_inst.seg
 segments[5] <= BCD_Visualizer:segBCD_inst.seg
 segments[6] <= BCD_Visualizer:segBCD_inst.seg
+led_p1 <= led_p1~reg0.DB_MAX_OUTPUT_PORT_TYPE
+led_p2 <= led_p2~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |toplevel_tic_tac_toe|pll:vgapll
@@ -1615,13 +1646,13 @@ blue[6] <= lines.DB_MAX_OUTPUT_PORT_TYPE
 blue[7] <= lines.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|toplevel_tic_tac_toe|Button_debounce:comb_4
+|toplevel_tic_tac_toe|Button_debounce:debounce_I
 button_in => button_in.IN1
 clk_in => clk_in.IN4
 button_stable <= button_stable.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|toplevel_tic_tac_toe|Button_debounce:comb_4|Slow_Clock_Enable:slow_clk_gen
+|toplevel_tic_tac_toe|Button_debounce:debounce_I|Slow_Clock_Enable:slow_clk_gen
 clk_100MHz => clk_counter[0].CLK
 clk_100MHz => clk_counter[1].CLK
 clk_100MHz => clk_counter[2].CLK
@@ -1652,34 +1683,34 @@ clk_100MHz => clk_counter[26].CLK
 enable_slow_clk <= Equal0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|toplevel_tic_tac_toe|Button_debounce:comb_4|D_FF_with_Enable:dff_0
+|toplevel_tic_tac_toe|Button_debounce:debounce_I|D_FF_with_Enable:dff_0
 clk => Q~reg0.CLK
 clk_enable => Q~reg0.ENA
 D => Q~reg0.DATAIN
 Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|toplevel_tic_tac_toe|Button_debounce:comb_4|D_FF_with_Enable:dff_1
+|toplevel_tic_tac_toe|Button_debounce:debounce_I|D_FF_with_Enable:dff_1
 clk => Q~reg0.CLK
 clk_enable => Q~reg0.ENA
 D => Q~reg0.DATAIN
 Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|toplevel_tic_tac_toe|Button_debounce:comb_4|D_FF_with_Enable:dff_2
+|toplevel_tic_tac_toe|Button_debounce:debounce_I|D_FF_with_Enable:dff_2
 clk => Q~reg0.CLK
 clk_enable => Q~reg0.ENA
 D => Q~reg0.DATAIN
 Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|toplevel_tic_tac_toe|Button_debounce:comb_5
+|toplevel_tic_tac_toe|Button_debounce:debounce_W
 button_in => button_in.IN1
 clk_in => clk_in.IN4
 button_stable <= button_stable.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|toplevel_tic_tac_toe|Button_debounce:comb_5|Slow_Clock_Enable:slow_clk_gen
+|toplevel_tic_tac_toe|Button_debounce:debounce_W|Slow_Clock_Enable:slow_clk_gen
 clk_100MHz => clk_counter[0].CLK
 clk_100MHz => clk_counter[1].CLK
 clk_100MHz => clk_counter[2].CLK
@@ -1710,21 +1741,21 @@ clk_100MHz => clk_counter[26].CLK
 enable_slow_clk <= Equal0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|toplevel_tic_tac_toe|Button_debounce:comb_5|D_FF_with_Enable:dff_0
+|toplevel_tic_tac_toe|Button_debounce:debounce_W|D_FF_with_Enable:dff_0
 clk => Q~reg0.CLK
 clk_enable => Q~reg0.ENA
 D => Q~reg0.DATAIN
 Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|toplevel_tic_tac_toe|Button_debounce:comb_5|D_FF_with_Enable:dff_1
+|toplevel_tic_tac_toe|Button_debounce:debounce_W|D_FF_with_Enable:dff_1
 clk => Q~reg0.CLK
 clk_enable => Q~reg0.ENA
 D => Q~reg0.DATAIN
 Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|toplevel_tic_tac_toe|Button_debounce:comb_5|D_FF_with_Enable:dff_2
+|toplevel_tic_tac_toe|Button_debounce:debounce_W|D_FF_with_Enable:dff_2
 clk => Q~reg0.CLK
 clk_enable => Q~reg0.ENA
 D => Q~reg0.DATAIN
