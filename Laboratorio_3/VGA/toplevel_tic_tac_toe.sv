@@ -1,5 +1,5 @@
 module toplevel_tic_tac_toe (
-    input logic I, T, W, A, PLAYER_1, PLAYER_2, NEXT, TEST, rst, clk, 
+    input logic I, T, W, A, B, PLAYER_1, PLAYER_2, NEXT, TEST, rst, clk, 
     output logic [3:0] estado, // Asumimos 4 bits para los estados
     output logic vgaclk, hsync, vsync, sync_b, blank_b, // Señales VGA
     output logic [7:0] r, g, b, // Señales de color VGA
@@ -92,6 +92,12 @@ module toplevel_tic_tac_toe (
         .clk_in(clk),
         .button_stable(Idebounced)
     );
+	 
+	  Button_debounce debounce_B (
+        .button_in(B),
+        .clk_in(clk),
+        .button_stable(Bdebounced)
+    );
     
     Button_debounce debounce_W (
         .button_in(W),
@@ -104,11 +110,13 @@ module toplevel_tic_tac_toe (
         .clk(clk),
         .rst_n(rst_n),
         .I(I),
+		  .B(B), 
+		  .current_state(estado),
         .W(!Wdebounced),
         .matrix_in(matrix_reg),
         .matrix_out(matrix_in),
         .load(load)
-    );
+	);
 
     // Instancia del módulo matrixRegister
     matrixTablero u_matrixRegister (

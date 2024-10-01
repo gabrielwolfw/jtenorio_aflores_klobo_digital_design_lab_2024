@@ -3,16 +3,17 @@ I => I.IN3
 T => T.IN1
 W => W.IN2
 A => A.IN1
+B => B.IN2
 PLAYER_1 => PLAYER_1.IN1
 PLAYER_2 => PLAYER_2.IN1
 NEXT => NEXT.IN1
 TEST => TEST.IN1
 rst => rst.IN1
-clk => clk.IN7
-estado[0] << tic_tac_toe_fsm:mef.estado
-estado[1] << tic_tac_toe_fsm:mef.estado
-estado[2] << tic_tac_toe_fsm:mef.estado
-estado[3] << tic_tac_toe_fsm:mef.estado
+clk => clk.IN8
+estado[0] << estado[0].DB_MAX_OUTPUT_PORT_TYPE
+estado[1] << estado[1].DB_MAX_OUTPUT_PORT_TYPE
+estado[2] << estado[2].DB_MAX_OUTPUT_PORT_TYPE
+estado[3] << estado[3].DB_MAX_OUTPUT_PORT_TYPE
 vgaclk << vgaclk.DB_MAX_OUTPUT_PORT_TYPE
 hsync << vgaController:vgaCont.hsync
 vsync << vgaController:vgaCont.vsync
@@ -2193,6 +2194,64 @@ D => Q~reg0.DATAIN
 Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
+|toplevel_tic_tac_toe|Button_debounce:debounce_B
+button_in => button_in.IN1
+clk_in => clk_in.IN4
+button_stable <= button_stable.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|toplevel_tic_tac_toe|Button_debounce:debounce_B|Slow_Clock_Enable:slow_clk_gen
+clk_100MHz => clk_counter[0].CLK
+clk_100MHz => clk_counter[1].CLK
+clk_100MHz => clk_counter[2].CLK
+clk_100MHz => clk_counter[3].CLK
+clk_100MHz => clk_counter[4].CLK
+clk_100MHz => clk_counter[5].CLK
+clk_100MHz => clk_counter[6].CLK
+clk_100MHz => clk_counter[7].CLK
+clk_100MHz => clk_counter[8].CLK
+clk_100MHz => clk_counter[9].CLK
+clk_100MHz => clk_counter[10].CLK
+clk_100MHz => clk_counter[11].CLK
+clk_100MHz => clk_counter[12].CLK
+clk_100MHz => clk_counter[13].CLK
+clk_100MHz => clk_counter[14].CLK
+clk_100MHz => clk_counter[15].CLK
+clk_100MHz => clk_counter[16].CLK
+clk_100MHz => clk_counter[17].CLK
+clk_100MHz => clk_counter[18].CLK
+clk_100MHz => clk_counter[19].CLK
+clk_100MHz => clk_counter[20].CLK
+clk_100MHz => clk_counter[21].CLK
+clk_100MHz => clk_counter[22].CLK
+clk_100MHz => clk_counter[23].CLK
+clk_100MHz => clk_counter[24].CLK
+clk_100MHz => clk_counter[25].CLK
+clk_100MHz => clk_counter[26].CLK
+enable_slow_clk <= Equal0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|toplevel_tic_tac_toe|Button_debounce:debounce_B|D_FF_with_Enable:dff_0
+clk => Q~reg0.CLK
+clk_enable => Q~reg0.ENA
+D => Q~reg0.DATAIN
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|toplevel_tic_tac_toe|Button_debounce:debounce_B|D_FF_with_Enable:dff_1
+clk => Q~reg0.CLK
+clk_enable => Q~reg0.ENA
+D => Q~reg0.DATAIN
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|toplevel_tic_tac_toe|Button_debounce:debounce_B|D_FF_with_Enable:dff_2
+clk => Q~reg0.CLK
+clk_enable => Q~reg0.ENA
+D => Q~reg0.DATAIN
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
 |toplevel_tic_tac_toe|Button_debounce:debounce_W
 button_in => button_in.IN1
 clk_in => clk_in.IN4
@@ -2280,37 +2339,37 @@ rst_n => index[0].ACLR
 rst_n => index[1].ACLR
 rst_n => index[2].ACLR
 rst_n => index[3].PRESET
-I => load~reg0.DATAIN
-I => temp_matrix[8].ENA
-I => temp_matrix[7].ENA
-I => temp_matrix[6].ENA
-I => temp_matrix[5].ENA
-I => temp_matrix[4].ENA
-I => temp_matrix[3].ENA
-I => temp_matrix[2].ENA
-I => temp_matrix[1].ENA
-I => temp_matrix[0].ENA
+I => always1.IN1
 W => index[3].ENA
 W => index[2].ENA
 W => index[1].ENA
 W => index[0].ENA
-matrix_in[0] => temp_matrix.IN1
+B => always1.IN1
+current_state[0] => Equal1.IN3
+current_state[0] => Equal2.IN1
+current_state[1] => Equal1.IN0
+current_state[1] => Equal2.IN0
+current_state[2] => Equal1.IN2
+current_state[2] => Equal2.IN3
+current_state[3] => Equal1.IN1
+current_state[3] => Equal2.IN2
+matrix_in[0] => Mux0.IN15
 matrix_in[0] => temp_matrix[0].ADATA
-matrix_in[1] => temp_matrix.IN1
+matrix_in[1] => Mux0.IN14
 matrix_in[1] => temp_matrix[1].ADATA
-matrix_in[2] => temp_matrix.IN1
+matrix_in[2] => Mux0.IN13
 matrix_in[2] => temp_matrix[2].ADATA
-matrix_in[3] => temp_matrix.IN1
+matrix_in[3] => Mux0.IN12
 matrix_in[3] => temp_matrix[3].ADATA
-matrix_in[4] => temp_matrix.IN1
+matrix_in[4] => Mux0.IN11
 matrix_in[4] => temp_matrix[4].ADATA
-matrix_in[5] => temp_matrix.IN1
+matrix_in[5] => Mux0.IN10
 matrix_in[5] => temp_matrix[5].ADATA
-matrix_in[6] => temp_matrix.IN1
+matrix_in[6] => Mux0.IN9
 matrix_in[6] => temp_matrix[6].ADATA
-matrix_in[7] => temp_matrix.IN1
+matrix_in[7] => Mux0.IN8
 matrix_in[7] => temp_matrix[7].ADATA
-matrix_in[8] => temp_matrix.IN1
+matrix_in[8] => Mux0.IN7
 matrix_in[8] => temp_matrix[8].ADATA
 matrix_out[0] <= temp_matrix[0].DB_MAX_OUTPUT_PORT_TYPE
 matrix_out[1] <= temp_matrix[1].DB_MAX_OUTPUT_PORT_TYPE

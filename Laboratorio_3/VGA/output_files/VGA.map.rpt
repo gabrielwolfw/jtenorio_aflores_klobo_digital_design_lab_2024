@@ -1,5 +1,5 @@
 Analysis & Synthesis report for VGA
-Mon Sep 30 17:10:39 2024
+Mon Sep 30 18:51:07 2024
 Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 
 
@@ -20,11 +20,13 @@ Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
  12. Inverted Register Statistics
  13. Multiplexer Restructuring Statistics (Restructuring Performed)
  14. Parameter Settings for User Entity Instance: vgaController:vgaCont
- 15. Port Connectivity Checks: "Button_debounce:debounce_I"
- 16. Port Connectivity Checks: "videoGen:vgagen"
- 17. Post-Synthesis Netlist Statistics for Top Partition
- 18. Elapsed Time Per Partition
- 19. Analysis & Synthesis Messages
+ 15. Port Connectivity Checks: "Button_debounce:debounce_B"
+ 16. Port Connectivity Checks: "Button_debounce:debounce_I"
+ 17. Port Connectivity Checks: "videoGen:vgagen"
+ 18. Post-Synthesis Netlist Statistics for Top Partition
+ 19. Elapsed Time Per Partition
+ 20. Analysis & Synthesis Messages
+ 21. Analysis & Synthesis Suppressed Messages
 
 
 
@@ -51,14 +53,14 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                  ;
 +---------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Mon Sep 30 17:10:39 2024       ;
+; Analysis & Synthesis Status     ; Successful - Mon Sep 30 18:51:07 2024       ;
 ; Quartus Prime Version           ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
 ; Revision Name                   ; VGA                                         ;
 ; Top-level Entity Name           ; toplevel_tic_tac_toe                        ;
 ; Family                          ; Cyclone V                                   ;
 ; Logic utilization (in ALMs)     ; N/A                                         ;
 ; Total registers                 ; 120                                         ;
-; Total pins                      ; 64                                          ;
+; Total pins                      ; 65                                          ;
 ; Total virtual pins              ; 0                                           ;
 ; Total block memory bits         ; 0                                           ;
 ; Total DSP Blocks                ; 37                                          ;
@@ -201,25 +203,25 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------+--------------------------+
 ; Resource                                    ; Usage                    ;
 +---------------------------------------------+--------------------------+
-; Estimate of Logic utilization (ALMs needed) ; 554                      ;
+; Estimate of Logic utilization (ALMs needed) ; 560                      ;
 ;                                             ;                          ;
-; Combinational ALUT usage for logic          ; 1002                     ;
-;     -- 7 input functions                    ; 3                        ;
-;     -- 6 input functions                    ; 101                      ;
-;     -- 5 input functions                    ; 108                      ;
-;     -- 4 input functions                    ; 150                      ;
-;     -- <=3 input functions                  ; 640                      ;
+; Combinational ALUT usage for logic          ; 1008                     ;
+;     -- 7 input functions                    ; 5                        ;
+;     -- 6 input functions                    ; 105                      ;
+;     -- 5 input functions                    ; 115                      ;
+;     -- 4 input functions                    ; 141                      ;
+;     -- <=3 input functions                  ; 642                      ;
 ;                                             ;                          ;
 ; Dedicated logic registers                   ; 120                      ;
 ;                                             ;                          ;
-; I/O pins                                    ; 64                       ;
+; I/O pins                                    ; 65                       ;
 ;                                             ;                          ;
 ; Total DSP Blocks                            ; 37                       ;
 ;                                             ;                          ;
 ; Maximum fan-out node                        ; videoGen:vgagen|Mult18~8 ;
 ; Maximum fan-out                             ; 218                      ;
-; Total fan-out                               ; 4421                     ;
-; Average fan-out                             ; 3.44                     ;
+; Total fan-out                               ; 4462                     ;
+; Average fan-out                             ; 3.45                     ;
 +---------------------------------------------+--------------------------+
 
 
@@ -228,7 +230,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------------------------------------------------------------------+----------------------+--------------+
 ; Compilation Hierarchy Node                ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                             ; Entity Name          ; Library Name ;
 +-------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------------------------------------------------------------------+----------------------+--------------+
-; |toplevel_tic_tac_toe                     ; 1002 (17)           ; 120 (0)                   ; 0                 ; 37         ; 64   ; 0            ; |toplevel_tic_tac_toe                                                           ; toplevel_tic_tac_toe ; work         ;
+; |toplevel_tic_tac_toe                     ; 1008 (18)           ; 120 (0)                   ; 0                 ; 37         ; 65   ; 0            ; |toplevel_tic_tac_toe                                                           ; toplevel_tic_tac_toe ; work         ;
 ;    |BCD_Visualizer:segBCD_inst|           ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |toplevel_tic_tac_toe|BCD_Visualizer:segBCD_inst                                ; BCD_Visualizer       ; work         ;
 ;    |Button_debounce:debounce_W|           ; 38 (1)              ; 30 (0)                    ; 0                 ; 0          ; 0    ; 0            ; |toplevel_tic_tac_toe|Button_debounce:debounce_W                                ; Button_debounce      ; work         ;
 ;       |D_FF_with_Enable:dff_0|            ; 0 (0)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |toplevel_tic_tac_toe|Button_debounce:debounce_W|D_FF_with_Enable:dff_0         ; D_FF_with_Enable     ; work         ;
@@ -239,7 +241,7 @@ https://fpgasoftware.intel.com/eula.
 ;       |Timer:timer_blocks[0].timer_inst|  ; 33 (33)             ; 28 (28)                   ; 0                 ; 0          ; 0    ; 0            ; |toplevel_tic_tac_toe|Full_Timer:timer_inst|Timer:timer_blocks[0].timer_inst    ; Timer                ; work         ;
 ;    |gameOverScreen:pantallaFinal|         ; 63 (63)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |toplevel_tic_tac_toe|gameOverScreen:pantallaFinal                              ; gameOverScreen       ; work         ;
 ;    |matrixTablero:u_matrixRegister|       ; 0 (0)               ; 9 (9)                     ; 0                 ; 0          ; 0    ; 0            ; |toplevel_tic_tac_toe|matrixTablero:u_matrixRegister                            ; matrixTablero        ; work         ;
-;    |matrixTableroControl:u_matrixControl| ; 39 (39)             ; 14 (14)                   ; 0                 ; 0          ; 0    ; 0            ; |toplevel_tic_tac_toe|matrixTableroControl:u_matrixControl                      ; matrixTableroControl ; work         ;
+;    |matrixTableroControl:u_matrixControl| ; 44 (44)             ; 14 (14)                   ; 0                 ; 0          ; 0    ; 0            ; |toplevel_tic_tac_toe|matrixTableroControl:u_matrixControl                      ; matrixTableroControl ; work         ;
 ;    |pll:vgapll|                           ; 1 (1)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |toplevel_tic_tac_toe|pll:vgapll                                                ; pll                  ; work         ;
 ;    |startScreen:pantallaInicial|          ; 30 (30)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |toplevel_tic_tac_toe|startScreen:pantallaInicial                               ; startScreen          ; work         ;
 ;    |tic_tac_toe_fsm:mef|                  ; 16 (16)             ; 13 (13)                   ; 0                 ; 0          ; 0    ; 0            ; |toplevel_tic_tac_toe|tic_tac_toe_fsm:mef                                       ; tic_tac_toe_fsm      ; work         ;
@@ -721,7 +723,7 @@ Encoding Type:  One-Hot
 ; Number of registers using Synchronous Load   ; 0     ;
 ; Number of registers using Asynchronous Clear ; 69    ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 35    ;
+; Number of registers using Clock Enable       ; 26    ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -734,7 +736,7 @@ Encoding Type:  One-Hot
 ; tic_tac_toe_fsm:mef|led_p1                    ; 1       ;
 ; tic_tac_toe_fsm:mef|led_p2                    ; 1       ;
 ; tic_tac_toe_fsm:mef|reset_timer               ; 6       ;
-; matrixTableroControl:u_matrixControl|index[3] ; 7       ;
+; matrixTableroControl:u_matrixControl|index[3] ; 13      ;
 ; Full_Timer:timer_inst|reset_signal            ; 28      ;
 ; Total number of inverted registers = 5        ;         ;
 +-----------------------------------------------+---------+
@@ -769,6 +771,15 @@ Note: In order to hide this table in the UI and the text report file, please set
 
 
 +-------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "Button_debounce:debounce_B"                                                                  ;
++---------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port          ; Type   ; Severity ; Details                                                                             ;
++---------------+--------+----------+-------------------------------------------------------------------------------------+
+; button_stable ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++---------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------+
 ; Port Connectivity Checks: "Button_debounce:debounce_I"                                                                  ;
 +---------------+--------+----------+-------------------------------------------------------------------------------------+
 ; Port          ; Type   ; Severity ; Details                                                                             ;
@@ -793,35 +804,35 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
 ; arriav_ff             ; 120                         ;
-;     CLR               ; 20                          ;
+;     CLR               ; 29                          ;
 ;     CLR SCLR          ; 27                          ;
 ;     ENA               ; 3                           ;
-;     ENA CLR           ; 22                          ;
+;     ENA CLR           ; 13                          ;
 ;     ENA SCLR          ; 10                          ;
 ;     SCLR              ; 37                          ;
 ;     plain             ; 1                           ;
-; arriav_lcell_comb     ; 1008                        ;
+; arriav_lcell_comb     ; 1014                        ;
 ;     arith             ; 422                         ;
 ;         0 data inputs ; 12                          ;
 ;         1 data inputs ; 118                         ;
 ;         2 data inputs ; 292                         ;
-;     extend            ; 3                           ;
-;         7 data inputs ; 3                           ;
-;     normal            ; 457                         ;
+;     extend            ; 5                           ;
+;         7 data inputs ; 5                           ;
+;     normal            ; 461                         ;
 ;         0 data inputs ; 1                           ;
-;         1 data inputs ; 9                           ;
-;         2 data inputs ; 44                          ;
-;         3 data inputs ; 44                          ;
-;         4 data inputs ; 150                         ;
-;         5 data inputs ; 108                         ;
-;         6 data inputs ; 101                         ;
+;         1 data inputs ; 8                           ;
+;         2 data inputs ; 40                          ;
+;         3 data inputs ; 51                          ;
+;         4 data inputs ; 141                         ;
+;         5 data inputs ; 115                         ;
+;         6 data inputs ; 105                         ;
 ;     shared            ; 126                         ;
 ;         3 data inputs ; 126                         ;
 ; arriav_mac            ; 37                          ;
-; boundary_port         ; 64                          ;
+; boundary_port         ; 65                          ;
 ;                       ;                             ;
 ; Max LUT depth         ; 9.40                        ;
-; Average LUT depth     ; 6.83                        ;
+; Average LUT depth     ; 6.84                        ;
 +-----------------------+-----------------------------+
 
 
@@ -840,7 +851,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
-    Info: Processing started: Mon Sep 30 17:10:27 2024
+    Info: Processing started: Mon Sep 30 18:50:54 2024
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off VGA -c VGA
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
@@ -875,7 +886,8 @@ Info (12021): Found 1 design units, including 1 entities, in source file bcd_vis
 Info (12021): Found 1 design units, including 1 entities, in source file gameoverscreen.sv
     Info (12023): Found entity 1: gameOverScreen File: C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_3/VGA/gameOverScreen.sv Line: 1
 Warning (10236): Verilog HDL Implicit Net warning at toplevel_tic_tac_toe.sv(93): created implicit net for "Idebounced" File: C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_3/VGA/toplevel_tic_tac_toe.sv Line: 93
-Warning (10236): Verilog HDL Implicit Net warning at toplevel_tic_tac_toe.sv(99): created implicit net for "Wdebounced" File: C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_3/VGA/toplevel_tic_tac_toe.sv Line: 99
+Warning (10236): Verilog HDL Implicit Net warning at toplevel_tic_tac_toe.sv(99): created implicit net for "Bdebounced" File: C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_3/VGA/toplevel_tic_tac_toe.sv Line: 99
+Warning (10236): Verilog HDL Implicit Net warning at toplevel_tic_tac_toe.sv(105): created implicit net for "Wdebounced" File: C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_3/VGA/toplevel_tic_tac_toe.sv Line: 105
 Info (12127): Elaborating entity "toplevel_tic_tac_toe" for the top level hierarchy
 Info (12128): Elaborating entity "Full_Timer" for hierarchy "Full_Timer:timer_inst" File: C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_3/VGA/toplevel_tic_tac_toe.sv Line: 31
 Warning (10230): Verilog HDL assignment warning at Full_Timer.sv(33): truncated value with size 32 to match size of target (4) File: C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_3/VGA/Full_Timer.sv Line: 33
@@ -904,36 +916,43 @@ Info (12128): Elaborating entity "Button_debounce" for hierarchy "Button_debounc
 Info (12128): Elaborating entity "Slow_Clock_Enable" for hierarchy "Button_debounce:debounce_I|Slow_Clock_Enable:slow_clk_gen" File: C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_3/VGA/Button_debonce.sv Line: 9
 Warning (10230): Verilog HDL assignment warning at Button_debonce.sv(33): truncated value with size 32 to match size of target (27) File: C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_3/VGA/Button_debonce.sv Line: 33
 Info (12128): Elaborating entity "D_FF_with_Enable" for hierarchy "Button_debounce:debounce_I|D_FF_with_Enable:dff_0" File: C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_3/VGA/Button_debonce.sv Line: 12
-Info (12128): Elaborating entity "matrixTableroControl" for hierarchy "matrixTableroControl:u_matrixControl" File: C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_3/VGA/toplevel_tic_tac_toe.sv Line: 111
-Info (12128): Elaborating entity "matrixTablero" for hierarchy "matrixTablero:u_matrixRegister" File: C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_3/VGA/toplevel_tic_tac_toe.sv Line: 120
+Info (12128): Elaborating entity "matrixTableroControl" for hierarchy "matrixTableroControl:u_matrixControl" File: C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_3/VGA/toplevel_tic_tac_toe.sv Line: 119
+Info (12128): Elaborating entity "matrixTablero" for hierarchy "matrixTablero:u_matrixRegister" File: C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_3/VGA/toplevel_tic_tac_toe.sv Line: 128
 Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
 Warning (13004): Presettable and clearable registers converted to equivalent circuits with latches. Registers power-up to an undefined state, and DEVCLRn places the registers in an undefined state.
-    Warning (13310): Register "matrixTableroControl:u_matrixControl|temp_matrix[0]" is converted into an equivalent circuit using register "matrixTableroControl:u_matrixControl|temp_matrix[0]~_emulated" and latch "matrixTableroControl:u_matrixControl|temp_matrix[0]~1" File: C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_3/VGA/matrixTableroControl.sv Line: 33
-    Warning (13310): Register "matrixTableroControl:u_matrixControl|temp_matrix[1]" is converted into an equivalent circuit using register "matrixTableroControl:u_matrixControl|temp_matrix[1]~_emulated" and latch "matrixTableroControl:u_matrixControl|temp_matrix[1]~5" File: C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_3/VGA/matrixTableroControl.sv Line: 33
-    Warning (13310): Register "matrixTableroControl:u_matrixControl|temp_matrix[2]" is converted into an equivalent circuit using register "matrixTableroControl:u_matrixControl|temp_matrix[2]~_emulated" and latch "matrixTableroControl:u_matrixControl|temp_matrix[2]~9" File: C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_3/VGA/matrixTableroControl.sv Line: 33
-    Warning (13310): Register "matrixTableroControl:u_matrixControl|temp_matrix[3]" is converted into an equivalent circuit using register "matrixTableroControl:u_matrixControl|temp_matrix[3]~_emulated" and latch "matrixTableroControl:u_matrixControl|temp_matrix[3]~13" File: C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_3/VGA/matrixTableroControl.sv Line: 33
-    Warning (13310): Register "matrixTableroControl:u_matrixControl|temp_matrix[4]" is converted into an equivalent circuit using register "matrixTableroControl:u_matrixControl|temp_matrix[4]~_emulated" and latch "matrixTableroControl:u_matrixControl|temp_matrix[4]~17" File: C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_3/VGA/matrixTableroControl.sv Line: 33
-    Warning (13310): Register "matrixTableroControl:u_matrixControl|temp_matrix[5]" is converted into an equivalent circuit using register "matrixTableroControl:u_matrixControl|temp_matrix[5]~_emulated" and latch "matrixTableroControl:u_matrixControl|temp_matrix[5]~21" File: C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_3/VGA/matrixTableroControl.sv Line: 33
-    Warning (13310): Register "matrixTableroControl:u_matrixControl|temp_matrix[6]" is converted into an equivalent circuit using register "matrixTableroControl:u_matrixControl|temp_matrix[6]~_emulated" and latch "matrixTableroControl:u_matrixControl|temp_matrix[6]~25" File: C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_3/VGA/matrixTableroControl.sv Line: 33
-    Warning (13310): Register "matrixTableroControl:u_matrixControl|temp_matrix[7]" is converted into an equivalent circuit using register "matrixTableroControl:u_matrixControl|temp_matrix[7]~_emulated" and latch "matrixTableroControl:u_matrixControl|temp_matrix[7]~29" File: C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_3/VGA/matrixTableroControl.sv Line: 33
-    Warning (13310): Register "matrixTableroControl:u_matrixControl|temp_matrix[8]" is converted into an equivalent circuit using register "matrixTableroControl:u_matrixControl|temp_matrix[8]~_emulated" and latch "matrixTableroControl:u_matrixControl|temp_matrix[8]~33" File: C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_3/VGA/matrixTableroControl.sv Line: 33
+    Warning (13310): Register "matrixTableroControl:u_matrixControl|temp_matrix[0]" is converted into an equivalent circuit using register "matrixTableroControl:u_matrixControl|temp_matrix[0]~_emulated" and latch "matrixTableroControl:u_matrixControl|temp_matrix[0]~1" File: C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_3/VGA/matrixTableroControl.sv Line: 36
+    Warning (13310): Register "matrixTableroControl:u_matrixControl|temp_matrix[1]" is converted into an equivalent circuit using register "matrixTableroControl:u_matrixControl|temp_matrix[1]~_emulated" and latch "matrixTableroControl:u_matrixControl|temp_matrix[1]~5" File: C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_3/VGA/matrixTableroControl.sv Line: 36
+    Warning (13310): Register "matrixTableroControl:u_matrixControl|temp_matrix[2]" is converted into an equivalent circuit using register "matrixTableroControl:u_matrixControl|temp_matrix[2]~_emulated" and latch "matrixTableroControl:u_matrixControl|temp_matrix[2]~9" File: C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_3/VGA/matrixTableroControl.sv Line: 36
+    Warning (13310): Register "matrixTableroControl:u_matrixControl|temp_matrix[3]" is converted into an equivalent circuit using register "matrixTableroControl:u_matrixControl|temp_matrix[3]~_emulated" and latch "matrixTableroControl:u_matrixControl|temp_matrix[3]~13" File: C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_3/VGA/matrixTableroControl.sv Line: 36
+    Warning (13310): Register "matrixTableroControl:u_matrixControl|temp_matrix[4]" is converted into an equivalent circuit using register "matrixTableroControl:u_matrixControl|temp_matrix[4]~_emulated" and latch "matrixTableroControl:u_matrixControl|temp_matrix[4]~17" File: C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_3/VGA/matrixTableroControl.sv Line: 36
+    Warning (13310): Register "matrixTableroControl:u_matrixControl|temp_matrix[5]" is converted into an equivalent circuit using register "matrixTableroControl:u_matrixControl|temp_matrix[5]~_emulated" and latch "matrixTableroControl:u_matrixControl|temp_matrix[5]~21" File: C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_3/VGA/matrixTableroControl.sv Line: 36
+    Warning (13310): Register "matrixTableroControl:u_matrixControl|temp_matrix[6]" is converted into an equivalent circuit using register "matrixTableroControl:u_matrixControl|temp_matrix[6]~_emulated" and latch "matrixTableroControl:u_matrixControl|temp_matrix[6]~25" File: C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_3/VGA/matrixTableroControl.sv Line: 36
+    Warning (13310): Register "matrixTableroControl:u_matrixControl|temp_matrix[7]" is converted into an equivalent circuit using register "matrixTableroControl:u_matrixControl|temp_matrix[7]~_emulated" and latch "matrixTableroControl:u_matrixControl|temp_matrix[7]~29" File: C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_3/VGA/matrixTableroControl.sv Line: 36
+    Warning (13310): Register "matrixTableroControl:u_matrixControl|temp_matrix[8]" is converted into an equivalent circuit using register "matrixTableroControl:u_matrixControl|temp_matrix[8]~_emulated" and latch "matrixTableroControl:u_matrixControl|temp_matrix[8]~33" File: C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_3/VGA/matrixTableroControl.sv Line: 36
 Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "estado[3]" is stuck at GND File: C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_3/VGA/toplevel_tic_tac_toe.sv Line: 3
 Info (286030): Timing-Driven Synthesis is running
 Info (17049): 4 registers lost all their fanouts during netlist optimizations.
+Info (144001): Generated suppressed messages file C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_3/VGA/output_files/VGA.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
 Warning (21074): Design contains 1 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "TEST" File: C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_3/VGA/toplevel_tic_tac_toe.sv Line: 2
-Info (21057): Implemented 1130 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 10 input pins
+Info (21057): Implemented 1146 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 11 input pins
     Info (21059): Implemented 54 output pins
-    Info (21061): Implemented 1029 logic cells
+    Info (21061): Implemented 1044 logic cells
     Info (21062): Implemented 37 DSP elements
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 31 warnings
-    Info: Peak virtual memory: 4838 megabytes
-    Info: Processing ended: Mon Sep 30 17:10:39 2024
-    Info: Elapsed time: 00:00:12
-    Info: Total CPU time (on all processors): 00:00:16
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 32 warnings
+    Info: Peak virtual memory: 4832 megabytes
+    Info: Processing ended: Mon Sep 30 18:51:07 2024
+    Info: Elapsed time: 00:00:13
+    Info: Total CPU time (on all processors): 00:00:17
+
+
++------------------------------------------+
+; Analysis & Synthesis Suppressed Messages ;
++------------------------------------------+
+The suppressed messages can be found in C:/Users/tenor/OneDrive/Documentos/Lab1_TDD/jtenorio_aflores_klobo_digital_design_lab_2024/Laboratorio_3/VGA/output_files/VGA.map.smsg.
 
 
