@@ -74,6 +74,7 @@ module toplevel_tic_tac_toe (
         .x_pos(x), 
         .y_pos(y), 
         .grid_state(matrix_out_MEF),
+		  .current_state(estado),
         .red(r_videoGen), 
         .green(g_videoGen), 
         .blue(b_videoGen)
