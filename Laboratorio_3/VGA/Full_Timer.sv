@@ -14,7 +14,7 @@ module Full_Timer (
     logic [3:0] time_counter; // Contador para los pulsos t0 (4 bits)
     logic reset_signal;       // Señal para reiniciar el proceso después de 15 segundos
 
-    // Se generan 16 instancias del módulo de temporización
+    // Se hacen 16 instancias (0-F)
     genvar index;
     generate
         for (index = 0; index < 16; index = index + 1) begin : timer_blocks

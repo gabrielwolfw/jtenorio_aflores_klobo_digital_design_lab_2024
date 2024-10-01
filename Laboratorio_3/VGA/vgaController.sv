@@ -4,6 +4,7 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 //Parametros Iniciales del VGA
+
 module vgaController #(parameter HACTIVE = 10'd640,
 HFP = 10'd16,
 HSYN = 10'd96,
@@ -35,6 +36,7 @@ always @(posedge vgaclk) begin
 end
 
 // Sync signals (active low)
+//Sincronizacion verticar y horizontal del vga
 assign hsync = ~(x >= HACTIVE + HFP & x < HACTIVE + HFP + HSYN); // Cambio de hcnt a x
 assign vsync = ~(y >= VACTIVE + VFP & y < VACTIVE + VFP + VSYN); // Cambio de vcnt a y
 assign sync_b = hsync & vsync;
