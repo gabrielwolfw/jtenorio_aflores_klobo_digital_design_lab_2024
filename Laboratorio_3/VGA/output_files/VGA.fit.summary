@@ -1,12 +1,12 @@
-Fitter Status : Successful - Mon Sep 30 20:25:03 2024
+Fitter Status : Successful - Mon Sep 30 22:07:06 2024
 Quartus Prime Version : 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 Revision Name : VGA
 Top-level Entity Name : toplevel_tic_tac_toe
 Family : Cyclone V
 Device : 5CSXFC6D6F31C6
 Timing Models : Final
-Logic utilization (in ALMs) : 579 / 41,910 ( 1 % )
-Total registers : 143
+Logic utilization (in ALMs) : 581 / 41,910 ( 1 % )
+Total registers : 145
 Total pins : 65 / 499 ( 13 % )
 Total virtual pins : 0
 Total block memory bits : 0 / 5,662,720 ( 0 % )

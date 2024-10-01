@@ -1,3 +1,8 @@
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Modulo PRINCIPAL encargado de la creacion de intancias, variables y vista de pantallas dependiendo del estado
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 module toplevel_tic_tac_toe (
     input logic I, T, W, A, B, PLAYER_1, PLAYER_2, NEXT, TEST, rst, clk, 
     output logic [3:0] estado, // Asumimos 4 bits para los estados
@@ -7,11 +12,11 @@ module toplevel_tic_tac_toe (
     output logic load,         // Señal de carga de la matriz
     output logic [6:0] segments,  // Segmentos del primer display de 7 segmentos
     output logic led_p1, led_p2,  // LEDs para indicar turno de los jugadores
-	 output logic reset_timer,
+	 output logic reset_timer, //Condiciones del Timer
 	 output logic reset_done
 );
 
-    logic [9:0] x, y;
+    logic [9:0] x, y; //Posiciones para el VGA
     logic [7:0] r_PantallaInicial, g_PantallaInicial, b_PantallaInicial; // Señales para Pantalla Inicial
     logic [7:0] r_videoGen, g_videoGen, b_videoGen; // Señales para videoGen
 	 logic [7:0] r_OVER, g_OVER, b_OVER; // Señales para videoGen
@@ -30,13 +35,14 @@ module toplevel_tic_tac_toe (
         .count_out(count)
     );
 	 
+	 //Instancia del BCD (7segm)
 	 	 
 	 BCD_Visualizer segBCD_inst (
         .bin(count),
         .seg(segments)
     );
 	 
-	 // Instancia de la MEF
+	 // Instancia principal de la FSM
     tic_tac_toe_fsm mef (
         .I(I), .T(T), .W(W), .A(A), .PLAYER_1(PLAYER_1), .PLAYER_2(PLAYER_2),
         .NEXT(NEXT), .TEST(TEST), .rst(rst), .clk(clk),
@@ -87,7 +93,7 @@ module toplevel_tic_tac_toe (
     logic rst_n;
     assign rst_n = !rst;
 
-    // Instancia del módulo debounce_better_version
+    // Instancias de los Debounce para los botones
     Button_debounce debounce_I (
         .button_in(I),
         .clk_in(clk),
@@ -130,6 +136,8 @@ module toplevel_tic_tac_toe (
     
     assign matrix_out_MEF = matrix_reg;
 	 
+	 //Condicional de la matriz llena (Tablero completo)
+	 
 	 logic matrix_full;
 
 	 always_comb begin
@@ -145,7 +153,7 @@ module toplevel_tic_tac_toe (
     assign g_black = 8'b00000000;
     assign b_black = 8'b00000000;
 
-    // Multiplexor para seleccionar qué imagen mostrar
+    // MUX para indicar que imagen se debe mostrar segun sea el estado actual
     always_comb begin
         case (estado)
             4'b0000: begin

@@ -1,3 +1,8 @@
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Modulo encargado de generar la vista del Tablero del juego y sus distintivos marcas (circulo o cuadrado)
+///////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 module videoGen (
     input logic clk,           // Señal de reloj
     input logic rst_n,         // Señal de reinicio activo bajo
@@ -62,7 +67,8 @@ module videoGen (
     assign circleDraw[8] = (grid_state[8] == 1'b1) && 
                            ((x_pos - (horizontalOffset + 2 * (boxSize + gap) + boxSize / 2)) * (x_pos - (horizontalOffset + 2 * (boxSize + gap) + boxSize / 2)) + 
                            (y_pos - (verticalOffset + 2 * (boxSize + gap) + boxSize / 2)) * (y_pos - (verticalOffset + 2 * (boxSize + gap) + boxSize / 2)) <= radius * radius);
-									
+	 
+	 // Dibujar los cuadrados según el estado del tablero en la Matriz 3x3
 	 assign squareDraw[0] = (grid_state[0] == 1'b1) && 
                        (x_pos >= horizontalOffset && x_pos <= horizontalOffset + boxSize) && 
                        (y_pos >= verticalOffset && y_pos <= verticalOffset + boxSize);
@@ -103,12 +109,15 @@ module videoGen (
     // Combinamos todas las líneas y círculos para determinar el color de los píxeles
     assign lines = vLine1 | vLine2 | hLine1 | hLine2;
 
-    // Determinamos el color de los círculos
+    // Determinamos el color de los círculos segun el estado
+	 
     assign red = ((circleDraw[0] && (current_state == 4'b0010)) || (circleDraw[1] && (current_state == 4'b0010)) || 
                   (circleDraw[2] && (current_state == 4'b0010)) || (circleDraw[3] && (current_state == 4'b0010)) || 
                   (circleDraw[4] && (current_state == 4'b0010)) || (circleDraw[5] && (current_state == 4'b0010)) || 
                   (circleDraw[6] && (current_state == 4'b0010)) || (circleDraw[7] && (current_state == 4'b0010)) || 
                   (circleDraw[8] && (current_state == 4'b0010))) ? 8'hFF : 8'h00;  // Rojo si hay un círculo rojo
+						
+	// Determinamos el color de los cuadrados segun el estado
 
     assign green = ((squareDraw[0] && (current_state == 4'b0011)) || (squareDraw[1] && (current_state == 4'b0011)) || 
                     (squareDraw[2] && (current_state == 4'b0011)) || (squareDraw[3] && (current_state == 4'b0011)) || 

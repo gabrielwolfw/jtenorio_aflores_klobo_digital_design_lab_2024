@@ -1,3 +1,10 @@
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Modulo encargado controlar como se modifica la matriz (botones, asignaciones segun estados y demas)
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
 module matrixTableroControl (
     input  logic        clk,         // Señal de reloj
     input  logic        rst_n,       // Señal de reset activo bajo
@@ -59,4 +66,3 @@ module matrixTableroControl (
     assign matrix_out = temp_matrix;
 
 endmodule
-

@@ -1,4 +1,9 @@
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Modulo encargado de generar las señales verticales y horizontales necesarias para el controllador VGA
+////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//Parametros Iniciales del VGA
 module vgaController #(parameter HACTIVE = 10'd640,
 HFP = 10'd16,
 HSYN = 10'd96,
@@ -19,7 +24,7 @@ initial begin
 end
 
 
-// counters for horizontal and vertical positions
+// Contadores para las posiciones verticales y horizontales del VGA
 always @(posedge vgaclk) begin
 	x++;
 	if (x == HMAX) begin
@@ -29,11 +34,11 @@ always @(posedge vgaclk) begin
 	end
 end
 
-// Compute sync signals (active low)
+// Sync signals (active low)
 assign hsync = ~(x >= HACTIVE + HFP & x < HACTIVE + HFP + HSYN); // Cambio de hcnt a x
 assign vsync = ~(y >= VACTIVE + VFP & y < VACTIVE + VFP + VSYN); // Cambio de vcnt a y
 assign sync_b = hsync & vsync;
-// Force outputs to black when outside the legal display area
+// Forzar outputs de pixeles negros en zonas sin uso o fuera de rango
 assign blank_b = (x < HACTIVE) & (y < VACTIVE); // Cambio de hcnt y vcnt a x y y
 
 endmodule

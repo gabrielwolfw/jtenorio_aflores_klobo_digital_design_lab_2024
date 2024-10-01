@@ -1,3 +1,9 @@
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Modulo encargado de tener la declaracion y manejo de estados (Definicion de la FSM)
+////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
 module tic_tac_toe_fsm(
     input logic I, T, W, A, PLAYER_1, PLAYER_2, NEXT, TEST, rst, clk, finished, matrix_complete, 
 	 output logic reset_timer, reset_done, 
@@ -7,8 +13,8 @@ module tic_tac_toe_fsm(
 
     // Definición de los estados
     typedef enum logic [3:0] {
-        P_INICIO = 4'b0000,
-        TABLERO = 4'b0001,
+        P_INICIO = 4'b0000,   // Pantalla Inicial
+        TABLERO = 4'b0001,    // Pantalla del tablero
         TURNO_P1 = 4'b0010,   // Turno del jugador 1
         TURNO_P2 = 4'b0011,   // Turno del jugador 2
         CHECK_WIN = 4'b0100,  // Revisión del ganador
@@ -81,7 +87,7 @@ module tic_tac_toe_fsm(
                 if (!NEXT)
                     next_state = TURNO_P1;
 						  
-                else if (matrix_complete)
+                else if (matrix_complete)  //Condicion de finalizar juego (si el tablero esta lleno)
                     next_state = GAME_OVER;
             end
             GAME_OVER: begin
@@ -100,7 +106,7 @@ module tic_tac_toe_fsm(
             estado <= current_state;
     end
     
-    // Control de los LEDs de los jugadores
+    // Control de los LEDs de los jugadores 
 	 always_ff @(posedge clk or posedge rst) begin
 		 if (rst) begin
 			 led_p1 <= 1'b1;  // Inicializamos los LEDs encendidos
